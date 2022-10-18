@@ -1,5 +1,27 @@
 “Tankun Mayhem”
 
+Miembros de Equipo:
+
+Gonzalo de la Torre Ruiz
+Correo Académico: g.delatorre.2020@alumnos.urjc.es
+Cuenta GitHub: Gonzalo-de-la-Torre
+Correo GitHub:g.delatorre.2020@alumnos.urjc.es
+
+Yago Ortiz García
+Correo Académico: y.ortiz.2020@alumnos.urjc.es
+Cuenta GitHub: Kaynt-manage
+Correo Github: y.ortiz.2020@alumnos.urjc.es
+
+Daniel Bermejo Valverde
+Correo Académico: d.bermejo.2020@alumnos.urjc.es
+Cuenta GitHub: DanielBermejoValverde
+Correo GitHub: daniel4bermejo@gmail.com
+
+Mauricio Fernández Rojas
+Correo Académico: m.fernandezr.2020@alumnos.urjc.es
+Cuenta GitHub: MauroFdz
+Correo GitHub:Mauricio.fdez.27@gamil.com
+
 Documento de diseño
 
 19/10/2022
