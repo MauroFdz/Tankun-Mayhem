@@ -20,7 +20,7 @@ Correo GitHub: daniel4bermejo@gmail.com
 Mauricio Fernández Rojas
 Correo Académico: m.fernandezr.2020@alumnos.urjc.es
 Cuenta GitHub: MauroFdz
-Correo GitHub:Mauricio.fdez.27@gamil.com
+Correo GitHub:Mauricio.fdez.27@gmail.com
 
 ### Documento de diseño
 
