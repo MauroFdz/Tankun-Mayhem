@@ -25,14 +25,6 @@ var config = {
             debug: false
         }
     },
-	 controls: {
-        up: Phaser.Input.Keyboard.KeyCodes.A,
-        down: 'S',
-        left: 'A',
-        right: 'D',
-        shift: 'SHIFT',
-        space: 'SPACE'
-    },
     scene: {
         preload: preload,
         create: create,
@@ -57,6 +49,8 @@ function preload ()
     this.load.image('ground', 'assets/platform.png');
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
+    this.load.image('target', 'assets/reticulo.png');
+    this.load.image('cannon', 'assets/cañon.png');
     this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
 }
 
@@ -66,10 +60,19 @@ function create ()
     //  A simple background for our game
     this.add.image(400, 300, 'sky');
 	
-	 keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-	 keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-	 keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-	 keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+    // Controles personalizados player 1.
+    keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+    keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+    keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+    keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+
+    keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);//player1 rotate izq
+    keyV = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.V);//player1 fire
+    keyB = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.B);//player1 rotate der
+
+    keyI = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);//player2 rotate izq
+    keyO = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.O);//player2 fire
+    keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);//player2 rotate der
 
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = this.physics.add.staticGroup();
@@ -84,10 +87,10 @@ function create ()
     platforms.create(750, 220, 'ground');
 
     // The player and its settings
+    cannon1 =this.physics.add.sprite(100, 450, 'cannon');
     player = this.physics.add.sprite(100, 450, 'dude');
 
     //  Player physics properties. Give the little guy a slight bounce.
-    player.setBounce(0.2);
     player.setCollideWorldBounds(true);
 
     //  Our player animations, turning, walking left and walking right.
@@ -142,6 +145,28 @@ function create ()
     this.physics.add.overlap(player, stars, collectStar, null, this);
 
     this.physics.add.collider(player, bombs, hitBomb, null, this);
+
+
+    // Pointer lock will only work after mousedown
+    game.canvas.addEventListener('mousedown', function () {
+        game.input.mouse.requestPointerLock();
+    });
+
+    // Exit pointer lock when Q or escape (by default) is pressed.
+    this.input.keyboard.on('keydown_Q', function (event) {
+        if (game.input.mouse.locked)
+            game.input.mouse.releasePointerLock();
+    }, 0, this);
+
+    // Move reticle upon locked pointer move
+    this.input.on('pointermove', function (pointer) {
+        if (this.input.mouse.locked)
+        {
+            reticle.x += pointer.movementX;
+            reticle.y += pointer.movementY;
+        }
+    }, this);
+
 }
 
 function update ()
@@ -169,22 +194,38 @@ function update ()
 
         player.anims.play('turn');
     }
-	if (keyW.isDown)
+    if (keyW.isDown)
     {
         player.setVelocityY(-160);
 
     } 
-	else if (keyS.isDown)
+    else if (keyS.isDown)
     {
         player.setVelocityY(160);
 
     }
     else
     {
-        player.setVelocityY(0);
+        player.setVelocityY(0);    
 
     }
+    //rotacion cannon
+    if (keyW.isDown)
+    {
+        player.setVelocityY(-160);
 
+    } 
+    else if (keyS.isDown)
+    {
+        player.setVelocityY(160);
+
+    }
+    else
+    {
+        player.setVelocityY(0);    
+
+    }
+    cannon1.setPosition(player.x,player.y);
     if (cursors.up.isDown && player.body.touching.down)
     {
         player.setVelocityY(-330);
