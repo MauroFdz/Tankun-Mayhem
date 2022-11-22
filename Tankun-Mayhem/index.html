@@ -2,7 +2,7 @@
 <html lang="en"> 
 <head> 
     <meta charset="UTF-8" />
-    <title>Making your first Phaser 3 Game - Part 10</title>
+    <title>Tankun-Mayhem</title>
     <script src="phaser.min.js"></script>
     <style type="text/css">
         body {
@@ -32,16 +32,23 @@ var config = {
     }
 };
 
-var player;
+var player1;
+var player2;
 var stars;
-var bombs;
+var bullets;
 var platforms;
 var cursors;
-var score = 0;
+var score1 = 0;
+var score2 = 0;
 var gameOver = false;
-var scoreText;
+var score1Text;
+var score2Text;
+var cannonSpeed=3;
+var tankSpeed=160;
 
 var game = new Phaser.Game(config);
+
+
 
 function preload ()
 {
@@ -49,6 +56,7 @@ function preload ()
     this.load.image('ground', 'assets/platform.png');
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
+    this.load.image('bullet', 'assets/bomb.png');
     this.load.image('target', 'assets/reticulo.png');
     this.load.image('cannon', 'assets/cañon.png');
     this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
@@ -88,10 +96,11 @@ function create ()
 
     // The player and its settings
     cannon1 =this.physics.add.sprite(100, 450, 'cannon');
-    player = this.physics.add.sprite(100, 450, 'dude');
+    player1 = this.physics.add.sprite(100, 450, 'dude');
+	
 
     //  Player physics properties. Give the little guy a slight bounce.
-    player.setCollideWorldBounds(true);
+    player1.setCollideWorldBounds(true);
 
     //  Our player animations, turning, walking left and walking right.
     this.anims.create({
@@ -116,6 +125,14 @@ function create ()
 
     //  Input Events
     cursors = this.input.keyboard.createCursorKeys();
+	
+    cannon2 =this.physics.add.sprite(500, 450, 'cannon');
+    player2 = this.physics.add.sprite(500, 450, 'dude');
+	player2.setPosition(500,450);
+	
+    player2.setCollideWorldBounds(true);
+	player2.lastShot=0;
+	player1.lastShot=0;
 
     //  Some stars to collect, 12 in total, evenly spaced 70 pixels apart along the x axis
     stars = this.physics.add.group({
@@ -130,42 +147,27 @@ function create ()
         child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
 
     });
-
-    bombs = this.physics.add.group();
+    bullets1 = this.physics.add.group();
+    bullets2 = this.physics.add.group();
 
     //  The score
-    scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+    score1Text = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+    score2Text = this.add.text(500, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
 
     //  Collide the player and the stars with the platforms
-    this.physics.add.collider(player, platforms);
+    this.physics.add.collider(player1, platforms);
+    this.physics.add.collider(player2, platforms);
+    this.physics.add.collider(player1, player2);
     this.physics.add.collider(stars, platforms);
-    this.physics.add.collider(bombs, platforms);
-
+    this.physics.add.collider(bullets1, platforms,hitWall, null, this);
+    this.physics.add.collider(bullets2, platforms,hitWall, null, this);
+    this.physics.add.collider(bullets2, bullets1,hitBullet, null, this);
+	
     //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
-    this.physics.add.overlap(player, stars, collectStar, null, this);
+    //this.physics.add.overlap(player, stars, collectStar, null, this);
 
-    this.physics.add.collider(player, bombs, hitBomb, null, this);
-
-
-    // Pointer lock will only work after mousedown
-    game.canvas.addEventListener('mousedown', function () {
-        game.input.mouse.requestPointerLock();
-    });
-
-    // Exit pointer lock when Q or escape (by default) is pressed.
-    this.input.keyboard.on('keydown_Q', function (event) {
-        if (game.input.mouse.locked)
-            game.input.mouse.releasePointerLock();
-    }, 0, this);
-
-    // Move reticle upon locked pointer move
-    this.input.on('pointermove', function (pointer) {
-        if (this.input.mouse.locked)
-        {
-            reticle.x += pointer.movementX;
-            reticle.y += pointer.movementY;
-        }
-    }, this);
+    this.physics.add.collider(player1, bullets2, hitBullet1, null, this);
+    this.physics.add.collider(player2, bullets1, hitBullet2, null, this);
 
 }
 
@@ -175,100 +177,166 @@ function update ()
     {
         return;
     }
-	
+	//Inputs player 1
     if (keyA.isDown)
     {
-        player.setVelocityX(-160);
+        player1.setVelocityX(-tankSpeed);
 
-        player.anims.play('left', true);
+        player1.anims.play('left', true);
     }
     else if (keyD.isDown)
     {
-        player.setVelocityX(160);
+        player1.setVelocityX(tankSpeed);
 
-        player.anims.play('right', true);
+        player1.anims.play('right', true);
     } 
     else
     {
-        player.setVelocityX(0);
+        player1.setVelocityX(0);
 
-        player.anims.play('turn');
+        player1.anims.play('turn');
     }
     if (keyW.isDown)
     {
-        player.setVelocityY(-160);
+        player1.setVelocityY(-tankSpeed);
 
     } 
     else if (keyS.isDown)
     {
-        player.setVelocityY(160);
+        player1.setVelocityY(tankSpeed);
 
     }
     else
     {
-        player.setVelocityY(0);    
+        player1.setVelocityY(0);    
 
     }
-    //rotacion cannon
-    if (keyW.isDown)
+    //Rotacion cannon 1
+    if (keyC.isDown)
     {
-        player.setVelocityY(-160);
+        cannon1.angle-=cannonSpeed;
 
     } 
-    else if (keyS.isDown)
+    if (keyB.isDown)
     {
-        player.setVelocityY(160);
+        cannon1.angle+=cannonSpeed;
+    }
+	//Disparo player 1
+    if (keyV.isDown&&player1.lastShot<=0)
+    {
+        var bullet = bullets1.create(player1.x,player1.y,'bullet');
+		bullet.setVelocity(Math.sin(cannon1.rotation)*50,-Math.cos(cannon1.rotation)*50);
+		player1.lastShot=50;
+    }
+	player1.lastShot--;
+    cannon1.setPosition(player1.x,player1.y);
+	
+	
+	//Inputs player 2
+    if (cursors.left.isDown)
+    {
+        player2.setVelocityX(-tankSpeed);
+
+        player2.anims.play('left', true);
+    }
+    else if (cursors.right.isDown)
+    {
+        player2.setVelocityX(tankSpeed);
+
+        player2.anims.play('right', true);
+    } 
+    else
+    {
+        player2.setVelocityX(0);
+
+        player2.anims.play('turn');
+    }
+    if (cursors.up.isDown)
+    {
+        player2.setVelocityY(-tankSpeed);
+
+    } 
+    else if (cursors.down.isDown)
+    {
+        player2.setVelocityY(tankSpeed);
 
     }
     else
     {
-        player.setVelocityY(0);    
+        player2.setVelocityY(0);    
 
     }
-    cannon1.setPosition(player.x,player.y);
-    if (cursors.up.isDown && player.body.touching.down)
+    //Rotacion cannon 2
+    if (keyI.isDown)
     {
-        player.setVelocityY(-330);
+        cannon2.angle-=cannonSpeed;
+
+    } 
+    if (keyP.isDown)
+    {
+        cannon2.angle+=cannonSpeed;
     }
+	//Disparo player 2
+    if (keyO.isDown&&player2.lastShot<=0)
+    {
+        var bullet = bullets2.create(player2.x,player2.y,'bullet');
+		bullet.setVelocity(Math.sin(cannon2.rotation)*50,-Math.cos(cannon2.rotation)*50);
+		console.log(Math.sin(cannon2.rotation));
+		player2.lastShot=50;
+    }
+	player2.lastShot--;
+    cannon2.setPosition(player2.x,player2.y);
+	
 }
 
-function collectStar (player, star)
+//function collectStar (player, star)
+//{
+//    star.disableBody(true, true);
+//
+//    //  Add and update the score
+//    score += 10;
+//    scoreText.setText('Score: ' + score);
+//
+//    if (stars.countActive(true) === 0)
+//    {
+//        //  A new batch of stars to collect
+//        stars.children.iterate(function (child) {
+//
+//            child.enableBody(true, child.x, 0, true, true);
+//
+//        });
+//
+//        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+//
+//        var bomb = bombs.create(x, 16, 'bomb');
+//        bomb.setBounce(1);
+//        bomb.setCollideWorldBounds(true);
+//        bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+//        bomb.allowGravity = false;
+//
+//    }
+//}
+
+function hitBullet1 (player1, bullet)
 {
-    star.disableBody(true, true);
-
-    //  Add and update the score
-    score += 10;
-    scoreText.setText('Score: ' + score);
-
-    if (stars.countActive(true) === 0)
-    {
-        //  A new batch of stars to collect
-        stars.children.iterate(function (child) {
-
-            child.enableBody(true, child.x, 0, true, true);
-
-        });
-
-        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-
-        var bomb = bombs.create(x, 16, 'bomb');
-        bomb.setBounce(1);
-        bomb.setCollideWorldBounds(true);
-        bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-        bomb.allowGravity = false;
-
-    }
+    score2+=10;
+	score2Text.setText('Score: ' + score2);
+	bullet.destroy();
 }
-
-function hitBomb (player, bomb)
+function hitBullet2 (player2, bullet)
 {
-    this.physics.pause();
-
-    player.setTint(0xff0000);
-
-    player.anims.play('turn');
-
-    gameOver = true;
+    score1+=10;
+	score1Text.setText('Score: ' + score1);
+	bullet.destroy();
+}
+function hitWall (bullet, wall)
+{
+	bullet.destroy();
+}
+function hitBullet (bullet1, bullet2)
+{
+	bullet1.destroy();
+	bullet2.destroy();
 }
 
 </script>
