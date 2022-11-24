@@ -148,9 +148,10 @@ class GameScene2 extends Phaser.Scene
 		for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
 			wall.create(202+x, 420, 'brick5');
 		}
+
 		//CENTRAL
 		for(var x = 1; x<=20*sizebrick; x+=sizebrick*4){
-			wall.create(322+x, 300, 'brick2');
+			if(x!=481)wall.create(322+x, 300, 'brick2');
 		}
 		//ARRIBA
 		for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
