@@ -46,6 +46,7 @@
 	
 	function hitWall(bullet, wall)
 	{
+		this.hit_muro.play();
 		bullet.destroy();
 	}
 	
@@ -86,10 +87,19 @@ class GameScene2 extends Phaser.Scene
 		this.load.image('Shade1', '../assets/Maps/Map_1/Map_1_shade.png');
 		this.load.image('Shade1Zep', '../assets/Maps/Map_1/Map_1_zep.png');
 	
+		//carga de assests audios
+		this.load.audio('P_shot', '../assets/Sounds/P_shot.mp3');
+		this.load.audio('R_shot', '../assets/Sounds/R_shot.mp3');
+		this.load.audio('Hit_wall', '../assets/Sounds/Hit_wall.mp3');
 	}
 
 	create()
 	{
+		//Añadir audios
+		this.disparo_P = this.sound.add('P_shot');
+		this.disparo_R = this.sound.add('R_shot');
+		this.hit_muro = this.sound.add('Hit_wall');
+		
 		//  A simple background for our game
   
     // Controles personalizados player 1.
@@ -315,7 +325,8 @@ class GameScene2 extends Phaser.Scene
 		
 		//Disparo player 1
 		if (keyV.isDown&&player1.lastShot<=0)
-		{
+		{	
+			this.disparo_P.play();
 			var bullet = bullets1.create(player1.x,player1.y,'Bala_sher');
 			bullet.setVelocity(Math.sin(cannon1.rotation)*250,-Math.cos(cannon1.rotation)*250);
 			player1.lastShot=100;
@@ -413,6 +424,7 @@ class GameScene2 extends Phaser.Scene
 		//Disparo player 2
 		if (keyO.isDown&&player2.lastShot<=0)
 		{
+			this.disparo_R.play();
 			var bullet = bullets2.create(player2.x,player2.y,'Bala_futuro');
 			bullet.setVelocity(Math.sin(cannon2.rotation)*500,-Math.cos(cannon2.rotation)*500);	
 			
