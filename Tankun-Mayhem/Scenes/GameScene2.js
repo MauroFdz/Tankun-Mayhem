@@ -16,7 +16,7 @@
 	var cannon2;
 	var bullets1;
 	var bullets2;
-	var sizebrick = 60;
+	var sizebrick = 60
 	
 	var keyA;
 	var keyD;
@@ -32,6 +32,7 @@
 	
 	function hitBullet1 (player1, bullet)
 	{
+		this.Hit_tank.play();
 		score2+=10;
 		score2Text.setText('Score: ' + score2);
 		bullet.destroy();
@@ -39,6 +40,8 @@
 	
 	function hitBullet2 (player2, bullet)
 	{
+		
+		this.Hit_tank.play();
 		score1+=10;
 		score1Text.setText('Score: ' + score1);
 		bullet.destroy();
@@ -70,6 +73,8 @@ class GameScene2 extends Phaser.Scene
 		this.load.image('Map', '../assets/Maps/Map_1/Map.png');
 		this.load.image('ground', '../assets/platform.png');
 		this.load.image('brick', "assets/Tiles/brick1.png");
+		this.load.image('brick2', "assets/Tiles/brick2.png");
+		this.load.image('brick5', "assets/Tiles/brick5.png");
 		this.load.image('star', '../assets/star.png');
 		this.load.image('bomb', '../assets/bomb.png');
 		this.load.image('bullet', '../assets/bomb.png');
@@ -91,6 +96,7 @@ class GameScene2 extends Phaser.Scene
 		this.load.audio('P_shot', '../assets/Sounds/P_shot.mp3');
 		this.load.audio('R_shot', '../assets/Sounds/R_shot.mp3');
 		this.load.audio('Hit_wall', '../assets/Sounds/Hit_wall.mp3');
+		this.load.audio('Hit_tank', '../assets/Sounds/Choque.mp3');
 	}
 
 	create()
@@ -99,6 +105,7 @@ class GameScene2 extends Phaser.Scene
 		this.disparo_P = this.sound.add('P_shot');
 		this.disparo_R = this.sound.add('R_shot');
 		this.hit_muro = this.sound.add('Hit_wall');
+		this.Hit_tank = this.sound.add('Hit_tank');
 		
 		//  A simple background for our game
   
@@ -121,19 +128,11 @@ class GameScene2 extends Phaser.Scene
 // MAPA
 	this.add.image(800, 300, 'Map');	
 	var wall = this.physics.add.staticGroup();
-	
-	for(var x = 1; x<=10*sizebrick; x+=sizebrick){
-		wall.create(950+x, 150, 'brick');
-	}
-	for(var x = 1; x<=10*sizebrick; x+=sizebrick){
-		wall.create(150+x, 400, 'brick');
-	}
-	
-	for(var x = 1; x<=10*sizebrick; x+=3*sizebrick){
-		wall.create(150+x, 150, 'brick');
-	}
-	for(var x = 1; x<10*sizebrick; x+=3*sizebrick){
-		wall.create(950+x, 400, 'brick');
+	//WALLS LATERALES
+	for(var x = 1; x<=9*sizebrick; x+=sizebrick/2){
+	wall.create(1585, 44+x, 'brick2');
+	}for(var x = 1; x<=9*sizebrick; x+=sizebrick/2){
+	wall.create(15, 44+x, 'brick2');
 	}
 	for(var x = 1; x<=27*sizebrick; x+=sizebrick){
 		wall.create(30+x, 15, 'brick');
@@ -141,9 +140,30 @@ class GameScene2 extends Phaser.Scene
 	for(var x = 1; x<=27*sizebrick; x+=sizebrick){
 		wall.create(30+x, 585, 'brick');
 	}
+	//BARRERAS
+		//ABAJO
+		for(var x = 1; x<10*sizebrick; x+=2.5*sizebrick){
+			wall.create(945+x, 420, 'brick5');
+		}
+		for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+			wall.create(202+x, 420, 'brick5');
+		}
+		//CENTRAL
+		for(var x = 1; x<=20*sizebrick; x+=sizebrick*4){
+			wall.create(322+x, 300, 'brick2');
+		}
+		//ARRIBA
+		for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+			wall.create(202+x, 180, 'brick5');
+		}
+		for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+			wall.create(945+x, 180, 'brick5');
+		}
+	
+	
 
     // The player and its settings
-   player1 = this.physics.add.sprite(1140, 100, 'tank1');
+   player1 = this.physics.add.sprite(100, 300, 'tank1');
     cannon1 =this.physics.add.sprite(100, 450, 'cannon1');
     cannon1.setOrigin(0.5,0.75);
 
@@ -176,33 +196,20 @@ class GameScene2 extends Phaser.Scene
 	
     player2 = this.physics.add.sprite(500, 450, 'tank2');
     cannon2 =this.physics.add.sprite(500, 450, 'cannon2');
-	player2.setPosition(500,450);
+	player2.setPosition(1500,300);
 	
     player2.setCollideWorldBounds(true);
 	player2.lastShot=0;
 	player1.lastShot=0;
 
-    //  Some stars to collect, 12 in total, evenly spaced 70 pixels apart along the x axis
-   /* stars = this.physics.add.group({
-        key: 'star',
-        repeat: 11,
-        setXY: { x: 12, y: 0, stepX: 70 }
-    });
 
-    stars.children.iterate(function (child) {
-
-        //  Give each star a slightly different bounce
-        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-
-    });*/
     bullets1 = this.physics.add.group();
     bullets2 = this.physics.add.group();
 	
 
 
     //  The score
-	score1Text = this.add.text(50, 0, 'score: 0', { fontSize: '32px', fill: '#52ff00' });
-    score2Text = this.add.text(1400, 0, 'score: 0', { fontSize: '32px', fill: '#ffff00' });
+	
 	
     //  Collide the player and the stars with the platforms
     this.physics.add.collider(player1, wall);
@@ -222,6 +229,8 @@ class GameScene2 extends Phaser.Scene
 	this.add.image(800, 300, 'Shade1');	
 	this.add.image(800, 300, 'Shade1Zep');	
 	
+	score1Text = this.add.text(50, 0, 'score: 0', { fontSize: '32px', fill: '#ffff00' });
+    score2Text = this.add.text(1400, 0, 'score: 0', { fontSize: '32px', fill: '#ffff00' });
 
 	}
 	update ()
