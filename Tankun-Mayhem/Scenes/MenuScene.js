@@ -23,7 +23,7 @@ class MenuScene extends Phaser.Scene {
 		salir.setInteractive();
 		
 		jugar.on("pointerdown", ()=>{
-			this.scene.start("GameScene2");
+			this.scene.start("CharSelect");
 			this.M_musica.stop();
 			this.J_musica.play();
 			this.J_musica.volume=0.5 
