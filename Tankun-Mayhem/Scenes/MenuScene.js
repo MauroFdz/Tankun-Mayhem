@@ -8,9 +8,9 @@ class MenuScene extends Phaser.Scene {
 	}
 	create(){
 		this.M_musica = this.sound.add('M_musica');
+		
 		this.M_musica.play();
-		
-		
+		;
 		this.fondo = this.add.image(0, 0, "fondo");
 		this.fondo.setOrigin(0, 0);
 		this.titulo = this.add.image(config.width/2, 100, "titulo");
@@ -24,6 +24,7 @@ class MenuScene extends Phaser.Scene {
 		
 		jugar.on("pointerdown", ()=>{
 			this.scene.start("GameScene2");
+			this.M_musica.stop()
 		})
 		
 		ajustes.on("pointerdown", ()=>{
