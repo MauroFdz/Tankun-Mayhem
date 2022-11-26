@@ -2,6 +2,8 @@ var Char1;
 var Char2;
 var Char3;
 var Seleccionar;
+var tank1 = new TankRush();
+var tank2 = new TankFuture();
 
 class CharSelect extends Phaser.Scene {
 	constructor(){
@@ -18,6 +20,8 @@ class CharSelect extends Phaser.Scene {
 		this.load.image('nRebotes', '../assets/CharSelect/NumRebotes.png');
 		this.load.image('Proyec', '../assets/CharSelect/Proyectil.png');
 		this.load.image('Vel', '../assets/CharSelect/Velocidad.png');
+		
+		this.load.audio('J_musica', '../assets/Sounds/Juego_música.mp3');
 	}
 	
 	create() {
@@ -34,7 +38,7 @@ class CharSelect extends Phaser.Scene {
 		this.Proyec = this.add.image(1300, 400, "Proyec");
 		this.Desc = this.add.image(1300, 500, "Desc");
 		Seleccionar = this.add.image(1400, 625, "Selec");
-		
+		this.J_musica= this.sound.add('J_musica');
 		
 		Char1.setInteractive();
 		Char2.setInteractive();
@@ -52,7 +56,9 @@ class CharSelect extends Phaser.Scene {
 		})
 		
 		Seleccionar.on("pointerdown", ()=>{
-			this.scene.start("GameScene2");
+			this.scene.start("GameScene");
+			this.J_musica.play();
+			this.J_musica.volume=0.5;
 		})
 	}
 }
