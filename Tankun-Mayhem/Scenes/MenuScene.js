@@ -7,6 +7,10 @@ class MenuScene extends Phaser.Scene {
 		super("Menu");
 	}
 	create(){
+		this.M_musica = this.sound.add('M_musica');
+		this.M_musica.play();
+		
+		
 		this.fondo = this.add.image(0, 0, "fondo");
 		this.fondo.setOrigin(0, 0);
 		this.titulo = this.add.image(config.width/2, 100, "titulo");
@@ -37,5 +41,7 @@ class MenuScene extends Phaser.Scene {
 		this.load.image("jugar", "../assets/Botones/Jugar.png");
 		this.load.image("ajustes", "../assets/Botones/Ajustes.png");
 		this.load.image("salir", "../assets/Botones/Salir.png");
+		
+		this.load.audio('M_musica', '../assets/Sounds/Menú_música.mp3');
 	}
 }
