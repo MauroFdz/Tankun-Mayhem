@@ -18,6 +18,12 @@
 	var bullets2;
 	var sizebrick = 60
 	
+	var bounce1= 3
+	var bounce2= 9
+	
+	var bounceSpeed1= 1
+	var bpunceSpeed2= 1.25
+	
 	var keyA;
 	var keyD;
 	var keyS;
@@ -49,14 +55,27 @@
 	
 	function hitWall(bullet, wall)
 	{
-		this.hit_muro.play();
-		bullet.destroy();
+		
+		bullet.contador = bullet.contador - 1;
+		
+		if(bullet.bounce >= 1.25){
+			bullet.setBounce(bullet.bounce*2.5);
+		}
+		
+		if(bullet.contador <= 0){
+			bullet.destroy();
+		}
+		
 	}
 	
 	function hitBullet (bullet1, bullet2)
 	{
 		bullet1.destroy();
-		bullet2.destroy();
+			
+		bullet2.contador--;
+		if(bullet2.contador==0){
+			bullet2.destroy();	
+		}
 	}
 	
 
@@ -338,8 +357,14 @@ class GameScene2 extends Phaser.Scene
 		{	
 			this.disparo_P.play();
 			var bullet = bullets1.create(player1.x,player1.y,'Bala_sher');
+			
+			bullet.contador = 3;
+			
 			bullet.setVelocity(Math.sin(cannon1.rotation)*250,-Math.cos(cannon1.rotation)*250);
 			player1.lastShot=100;
+			
+			bullet.setCollideWorldBounds(true);
+			bullet.setBounce(1);
 		}
 		player1.lastShot--;
 		cannon1.setPosition(player1.x,player1.y);
@@ -435,11 +460,18 @@ class GameScene2 extends Phaser.Scene
 		if (keyO.isDown&&player2.lastShot<=0)
 		{
 			this.disparo_R.play();
+			
 			var bullet = bullets2.create(player2.x,player2.y,'Bala_futuro');
-			bullet.setVelocity(Math.sin(cannon2.rotation)*500,-Math.cos(cannon2.rotation)*500);	
+			bullet.setVelocity(Math.sin(cannon2.rotation)*500,-Math.cos(cannon2.rotation)*500);
+			
+			bullet.contador = 9;
+			bullet.ident=2;
 			
 			console.log(Math.sin(cannon2.rotation));
-			player2.lastShot=150;
+			player2.lastShot=200;
+			
+			bullet.setCollideWorldBounds(true);
+			bullet.setBounce(1.25);
 		}
 		player2.lastShot--;
 		cannon2.setPosition(player2.x,player2.y);
