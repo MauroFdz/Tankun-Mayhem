@@ -17,6 +17,9 @@
 	var keyO
 	var keyP
 	
+	var zeppelin;
+	var avion;
+	
 	
 	
 	var platforms;
@@ -104,6 +107,7 @@ class GameScene extends Phaser.Scene
 		//carga de balas y sombras
 		this.load.image('Shade1', '../assets/Maps/Map_1/Map_1_shade.png');
 		this.load.image('Shade1Zep', '../assets/Maps/Map_1/Map_1_zep.png');
+		this.load.image('Plane', '../assets/Maps/Map_1/Avion.png');
 	
 		//carga de assests audios
 		this.load.audio('P_shot',tank1.sound);
@@ -220,7 +224,13 @@ class GameScene extends Phaser.Scene
 		this.physics.add.collider(player2, tank1.bullets, hitBullet2, null, this);
 		
 		this.add.image(800, 300, 'Shade1');	
-		this.add.image(800, 300, 'Shade1Zep');	
+		
+		
+		zeppelin = this.physics.add.sprite(500, 650, 'Shade1Zep');
+		zeppelin.setVelocity(6,-5);
+	
+		avion = this.physics.add.sprite(800, 650, 'Plane');
+		avion.setVelocity(0,-250);
 		
 		
 		this.score1Text = this.add.text(50, 610, 'score: 0', { fontSize: '32px', fill: '#ffff00' });
