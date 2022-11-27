@@ -11,6 +11,9 @@ class TankRush
 		this.bulletSpeed=200;
 		this.bulletReb=4;
 		this.cooldown=50;
+		this.sound= '../assets/Sounds/P_shot.mp3';
+		this.bounce=1;
+		this.bulletPower=0;
 	}
 }
 
@@ -27,5 +30,8 @@ class TankFuture
 		this.bulletSpeed=150;
 		this.bulletReb=9;
 		this.cooldown=70;
+		this.sound= '../assets/Sounds/R_shot.mp3';
+		this.bounce=1.25;
+		this.bulletPower=1;
 	}
 }

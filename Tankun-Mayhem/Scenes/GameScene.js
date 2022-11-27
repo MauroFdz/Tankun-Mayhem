@@ -31,11 +31,6 @@
 	var bullets2;
 	var sizebrick = 60
 	
-	var bounce1= 3
-	var bounce2= 9
-	
-	var bounceSpeed1= 1
-	var bpunceSpeed2= 1.25
 	
 	
 	function hitBullet1 (player1, bullet)
@@ -57,24 +52,24 @@
 	
 	function hitWall(bullet, wall)
 	{
-		
-		bullet.contador = bullet.contador - 1;
-		
-		if(bullet.bounce >= 1.25){
-			bullet.setBounce(bullet.bounce*2.5);
+		if(bullet.id == 1){
+			bullet.setScale(1-(1/bullet.contador));
+			//bullet.setBounce(bullet.bounce*2.5);
 		}
-		
+		bullet.contador--;
 		if(bullet.contador <= 0){
 			bullet.destroy();
 		}
-		
 	}
 	
 	function hitBullet (bullet1, bullet2)
 	{
+		
 		bullet1.destroy();
 			
 		bullet2.contador--;
+		
+		bullet2.setScale(bullet2.contador/9);
 		if(bullet2.contador==0){
 			bullet2.destroy();	
 		}
@@ -111,8 +106,8 @@ class GameScene extends Phaser.Scene
 		this.load.image('Shade1Zep', '../assets/Maps/Map_1/Map_1_zep.png');
 	
 		//carga de assests audios
-		this.load.audio('P_shot', '../assets/Sounds/P_shot.mp3');
-		this.load.audio('R_shot', '../assets/Sounds/R_shot.mp3');
+		this.load.audio('P_shot',tank1.sound);
+		this.load.audio('R_shot', tank2.sound);
 		this.load.audio('Hit_wall', '../assets/Sounds/Hit_wall.mp3');
 		this.load.audio('Hit_tank', '../assets/Sounds/Choque.mp3');
 	}
@@ -201,8 +196,8 @@ class GameScene extends Phaser.Scene
 		player1.lastShot=0;
 		
 		
-		bullets1 = this.physics.add.group();
-		bullets2 = this.physics.add.group();
+		tank1.bullets = this.physics.add.group();
+		tank2.bullets = this.physics.add.group();
 			
 		
 		
@@ -214,15 +209,15 @@ class GameScene extends Phaser.Scene
 		this.physics.add.collider(player2, wall);
 		this.physics.add.collider(player1, player2);
 		//this.physics.add.collider(stars, platforms);
-		this.physics.add.collider(bullets1, wall,hitWall, null, this);
-		this.physics.add.collider(bullets2, wall,hitWall, null, this);
-		this.physics.add.collider(bullets2, bullets1,hitBullet, null, this);
+		this.physics.add.collider(tank1.bullets, wall,hitWall, null, this);
+		this.physics.add.collider(tank2.bullets, wall,hitWall, null, this);
+		this.physics.add.collider(tank2.bullets, tank1.bullets,hitBullet, null, this);
 			
 		//  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
 		//this.physics.add.overlap(player, stars, collectStar, null, this);
 		
-		this.physics.add.collider(player1, bullets2, hitBullet1, null, this);
-		this.physics.add.collider(player2, bullets1, hitBullet2, null, this);
+		this.physics.add.collider(player1, tank2.bullets, hitBullet1, null, this);
+		this.physics.add.collider(player2, tank1.bullets, hitBullet2, null, this);
 		
 		this.add.image(800, 300, 'Shade1');	
 		this.add.image(800, 300, 'Shade1Zep');	
@@ -278,15 +273,17 @@ class GameScene extends Phaser.Scene
 		if (keyV.isDown&&player1.lastShot<=0)
 		{	
 			this.disparo_P.play();
-			var bullet = bullets1.create(player1.x,player1.y,'Bala_sher');
+			var bullet = tank1.bullets.create(player1.x,player1.y,'Bala_sher');
 			
 			bullet.contador = tank1.bulletReb;
 			
+			bullet.setCollideWorldBounds(true);
+			bullet.setBounce(tank1.bounce);
+			
+			bullet.id=tank1.bulletPower;
+			
 			bullet.setVelocity(Math.sin(cannon1.rotation)*250,-Math.cos(cannon1.rotation)*250);
 			player1.lastShot=tank1.cooldown;
-			
-			bullet.setCollideWorldBounds(true);
-			bullet.setBounce(1);
 		}
 		player1.lastShot--;
 		cannon1.setPosition(player1.x,player1.y);
@@ -331,14 +328,17 @@ class GameScene extends Phaser.Scene
 		{
 			this.disparo_R.play();
 			
-			var bullet = bullets2.create(player2.x,player2.y,'Bala_futuro');
-			bullet.setVelocity(Math.sin(cannon2.rotation)*500,-Math.cos(cannon2.rotation)*500);
+			var bullet = tank2.bullets.create(player2.x,player2.y,'Bala_futuro');
 			
 			bullet.contador = tank2.bulletReb;
 			
 			player2.lastShot=tank2.cooldown;
 			
-			bullet.setBounce(1.25);
+			bullet.setBounce(tank2.bounce);
+			bullet.id=tank2.bulletPower;
+			
+			bullet.setVelocity(Math.sin(cannon2.rotation)*500,-Math.cos(cannon2.rotation)*500);
+			
 		}
 		player2.lastShot--;
 		cannon2.setPosition(player2.x,player2.y);
