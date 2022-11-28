@@ -90,9 +90,9 @@ class GameScene extends Phaser.Scene
 	preload ()
 	{
 		this.load.image('Map', '../assets/Maps/Map_1/Map.png');
-		this.load.image('brick', "assets/Tiles/brick1.png");
-		this.load.image('brick2', "assets/Tiles/brick2.png");
-		this.load.image('brick5', "assets/Tiles/brick5.png");
+		this.load.image('brick', "assets/Tiles/brick4.png");
+		this.load.image('brick2', "assets/Tiles/brick3.png");
+		this.load.image('brick5', "assets/Tiles/brick6.png");
 		
 		this.load.image('tank1', tank1.src);
 		this.load.image('cannon1', tank1.cannon);
@@ -357,7 +357,10 @@ class GameScene extends Phaser.Scene
 		this.timerText.setText(this.time);
 		if(this.time<=0)
 		{
-			//this.scene.start("GameOver");
+
+			this.scene.start("GameOver");
+			J_musica.stop();
+
 		}
 
 		

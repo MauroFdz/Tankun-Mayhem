@@ -7,8 +7,7 @@ class MenuScene extends Phaser.Scene {
 		super("Menu");
 	}
 	preload(){
-		this.load.image("fondo", "../assets/Botones/fondo.jpg");
-		this.load.image("titulo", "../assets/Botones/Titulo.png");
+		this.load.image("fondo", "../assets/Botones/Backgrounds/background_tm.png");
 		this.load.image("jugar", "../assets/Botones/Jugar.png");
 		this.load.image("ajustes", "../assets/Botones/Ajustes.png");
 		this.load.image("salir", "../assets/Botones/Salir.png");
@@ -23,7 +22,6 @@ class MenuScene extends Phaser.Scene {
 		
 		this.fondo = this.add.image(0, 0, "fondo");
 		this.fondo.setOrigin(0, 0);
-		this.titulo = this.add.image(config.width/2, 100, "titulo");
 		jugar = this.add.image(config.width/2, 300, "jugar");
 		ajustes = this.add.image(config.width/2, 400, "ajustes");
 		salir = this.add.image(config.width/2, 500, "salir");
@@ -35,16 +33,17 @@ class MenuScene extends Phaser.Scene {
 		jugar.on("pointerdown", ()=>{
 			this.scene.start("CharSelect");
 			this.M_musica.stop();
-			//this.J_musica.play();
-			//this.J_musica.volume=0.5;
+			
 		})
 		
 		ajustes.on("pointerdown", ()=>{
 			this.scene.start("Loading");
+			this.M_musica.stop();
 		})
 		
 		salir.on("pointerdown", ()=>{
 			this.scene.start("Loading");
+			this.M_musica.stop();
 		})
 	}
 }
