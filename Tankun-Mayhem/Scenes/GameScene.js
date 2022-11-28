@@ -357,7 +357,7 @@ class GameScene extends Phaser.Scene
 		this.timerText.setText(this.time);
 		if(this.time<=0)
 		{
-			//this.scene.start("GameOver");
+			this.scene.start("GameOver");
 		}
 
 		
