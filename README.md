@@ -176,3 +176,29 @@ El estilo artístico será enfocado en un estilo  caricaturesco mezclado con est
 ## 4.2 Efectos de sonido
 
 Los efectos de sonido serán poco realistas y caricaturescos, el ruido de los disparos y proyectiles será estilizado y breve. De esta manera no se saturará al usuario con sonido o ruido. Cada habilidad tendrá un sonido específico al igual que los powerups para que sirvan como identificador.
+
+# Fase 2
+## Pantallas implementadas:
+### Pantalla menú
+
+![alt text](https:// https://github.com/MauroFdz/Tankun-Mayhem/tree/main/Tankun-Mayhem/ReadMeImages/MenuIni.jpg?raw=true)
+
+Pantalla donde se inicializa el videojuego. Es necesario dar un click para que se pueda interactuar con la  página y comience la música. Existen tres posibles direcciones que el usuario puede tomar, en los botones Jugar, Ayuda y Créditos. El jugador volverá a esta pantalla una vez haya completado una partida.
+###Selección de Tanque
+
+En esta pestaña se selecciona uno de dos personajes para el jugador 1, el otro personaje será asignado al jugador 2. (En la siguiente entrega se cambiará, añadiendo más personajes y la posibilidad de seleccionar el mismo) Cuando el jugador selecciona un personaje se actualizan las estadísticas. El jugador puede decidir volver al menú inicial o continuar a la partida.
+
+### Créditos
+
+Pantalla donde se enseñan los creadores del videojuego y se hace referencia a los elementos de terceros implementados. Permite regresar al menú principal.
+### Ayuda
+
+Se enseñan los controles para jugadores uno y dos en local. Permite regresar al menú principal.
+### Partida
+
+Se inicia la partida y los jugadores obtienen control de su tanque. Inicia un reloj que marca lo que queda para terminar la partida. El objetivo de cada jugador es golpear al contrincante para marcar puntos. Las balas rebotan en las paredes. (Se tiene planeado incorporar powerups, paredes destruibles y habilidades específicas para cada tanque en la siguiente entrega). Una vez se acaba el tiempo se decide al jugador por la mayor puntuación.
+
+### Resolución
+
+Pantalla final donde se enseña el ganador o el empate y los puntos para ambos jugadores. Se puede regresar al menú principal con el botón volver o automáticamente después de 15 segundos.
+
