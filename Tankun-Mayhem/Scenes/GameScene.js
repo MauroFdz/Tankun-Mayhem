@@ -22,7 +22,6 @@
 	
 	
 	
-	
 	var platforms;
 	var score1 = 0;
 	var score2 = 0;
@@ -94,7 +93,6 @@ class GameScene extends Phaser.Scene
 		this.load.image('brick', "assets/Tiles/brick4.png");
 		this.load.image('brick2', "assets/Tiles/brick3.png");
 		this.load.image('brick5', "assets/Tiles/brick6.png");
-		this.load.image('lowbar', "assets/Maps/Map_1/lowbar.png");
 		
 		this.load.image('tank1', tank1.src);
 		this.load.image('cannon1', tank1.cannon);
@@ -145,8 +143,7 @@ class GameScene extends Phaser.Scene
 		
 		
 		// MAPA
-		this.add.image(800, 300, 'Map');
-		this.add.image(800,650,'lowbar');
+		this.add.image(800, 300, 'Map');	
 		var wall = this.physics.add.staticGroup();
 		//WALLS LATERALES
 		for(var x = 1; x<=9*sizebrick; x+=sizebrick/2){
@@ -236,10 +233,10 @@ class GameScene extends Phaser.Scene
 		avion.setVelocity(0,-250);
 		
 		
-		this.score1Text = this.add.text(80, 635, 'score: 0', { fontSize: '32px', fill: '#6eff99' });
-		this.score2Text = this.add.text(1370,635, 'score: 0', { fontSize: '32px', fill: '#6eff99' });
+		this.score1Text = this.add.text(50, 610, 'score: 0', { fontSize: '32px', fill: '#ffff00' });
+		this.score2Text = this.add.text(1400,610, 'score: 0', { fontSize: '32px', fill: '#ffff00' });
 		this.startTime = new Date().getSeconds() + new Date().getMinutes()*60 + new Date().getHours()*3600;
-		this.timerText = this.add.text(775, 635,'', { fontSize: '32px', fill: '#6eff99' });
+		this.timerText = this.add.text(800, 610,'', { fontSize: '32px', fill: '#00ffff' });
 	
 	}
 	update ()
