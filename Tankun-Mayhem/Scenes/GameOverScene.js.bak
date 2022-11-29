@@ -43,18 +43,18 @@ class GameOverScene extends Phaser.Scene {
 		
 		
 		
-		if(score1>score2)
-		{
-			this.JugV1 = this.add.image(800, 200, "JugV1");		
-		}
-		if(score1<score2)
-		{
-			this.JugV2 = this.add.image(800, 200, "JugV2");	
-		}
-		if(score1==score2)
-		{
-			this.Empate = this.add.image(800, 200, "Empate");
-		}		
+		//if(score1>score2)
+		//{
+			this.JugV2 = this.add.image(800, 200, "JugV2");		
+		//}
+		//if(score1<score2)
+		//{
+		//	this.JugV2 = this.add.image(800, 200, "JugV2");	
+		//}
+		//if(score1==score2)
+		//{
+		//	this.Empate = this.add.image(800, 200, "Empate");
+		//}		
 		
 		
 		

@@ -19,7 +19,6 @@
 <script src="Scenes/CharacterSelectScene.js"></script>
 <script src="Scenes/GameScene.js"></script>
 <script src="Scenes/GameOverScene.js"></script>
-<script src="Scenes/Ayuda.js"></script>
 <script src="index.js"></script>
 </head>
 <body>

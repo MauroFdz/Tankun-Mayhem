@@ -92,7 +92,7 @@ class CharSelect extends Phaser.Scene {
 		})
 		
 		Volver.on("pointerdown", ()=>{
-			this.scene.start("Menu");
+			this.scene.start(""Menu"");
 		})
 	}
 }

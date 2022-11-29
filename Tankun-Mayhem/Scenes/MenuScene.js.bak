@@ -1,6 +1,6 @@
 var jugar;
-var ayuda;
-var creditos;
+var ajustes;
+var salir;
 
 class MenuScene extends Phaser.Scene {
 	constructor(){
@@ -25,12 +25,12 @@ class MenuScene extends Phaser.Scene {
 		this.fondo = this.add.image(0, 0, "fondo");
 		this.fondo.setOrigin(0, 0);
 		jugar = this.add.image(config.width/2, 300, "jugar");
-		ayuda = this.add.image(config.width/2, 400, "ayuda");
-		creditos = this.add.image(config.width/2, 500, "creditos");
+		ajustes = this.add.image(config.width/2, 400, "ayuda");
+		salir = this.add.image(config.width/2, 500, "creditos");
 		
 		jugar.setInteractive();
-		ayuda.setInteractive();
-		creditos.setInteractive();
+		ajustes.setInteractive();
+		salir.setInteractive();
 		
 		jugar.on("pointerdown", ()=>{
 			this.scene.start("CharSelect");
@@ -38,12 +38,12 @@ class MenuScene extends Phaser.Scene {
 			
 		})
 		
-		ayuda.on("pointerdown", ()=>{
-			this.scene.start("Ayuda");
+		ajustes.on("pointerdown", ()=>{
+			this.scene.start("Loading");
 			this.M_musica.stop();
 		})
 		
-		creditos.on("pointerdown", ()=>{
+		salir.on("pointerdown", ()=>{
 			this.scene.start("Loading");
 			this.M_musica.stop();
 		})
