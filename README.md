@@ -56,7 +56,6 @@ Este es el documento de diseño de “Tankun Mayhem”. Este escrito tiene como 
 ## 1.2	Características principales
 
 El juego se basa en los siguientes pilares:
-![cielo](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/assets/sky.png)
 
 Mecánicas sencillas: No será difícil de comprender las mecánicas básicas del juego ni su narrativa principal. Se busca que sea intuitivo y sencillo, a su vez dar la mayor ayuda posible al jugador en términos de calidad de vida y comprensión del gameplay.
 
@@ -180,26 +179,42 @@ Los efectos de sonido serán poco realistas y caricaturescos, el ruido de los di
 
 # Fase 2
 ## Pantallas implementadas:
+
+![Pantalla Menu](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/Esquema.PNG)
+
 ### Pantalla menú
 
-![alt text](https:// https://github.com/MauroFdz/Tankun-Mayhem/tree/main/Tankun-Mayhem/ReadMeImages/MenuIni.jpg?raw=true)
+![Pantalla Menu](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/MenuIni.PNG)
 
 Pantalla donde se inicializa el videojuego. Es necesario dar un click para que se pueda interactuar con la  página y comience la música. Existen tres posibles direcciones que el usuario puede tomar, en los botones Jugar, Ayuda y Créditos. El jugador volverá a esta pantalla una vez haya completado una partida.
-###Selección de Tanque
+### Selección de Tanque
+
+![Selector Personaje](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/SelectorPers.PNG)
 
 En esta pestaña se selecciona uno de dos personajes para el jugador 1, el otro personaje será asignado al jugador 2. (En la siguiente entrega se cambiará, añadiendo más personajes y la posibilidad de seleccionar el mismo) Cuando el jugador selecciona un personaje se actualizan las estadísticas. El jugador puede decidir volver al menú inicial o continuar a la partida.
 
 ### Créditos
 
+![Creditos](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/creditos.PNG)
+
 Pantalla donde se enseñan los creadores del videojuego y se hace referencia a los elementos de terceros implementados. Permite regresar al menú principal.
+
 ### Ayuda
+
+![Ayuda](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/Ayuda.PNG)
 
 Se enseñan los controles para jugadores uno y dos en local. Permite regresar al menú principal.
 ### Partida
+
+![Partida](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/Partida.PNG)
 
 Se inicia la partida y los jugadores obtienen control de su tanque. Inicia un reloj que marca lo que queda para terminar la partida. El objetivo de cada jugador es golpear al contrincante para marcar puntos. Las balas rebotan en las paredes. (Se tiene planeado incorporar powerups, paredes destruibles y habilidades específicas para cada tanque en la siguiente entrega). Una vez se acaba el tiempo se decide al jugador por la mayor puntuación.
 
 ### Resolución
 
+![Resolucion](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/Victoria.PNG)
+
 Pantalla final donde se enseña el ganador o el empate y los puntos para ambos jugadores. Se puede regresar al menú principal con el botón volver o automáticamente después de 15 segundos.
+
+En cuanto a cambios de lo planteado en el gdd se ha decidido cambiar el movimiento del tanque de direccional a uno basado en en rotaciónes. Tambien se ha añadido una pantalla de fin de juego. Los power ups y paredes destruibles se implementarán en iteraciones futuras.
 
