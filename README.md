@@ -56,8 +56,7 @@ Este es el documento de diseño de “Tankun Mayhem”. Este escrito tiene como 
 ## 1.2	Características principales
 
 El juego se basa en los siguientes pilares:
-![cielo]
-(https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/assets/sky.png)
+![cielo](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/assets/sky.png)
 
 Mecánicas sencillas: No será difícil de comprender las mecánicas básicas del juego ni su narrativa principal. Se busca que sea intuitivo y sencillo, a su vez dar la mayor ayuda posible al jugador en términos de calidad de vida y comprensión del gameplay.
 
