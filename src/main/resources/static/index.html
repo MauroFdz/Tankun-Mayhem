@@ -1,0 +1,36 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Tankun-Mayhem</title>
+    <script src="phaser.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+			background-color:black;
+        }
+		p{
+			color: white;
+		}
+    </style>
+<script src="Scenes/MenuScene.js"></script>
+<script src="Scenes/LoadScene.js"></script>
+<script src="Objs/Tanks.js"></script>
+<script src="Scenes/CharacterSelectScene.js"></script>
+<script src="Scenes/GameScene.js"></script>
+<script src="Scenes/GameOverScene.js"></script>
+<script src="Scenes/Ayuda.js"></script>
+<script src="index.js"></script>
+<script src="perfilScript.js"></script>
+</head>
+<body>
+
+<input type="text" id="nameText" placeholder="Nombre usuario"/> <input type="password" id="passText" placeholder="Contraseña"/> 
+<input type="button" value="Iniciar sesión" id="initButton"/> <input type="button" value="Crear usuario" id="createButton"/>
+<input type="button" value="Cerrar sesión" id="cButton" disabled=true/>
+<span style="font-size: 32px; margin: 21px 0; color: antiquewhite" id="inforText">¿Es este un titular de primer rango?</span>
+
+
+</body>
+</html>
