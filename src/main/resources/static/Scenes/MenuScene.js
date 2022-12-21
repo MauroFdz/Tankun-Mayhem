@@ -23,7 +23,7 @@ class MenuScene extends Phaser.Scene {
 		this.load.image("salir", "../assets/Botones/Salir.png");
 		this.load.image("ayuda", "../assets/Pantalla seleccion/ayudaboton.png");
 		this.load.image("creditos", "../assets/Pantalla seleccion/creditos.png");
-		this.load.image("chatBar", "../assets/Botones/Backgrounds/chatBar.PNG");
+		//this.load.image("chatBar", "../assets/Botones/Backgrounds/chatBar.PNG");
 		this.load.audio('M_musica', '../assets/Sounds/Menú_música.mp3');
 		this.load.audio('J_musica', '../assets/Sounds/Juego_música.mp3');
 	}
