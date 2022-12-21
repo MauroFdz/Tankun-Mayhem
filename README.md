@@ -218,3 +218,51 @@ Pantalla final donde se enseña el ganador o el empate y los puntos para ambos j
 
 En cuanto a cambios de lo planteado en el gdd se ha decidido cambiar el movimiento del tanque de direccional a uno basado en en rotaciónes. Tambien se ha añadido una pantalla de fin de juego. Los power ups y paredes destruibles se implementarán en iteraciones futuras.
 
+# Fase 3
+## Navegación
+### Pantallas:
+![Pantalla Menu Esquema](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/Esquema2.PNG)
+
+### Pantalla menú
+
+![Pantalla Menu Chat](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/Pantalla_Principal_2.PNG)
+
+### Selección de Tanque
+
+![Selector Personaje](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/SelectorPers.PNG)
+
+
+### Créditos
+
+![Creditos](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/creditos.PNG)
+
+### Ayuda
+
+![Ayuda](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/Ayuda.PNG)
+
+### Partida
+
+![Partida](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/Partida.PNG)
+
+
+## Diagrama de clases y API REST:
+
+## Instrucciones precisas para ejecutar la aplicación:
+
+Requisitos:
+
+* Spring Tool Suite de Eclipse
+
+1. Abrir Spring en Eclipse.
+2. Seleccionamos File
+3. Open Projectyt from Files System
+4. Directory
+5. Seleccionamos donde se encuentra.
+6. Finnish
+//Teniendo el archivo/carpeta TankunMayhem[boot] seleccionado
+7. Play
+8. Run Tankun-Mayhem
+
+URL: Dependiendo del servidor donde se lanza tiene una dirección IP acompañada de un puerto que es el :8090.
+
+A partir de aqui se procede a interactuar directamente con la aplicación.
