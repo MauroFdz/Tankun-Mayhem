@@ -25,15 +25,26 @@ function crearPerfil(perfil) {
     })
 }
 
+//Crear un mensaje
+function crearMensaje(perfil) {
+    $.ajax({
+    method:"POST",
+    url:"http://localhost:8090/mensajes",
+    data:JSON.stringify(perfil),
+    processData:false,
+    headers:{"Content-Type":"application/json"}
+    }).done(function(perfil) {
+		console.log(perfil)
+    })
+}
+
 //Para perfil de momento no necesitamos PUT ni DELETE, pero se pueden hacer
 
 
 var firsttime=true;
-
 //Control de inputs, relacionado con perfil
 $(document).ready(function()
 {
-	
 	if(firsttime){
 	 loadPerfiles(function (perfiles) { 
         //When items are loaded from server
@@ -50,7 +61,7 @@ $(document).ready(function()
 
         var nombre = $("#nameText").val();
         var pass = $("#passText").val();
-        
+        if(nombre!=""){
 		var existe=false;
 		for(var i=0;i<loadedPerfiles.length;i++)
 		{
@@ -75,6 +86,7 @@ $(document).ready(function()
         }
         $("#nameText").val('');
         $("#passText").val('');
+        }
     });
    
 
@@ -105,6 +117,24 @@ $(document).ready(function()
 		}
 		$("#nameText").val('')
         $("#passText").val('');
+    });
+     //Handler Boton Enviar mensaje
+	$("#enviarButton").click(function () {
+  		 var msg = $("#msgText").val();
+  		 if(perfil==null){
+			   alert("Inicia sesión hombre");
+		   }else{
+  		 if(msg!=""){
+			   var message = {
+            	user: perfil,
+            	message: msg
+        	}
+        	crearMensaje(message);
+        	console.log(message);
+        	$("#msgText").val('');
+		 }
+		 
+		 }
     });
     
 })

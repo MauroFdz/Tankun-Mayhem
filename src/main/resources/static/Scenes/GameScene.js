@@ -114,6 +114,8 @@ class GameScene extends Phaser.Scene
 		this.load.audio('R_shot', tank2.sound);
 		this.load.audio('Hit_wall', '../assets/Sounds/Hit_wall.mp3');
 		this.load.audio('Hit_tank', '../assets/Sounds/Choque.mp3');
+		
+		this.load.image('lowbar', "assets/Maps/Map_1/lowbar.png");
 	}
 
 	create()
@@ -139,7 +141,6 @@ class GameScene extends Phaser.Scene
 		keyI = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);//player2 rotate izq
 		keyO = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.O);//player2 fire
 		keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);//player2 rotate der
-		
 		
 		
 		// MAPA
