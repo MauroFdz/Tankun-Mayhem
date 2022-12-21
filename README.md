@@ -221,11 +221,11 @@ En cuanto a cambios de lo planteado en el gdd se ha decidido cambiar el movimien
 # Fase 3
 ## Navegación
 ### Pantallas:
-![Pantalla Menu Esquema](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/Esquema2.PNG)
+![Pantalla Menu Esquema](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/Esquema2.png)
 
 ### Pantalla menú
 
-![Pantalla Menu Chat](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/Pantalla_Principal_2.PNG)
+![Pantalla Menu Chat](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/Pantalla_Principal_2.png)
 
 ### Selección de Tanque
 
@@ -246,6 +246,10 @@ En cuanto a cambios de lo planteado en el gdd se ha decidido cambiar el movimien
 
 
 ## Diagrama de clases y API REST:
+
+![Pantalla Menu Esquema](https://raw.githubusercontent.com/MauroFdz/Tankun-Mayhem/master/Tankun-Mayhem/ReadMeImages/UML.JPG)
+Leyenda:
+Azul: Controler
 
 ## Instrucciones precisas para ejecutar la aplicación:
 
