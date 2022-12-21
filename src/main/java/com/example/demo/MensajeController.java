@@ -17,11 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-public class MensajeController {
 
 @RestController
 @RequestMapping("/mensajes")
-public class PerfilController {
+public class MensajeController {
 
 	Map<Long, Mensaje> mensajes = new ConcurrentHashMap<>(); 
 	AtomicLong nextId = new AtomicLong(0);
@@ -83,4 +82,4 @@ public class PerfilController {
 	}
 
 }
-}
+

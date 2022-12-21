@@ -13,8 +13,8 @@ public class GreetingController {
 	
 	@RequestMapping("/greeting")
 	public String greeting(Model model) {
-	model.addAttribute("name",
-	userService.getNumUsers()+" users");
-	return "greeting_template";
+		model.addAttribute("name",
+				userService.getNumUsers()+" users");
+		return "greeting_template";
 	}
 }
