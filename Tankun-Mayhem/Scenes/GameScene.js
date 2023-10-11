@@ -364,7 +364,7 @@ class GameScene extends Phaser.Scene
 		player2.lastShot--;
 		cannon2.setPosition(player2.x,player2.y);
 		
-		this.time = this.startTime + 5 -(new Date().getSeconds() + new Date().getMinutes()*60 + new Date().getHours()*3600);
+		this.time = this.startTime + 60 -(new Date().getSeconds() + new Date().getMinutes()*60 + new Date().getHours()*3600);
 		this.timerText.setText(this.time);
 		if(this.time<=0)
 		{
