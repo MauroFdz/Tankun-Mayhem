@@ -121,23 +121,41 @@ El juego será desarrollado en Phaser para la parte local, y se habilitará la c
 Control de transferencia de información.
 
 Para garantizar una experiencia online completa se implementarán funciones dirigidas tanto a la comunicación entre jugadores como al correcto funcionamiento del videojuego online buscando garantizar una experiencia satisfactoria:
+
 * Sistema de chat para los jugadores del lobby.
+
 * Sistema de visualización de jugadores conectados al lobby.
-* Sistema de perfiles de jugadores, incluyendo nick y contraseña..
+
+* Sistema de perfiles de jugadores, incluyendo nick y contraseña.
+
 * Sistema de representación de perfiles de jugadores.
+
 * Control de puntuación dinámico en la partida y durante la duración del lobby.
+
 * Capacidad de selección de mapa.
+
 * Capacidad de selección de personaje.
+
 * Conservación de datos entre partidas.
+
 * Actualización del movimiento de los personajes.
+
 * Actuualización de los disparos de los personajes.
+
 * Actualización del uso de habilidades de los personajes.
+
 * Actualización de cambios en el mapa.
+
 * Actualización de la creación de power ups.
+
 * Actualización de los efectos de los power ups.
+
 * Actualización de información relevante como la vida y el tiempo.
+
 * Capacidad de pausar el videojuego.
+
 * Representación de la puntuacion final de la partida y lobby actual.
+
 
 ## Categoría
 Juegos similares:
