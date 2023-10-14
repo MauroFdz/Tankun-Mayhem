@@ -161,10 +161,11 @@ Para garantizar una experiencia online completa se implementarán funciones diri
 Juegos similares:
 Tank 1990:
 Similar en el empleo de elementos interactuables del mapa, presenta una condición de derrota distinta. Estilo visual distinto con variedad nula de personaje.
+![t1990](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Tank19190.png)
  
 Wii Tanks:
 Implementa un sistema e mecánicas similares a “Tankun Mayhem”, anque no presenta variedad significativa de jugabilidad. Estilo visual distinto.
-  
+![wiit](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/wiitank.png)
 
 ## Análisis DAFO:
 ### Debilidades:
