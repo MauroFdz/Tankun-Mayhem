@@ -315,9 +315,13 @@ Se presentará al vencedor, y la puntuación final y global de ambos jugadores.
 
 ## HUD
 *En desarrollo
-Se implementan elementos visuales con contraste entre negro, tonos metálicos y verde emisivo para los elementos de la interfaz. Se eliminarán elementos de adorno verdes para evitar confusión. 
+Se implementan elementos visuales con contraste entre negro, tonos metálicos y verde emisivo para los elementos de la interfaz.
+
+Se eliminarán elementos de adorno verdes para evitar confusión. 
+
 Ejemplos de elementos visuales:
-   
+![UsuarioCreditos](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Pantalla%20seleccion/creditos.png)
+![UsuarioVolver](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Pantalla%20seleccion/volver.png)
 ## ARTE
 ### Metas Generales de Arte
 
