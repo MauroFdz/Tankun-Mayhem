@@ -34,26 +34,33 @@
 ○	Correo GitHub: daniel4bermejo@gmail.com
  
 
-ÍNDICE
-Resumen
-Metas de diseño  						p10.
-Mecánicas de juego  					p11.
-Mundo de juego  						p12.
-Interfaz  								p14.
-Arte 									p16
-Audio  									p18.
-Anexo  									p19.
+# ÍNDICE
+## Resumen
+### Metas de diseño  						p10.
+### Mecánicas de juego  					p11.
+### Mundo de juego  						p12.
+### Interfaz  								p14.
+### Arte 									p16
+### Audio  									p18.
+### Anexo  									p19.
  
-RESUMEN
-Concepto de juego
+# RESUMEN
+## Concepto de juego
 Tankun Mayhem es un juego de tanques 1 v 1 en el que se llevarán a cabo partidas breves de 2 minutos. El objetivo principal es impactar al oponente para acumular puntos. En el mapa, encontrarás power-ups y diversos elementos que facilitarán tanto la defensa como el ataque. En el videojuego se incluyen diferentes personajes con habilidades y estadísticas específicas encaminadas a crear interacciónes únicas y dinámicas.
-1.1 Introducción
+
+## 1.1 Introducción
 "Tankun Mayhem" es un videojuego cargado de emoción y acción que actualmente se encuentra en proceso de desarrollo. Nuestro propósito es presentar una visión exhaustiva y detallada de este juego, y al mismo tiempo, ofrecer una guía completa que servirá como brújula durante todas las etapas de su creación.
+
 "Tankun Mayhem" es una experiencia única en la que los jugadores asumen el control de valientes tanques dirigidos por héroes y heroínas, sumergiéndose en intensos combates dentro de una arena de batalla. Cada personaje dispone de habilidades especiales que deberán ser hábilmente utilizadas para enfrentar a otros competidores y adaptarse a los cambiantes desafíos presentados por el entorno de juego.
+
 Con un enfoque en mecánicas sencillas y una narrativa accesible, este juego está diseñado para ser intuitivo y fácil de comprender, garantizando la máxima comodidad y diversión para los jugadores. La dinámica constante y las partidas rápidas mantendrán a los participantes completamente inmersos en el juego, donde cada segundo cuenta en la búsqueda de la victoria.
+
 La versatilidad de "Tankun Mayhem" brilla con su capacidad de ser disfrutado tanto en modo cooperativo como competitivo, fomentando la interacción entre jugadores y ofreciendo una alta rejugabilidad. Además, su estilo visual, inspirado en el anime y con toques de cómics occidentales, atraerá a una amplia audiencia.
+
 En resumen, "Tankun Mayhem" es una emocionante propuesta que combina acción, estrategia y diversión en un paquete de juego completo. A través de este documento, exploraremos más a fondo las mecánicas de juego, el diseño de personajes, la interfaz, el arte y todos los elementos que darán vida a esta experiencia única.
-Características principales
+
+## Características principales
+
 1.	Mecánicas Sencillas y Accesibles: Nuestra prioridad es ofrecer una experiencia de juego fácil de comprender y disfrutar. Las mecánicas se diseñan cuidadosamente para ser intuitivas, permitiendo que los jugadores se sumerjan rápidamente en el mundo del juego sin complicaciones innecesarias.
 2.	Dinamismo Constante:  "Tankun Mayhem" se caracteriza por su dinámica incesante. Los jugadores se encuentran en un entorno donde cada segundo cuenta, lo que requiere decisiones rápidas y estratégicas. Mantenemos la atención del jugador en todo momento, lo que garantiza una experiencia emocionante de principio a fin.
 3.	Partidas Breves y Emocionantes:  Dada la naturaleza intensa del juego, las partidas son cortas pero llenas de emoción. Esto permite a los jugadores disfrutar de la acción en pequeños intervalos de tiempo, sin que la duración de las partidas se convierta en una barrera para la diversión.
