@@ -168,19 +168,31 @@ Implementa un sistema e mecánicas similares a “Tankun Mayhem”, anque no pre
 
 ## Análisis DAFO:
 Debilidades:
-●	 Relativamente poca experiencia desarrollando videojuegos en el entorno de Phaser
-●	Poca experiencia desarrollando elementos online mediante el uso de API Rest y Websockets
-●	Tiempo y trabajo distribuido también a factores externos.
+* Relativamente poca experiencia desarrollando videojuegos en el entorno de Phaser
+
+* Poca experiencia desarrollando elementos online mediante el uso de API Rest y Websockets
+
+* Tiempo y trabajo distribuido también a factores externos.
+
 Amenazas:
-●	Complicaciónes relevantes al control de tiempo y trabajo.
-●	Elevada carga de trabajo externa elevada.
+
+* Complicaciónes relevantes al control de tiempo y trabajo.
+
+* Elevada carga de trabajo externa elevada.
+
 Fortalezas:
-●	Experiencia previa del año anterior.
-●	Trabajo realizado el año anterior como base.
-●	Experiencia de organización y conocimiento de capacidades de trabajo y aptitudes de los miembros del equipo.
+
+* Experiencia previa del año anterior.
+
+* Trabajo realizado el año anterior como base.
+
+* Experiencia de organización y conocimiento de capacidades de trabajo y aptitudes de los miembros del equipo.
+
 Oportunidades:
-●	Acceso a fuentes de conocimiento y guia de terceros. (Acceso a libros y contenido relacionado a la materia de acceso público en la biblioteca.)
-●	Tutoriales, ejemplos y material complementario para la construcción del videojuego en la plataforma virtual de Phaser.
+
+* Acceso a fuentes de conocimiento y guia de terceros. (Acceso a libros y contenido relacionado a la materia de acceso público en la biblioteca.)
+
+* Tutoriales, ejemplos y material complementario para la construcción del videojuego en la plataforma virtual de Phaser.
  
 ## METAS DE DISEÑO
 Brevedad y dinamismo: Se busca que el videojuego tenga partidas relativamente cortas cargadas de acción. Se lobrará mediante tiempo de partida cortos y elementos que fuercen a los jugadores a tomar acción y no ser reactivos.
