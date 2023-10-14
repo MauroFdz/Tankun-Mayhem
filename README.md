@@ -335,14 +335,17 @@ El estilo artístico de "Tankun Mayhem" combina elementos caricaturescos con inf
 ## Items
 ### Paredes:
 ![b1](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/brick1.png) ![b2](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/brick2.png) ![b3](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/brick3.png) ![b4](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/brick4.png) ![b5](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/glass.png) ![b6](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/hologram.png)
-
-      
+     
 
 ### Power-ups: 
+
+![pu](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/PowerUps/up.png)
 
 ## Escenarios:
 
 ### Ciudad:
+
+![e1](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Partida.PNG)
     
 ## AUDIO
 
@@ -350,3 +353,5 @@ Los efectos de sonido serán caricaturescos y breves, evitando saturar al jugado
 
 ## ANEXOS
 Diagrama de flujo:
+
+!(d1)[https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Esquema.PNG]
