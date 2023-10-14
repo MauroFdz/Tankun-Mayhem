@@ -36,13 +36,13 @@
 
 # ÍNDICE
 ## Resumen
-### Metas de diseño  						p10.
-### Mecánicas de juego  					p11.
-### Mundo de juego  						p12.
-### Interfaz  								p14.
-### Arte 									p16
-### Audio  									p18.
-### Anexo  									p19.
+### Metas de diseño 
+### Mecánicas de juego 
+### Mundo de juego
+### Interfaz 
+### Arte 
+### Audio 
+### Anexo 
  
 # RESUMEN
 ## Concepto de juego
