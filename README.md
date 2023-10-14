@@ -167,20 +167,20 @@ Implementa un sistema e mecánicas similares a “Tankun Mayhem”, anque no pre
   
 
 ## Análisis DAFO:
-Debilidades:
+### Debilidades:
 * Relativamente poca experiencia desarrollando videojuegos en el entorno de Phaser
 
 * Poca experiencia desarrollando elementos online mediante el uso de API Rest y Websockets
 
 * Tiempo y trabajo distribuido también a factores externos.
 
-Amenazas:
+### Amenazas:
 
 * Complicaciónes relevantes al control de tiempo y trabajo.
 
 * Elevada carga de trabajo externa elevada.
 
-Fortalezas:
+### Fortalezas:
 
 * Experiencia previa del año anterior.
 
@@ -188,7 +188,7 @@ Fortalezas:
 
 * Experiencia de organización y conocimiento de capacidades de trabajo y aptitudes de los miembros del equipo.
 
-Oportunidades:
+### Oportunidades:
 
 * Acceso a fuentes de conocimiento y guia de terceros. (Acceso a libros y contenido relacionado a la materia de acceso público en la biblioteca.)
 
