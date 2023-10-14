@@ -354,4 +354,4 @@ Los efectos de sonido serán caricaturescos y breves, evitando saturar al jugado
 ## ANEXOS
 Diagrama de flujo:
 
-!(d1)[https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Esquema.PNG]
+![f1](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Esquema.PNG)
