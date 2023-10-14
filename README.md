@@ -283,16 +283,22 @@ Niveles representados desde la vista cenital, donde el ambiente cambiará de zon
 
 ### Pantalla de inicio: 
 Existirán 3 botones de acceso a pantallas previas, un chat y botones destinados a la gestión de perfiles.
+![PantallaInicio](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/MenuIni.PNG)
  
 ### Pantalla de Ayuda: 
 Cuenta con un botón para regresar a la pantalla anterior y una serie de elementos que ayudan a identificar los controles.
+
+![PantallaAyuda](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Ayuda.PNG)
  
 ### Pantalla de créditos: 
 Tendrá un botón para volver a la pantalla de inicio y elementos que indican los autores y sus roles.
- 
+
+![PantallaCreditos](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/creditos.PNG)
 
 ### Pantalla de selección de tanque: 
 Se tendrá una barra con los personajes seleccionables disponibles, un elemento visual para indicar sus estadísticas, arte conceptual de personaje y un botón para seleccionar al personaje.
+
+![PantallaInicio](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/MenuIni.PNG)
  
 ### Pantalla de selección de mapa: 
 Por desarrollar. Tendrá botones para seleccionar el mapa de manera similar a los tanques y un ejemplo visual del mapa.
@@ -300,8 +306,12 @@ Por desarrollar. Tendrá botones para seleccionar el mapa de manera similar a lo
 ### Pantalla de juego: 
 Contendrá la puntuación de ambos jugadores, un reloj y las estadísticas de ambos jugadores. Tendrá el mapa y los tanques de los jugadores, así como las paredes especificas de cada mapa y sus power ups.
 
+![PantallaJuego](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Partida.PNG)
+
 ### Pantalla de Resolución de partida: 
 Se presentará al vencedor, y la puntuación final y global de ambos jugadores.
+
+![PantallaVictoria](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Victoria.PNG)
 
 ## HUD
 *En desarrollo
