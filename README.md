@@ -61,25 +61,38 @@ En resumen, "Tankun Mayhem" es una emocionante propuesta que combina acción, es
 
 ## Características principales
 
-1.	Mecánicas Sencillas y Accesibles: Nuestra prioridad es ofrecer una experiencia de juego fácil de comprender y disfrutar. Las mecánicas se diseñan cuidadosamente para ser intuitivas, permitiendo que los jugadores se sumerjan rápidamente en el mundo del juego sin complicaciones innecesarias.
-2.	Dinamismo Constante:  "Tankun Mayhem" se caracteriza por su dinámica incesante. Los jugadores se encuentran en un entorno donde cada segundo cuenta, lo que requiere decisiones rápidas y estratégicas. Mantenemos la atención del jugador en todo momento, lo que garantiza una experiencia emocionante de principio a fin.
-3.	Partidas Breves y Emocionantes:  Dada la naturaleza intensa del juego, las partidas son cortas pero llenas de emoción. Esto permite a los jugadores disfrutar de la acción en pequeños intervalos de tiempo, sin que la duración de las partidas se convierta en una barrera para la diversión.
-4.	Modo Cooperativo y Competitivo:  "Tankun Mayhem" ofrece la versatilidad de ser disfrutado tanto en modo cooperativo como competitivo. Los jugadores pueden unirse para alcanzar objetivos comunes o competir entre sí para demostrar su destreza. Esto fomenta la interacción social y garantiza que cada partida sea única, lo que aumenta la rejugabilidad del juego.
-5.	Escenarios: los combates tienen lugar en una gran variedad de escenarios, cada uno con sus propias características y obstáculos. 
-Género
+1.	Mecánicas Sencillas y Accesibles: 
+Nuestra prioridad es ofrecer una experiencia de juego fácil de comprender y disfrutar. Las mecánicas se diseñan cuidadosamente para ser intuitivas, permitiendo que los jugadores se sumerjan rápidamente en el mundo del juego sin complicaciones innecesarias.
+2.	Dinamismo Constante:  
+"Tankun Mayhem" se caracteriza por su dinámica incesante. Los jugadores se encuentran en un entorno donde cada segundo cuenta, lo que requiere decisiones rápidas y estratégicas. Mantenemos la atención del jugador en todo momento, lo que garantiza una experiencia emocionante de principio a fin.
+3.	Partidas Breves y Emocionantes: 
+Dada la naturaleza intensa del juego, las partidas son cortas pero llenas de emoción. Esto permite a los jugadores disfrutar de la acción en pequeños intervalos de tiempo, sin que la duración de las partidas se convierta en una barrera para la diversión.
+4.	Modo Cooperativo y Competitivo:  
+"Tankun Mayhem" ofrece la versatilidad de ser disfrutado tanto en modo cooperativo como competitivo. Los jugadores pueden unirse para alcanzar objetivos comunes o competir entre sí para demostrar su destreza. Esto fomenta la interacción social y garantiza que cada partida sea única, lo que aumenta la rejugabilidad del juego.
+5.	Escenarios: 
+Los combates tienen lugar en una gran variedad de escenarios, cada uno con sus propias características y obstáculos.
+
+## Género
 El género de "Tankun Mayhem" se clasifica como Arcade debido a su enfoque en la acción rápida y emocionante, donde los jugadores se enfrentan a desafíos individuales o en equipo. La premisa fundamental del juego es poner a prueba los reflejos y la toma de decisiones instantáneas de los jugadores en un ambiente arcade.
+
 En este juego, las partidas son breves y llenas de adrenalina, con una duración de unos pocos minutos, lo que es típico en los juegos de estilo arcade. Los objetivos son claros y definidos: los jugadores compiten para obtener la puntuación más alta en enfrentamientos individuales o para alcanzar un puntaje superior al de sus oponentes cuando juegan en equipos, una característica común en los juegos de estilo arcade.
+
 En cuanto a la experiencia auditiva, "Tankun Mayhem" se esfuerza por ofrecer sonidos distintivos que permiten a los jugadores identificar quién o qué está llevando a cabo una acción en el juego, una práctica habitual en los juegos arcade. Estos efectos de sonido contribuyen a la inmersión y ayudan a los jugadores a seguir la acción en pantalla de manera similar a los juegos arcade clásicos.
+
 En términos de estilo visual, el juego busca un enfoque más moderno, alejándose de los estilos de pixel art más antiguos que se encuentran en algunos juegos arcade tradicionales. En su lugar, se adopta un estilo de dibujo animado o manga, que añade un toque contemporáneo y atractivo al diseño gráfico del juego, sin perder la esencia arcade.
+
 La elección de la vista cenital (Acción en Vista Cenital) como punto de vista del juego es una decisión estratégica común en los juegos arcade que permite a ambos jugadores tener una visión completa y clara de la ubicación de sus tanques en todo momento, mejorando así la comprensión de la acción en el nivel y agregando un elemento estratégico al juego, una característica apreciada en los juegos arcade.
+
 En resumen, "Tankun Mayhem" ofrece una experiencia de juego arcade que combina acción rápida, competitividad y una estética visual y auditiva distintiva, todo ello respaldado por la perspectiva cenital que mejora la jugabilidad y la inmersión en la acción del juego arcade.
 
-
 Público Objetivo
+
 Nuestro objetivo principal con "Tankun Mayhem" es proporcionar una experiencia de juego casual y gratuita, ideal para disfrutar con amigos en cualquier momento. La simplicidad y brevedad de las partidas hacen que sea accesible para una amplia audiencia, sin importar la edad.
+
 La edad está enfocada principalmente en un público más joven, ya que son quienes suelen consumir más este tipo de juegos. Sin embargo, el juego también utiliza elementos nostálgicos para atraer la atención de un público más adulto. El género del juego, con su estilo arcade y acción rápida, puede evocar recuerdos de los juegos clásicos que los jugadores más adultos disfrutaron en el pasado. Esto añade una capa adicional de atractivo, permitiendo que jugadores de diferentes edades encuentren algo emocionante en el juego.
 Además, el estilo artístico ha sido cuidadosamente seleccionado para atraer a aquellos que son entusiastas del género anime y contenido de naturaleza similar. En resumen, "Tankun Mayhem" ofrece una experiencia de juego casual y diversa que puede ser disfrutada por jugadores jóvenes y adultos, y que combina la accesibilidad con un atractivo nostálgico.
 Experiencia de juego 
+
 1.	Movilidad: Los jugadores tendrán el control total de sus tanques utilizando las teclas W, A, S y D para moverse en cualquier dirección. En el caso del juego en modo local los controles del segundo jugador serán XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 2.	Ataque: La mecánica principal de ataque se basa en disparar proyectiles que pueden rebotar en las paredes y obstáculos del escenario. Cada impacto exitoso en el enemigo aumentará la puntuación, el jugador con la mayor puntuación ganará la partida. La acción de disparar y esquivar proyectiles en tiempo real añade emoción y desafío al juego.
 3.	Elementos de Escenario: Los escenarios están diseñados con una variedad de tipos de tiles, algunos de los cuales son indestructibles y otros pueden ser destruidos. Estos elementos del escenario añaden capas de estrategia al juego, ya que los jugadores deben considerar cómo utilizar el entorno a su favor. Algunos elementos del escenario pueden alterar la velocidad de movimiento de los tanques o la visibilidad, lo que agrega complejidad y sorpresa a las partidas.
