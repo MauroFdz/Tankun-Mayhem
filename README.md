@@ -13,18 +13,26 @@
 
 ### ●	Gonzalo de la Torre Ruiz
 ○	Correo Académico: g.delatorre.2020@alumnos.urjc.es
+
 ○	Cuenta GitHub: Gonzalo-de-la-Torre
+
 ○	Correo GitHub: g.delatorre.2020@alumnos.urjc.es
+
 ### ●	Yago Ortiz García
 ○	Correo Académico: y.ortiz.2020@alumnos.urjc.es
-○	Cuenta GitHub: Kaynt-manage ßMODIFICAR!!!!!!!!!!!!!!!!!!!!
+
+○	Cuenta GitHub: Kaynt-manage
+
 ○	Correo GitHub: y.ortiz.2020@alumnos.urjc.es
+
 ### ●	Daniel Bermejo Valverde
+
 ○	Correo Académico: d.bermejo.2020@alumnos.urjc.es
+
 ○	Cuenta GitHub: DanielBermejoValverde
+
 ○	Correo GitHub: daniel4bermejo@gmail.com
  
-○	
 
 ÍNDICE
 Resumen
