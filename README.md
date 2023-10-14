@@ -329,9 +329,9 @@ El estilo artístico de "Tankun Mayhem" combina elementos caricaturescos con inf
 
 ### Personajes
 
-### Rebotín:
+## Rebotín:
  
-### Bell:
+## Bell:
  
 ### Items
 
