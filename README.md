@@ -222,6 +222,7 @@ Núcleo de mecánicas de juego
 
 ●	El jugador deberá reaccionar  a un oponente humano y planificar para derrotarlo.
 
+
 ## Flujo de Juego (estados de juego)
 
 Pantalla de Inicio: El jugador será recibido aquí. Tendrá la opción de acceder a la pantalla de créditos, pantall de ayuda y la pantalla de selección de tanque. Aqui se implementará la selección y creación de perfil.
@@ -239,6 +240,7 @@ Pantalla de Partida: Pantalla donde ocurrira el juego.
 Pantalla de Resolución: Aqui se presentará la conclusión de la partida, dando a conocer el ganador y los puntos totales de la partida y los globales del jugador.
 
 Imagen de referencia obsoleta:
+![Flujo](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Esquema.PNG)
 
 ## Física de Juego
 
