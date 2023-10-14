@@ -279,46 +279,53 @@ Niveles representados desde la vista cenital, donde el ambiente cambiará de zon
 ## INTERFAZ
 ## Pantallas de Juego
 
-### Pantalla de inicio: Existirán 3 botones de acceso a pantallas previas, un chat y botones destinados a la gestión de perfiles.
+### Pantalla de inicio: 
+Existirán 3 botones de acceso a pantallas previas, un chat y botones destinados a la gestión de perfiles.
  
-### Pantalla de Ayuda: Cuenta con un botón para regresar a la pantalla anterior y una serie de elementos que ayudan a identificar los controles.
+### Pantalla de Ayuda: 
+Cuenta con un botón para regresar a la pantalla anterior y una serie de elementos que ayudan a identificar los controles.
  
-### Pantalla de creditos: Tendrá un botón para volver a la pantalla de inicio y elementos que indican los autores y sus roles.
+### Pantalla de créditos: 
+Tendrá un botón para volver a la pantalla de inicio y elementos que indican los autores y sus roles.
  
 
-### Pantalla de selección de tanque: Se tendrá una barra con los personajes seleccionables disponibles, un elemento visual para indicar sus estadísticas, arte conceptual de personaje y un botón para seleccionar al personaje.
+### Pantalla de selección de tanque: 
+Se tendrá una barra con los personajes seleccionables disponibles, un elemento visual para indicar sus estadísticas, arte conceptual de personaje y un botón para seleccionar al personaje.
  
-### Pantalla de selección de mapa: Por desarrollar. Tendrá botones para selecionar el mapa de manera similar a los tanques y un ejemplo visual del mapa.
+### Pantalla de selección de mapa: 
+Por desarrollar. Tendrá botones para seleccionar el mapa de manera similar a los tanques y un ejemplo visual del mapa.
 
-### Pantalla de juego: Contendrá la puntuacion de ambos jugadores, un reloj y las estadísticas de ambos jugadores. Tendrá el mapa y los tanques de los jugadores, asi como las paredes especificas de cada mapa y sus power ups.
+### Pantalla de juego: 
+Contendrá la puntuación de ambos jugadores, un reloj y las estadísticas de ambos jugadores. Tendrá el mapa y los tanques de los jugadores, así como las paredes especificas de cada mapa y sus power ups.
 
-### Pantalla de Resolución de partida: Se presentará al vencedor, y la puntuación final y global de ambos jugadores.
+### Pantalla de Resolución de partida: 
+Se presentará al vencedor, y la puntuación final y global de ambos jugadores.
 
-HUD
+## HUD
 *En desarrollo
 Se implementan elementos visuales con contraste entre negro, tonos metálicos y verde emisivo para los elementos de la interfaz. Se eliminarán elementos de adorno verdes para evitar confusión. 
 Ejemplos de elementos visuales:
    
-ARTE
-Metas Generales de Arte
+## ARTE
+### Metas Generales de Arte
 
 El estilo artístico de "Tankun Mayhem" combina elementos caricaturescos con influencias del anime. Los efectos y detalles imitan el estilo de cómics occidentales para facilitar la comprensión de la acción en pantalla.
 
-Personajes
+### Personajes
 
-Rebotín:
+### Rebotín:
  
-Bell:
+### Bell:
  
-Items
+### Items
 
-Paredes:      
+### Paredes:      
 
-Power ups: 
+### Power ups: 
 
-Escenarios:
+### Escenarios:
 
-Ciudad:
+### Ciudad:
     
 ## AUDIO
 
