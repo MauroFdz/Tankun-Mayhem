@@ -333,7 +333,10 @@ El estilo artístico de "Tankun Mayhem" combina elementos caricaturescos con inf
 ### Bell:
 ![bell](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/TankRush/tank%201%20rush.png) ![balaR](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/TankRush/Bala_sher.png)
 ## Items
-### Paredes:      
+### Paredes:
+![b1](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/brick1.png) ![b2](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/brick2.png) ![b3](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/brick3.png) ![b4](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/brick4.png) ![b5](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/glass.png) ![b6](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/hologram.png)
+
+      
 
 ### Power-ups: 
 
