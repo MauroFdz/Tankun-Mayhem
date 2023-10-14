@@ -1,23 +1,22 @@
+# TANKUN MAYHEM
 
-#TANKUN MAYHEM
-
-##GAME DESIGN DOCUMENT
+## GAME DESIGN DOCUMENT
 
  
-##MIEMBROS DE EQUIPO
-###●	Mauricio Fernández Rojas
+## MIEMBROS DE EQUIPO
+### ●	Mauricio Fernández Rojas
 ○	Correo Académico: m.fernandezr.2020@alumnos.urjc.es
 ○	Cuenta GitHub: MauroFdz
 ○	Correo GitHub: Mauricio.fdez.27@gmail.com
-###●	Gonzalo de la Torre Ruiz
+### ●	Gonzalo de la Torre Ruiz
 ○	Correo Académico: g.delatorre.2020@alumnos.urjc.es
 ○	Cuenta GitHub: Gonzalo-de-la-Torre
 ○	Correo GitHub: g.delatorre.2020@alumnos.urjc.es
-###●	Yago Ortiz García
+### ●	Yago Ortiz García
 ○	Correo Académico: y.ortiz.2020@alumnos.urjc.es
 ○	Cuenta GitHub: Kaynt-manage ßMODIFICAR!!!!!!!!!!!!!!!!!!!!
 ○	Correo GitHub: y.ortiz.2020@alumnos.urjc.es
-###●	Daniel Bermejo Valverde
+### ●	Daniel Bermejo Valverde
 ○	Correo Académico: d.bermejo.2020@alumnos.urjc.es
 ○	Cuenta GitHub: DanielBermejoValverde
 ○	Correo GitHub: daniel4bermejo@gmail.com
