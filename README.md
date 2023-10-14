@@ -327,19 +327,17 @@ Ejemplos de elementos visuales:
 
 El estilo artístico de "Tankun Mayhem" combina elementos caricaturescos con influencias del anime. Los efectos y detalles imitan el estilo de cómics occidentales para facilitar la comprensión de la acción en pantalla.
 
-### Personajes
-
+## Personajes
 ## Rebotín:
- 
-## Bell:
- 
-### Items
-
+![reb](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/TankSpace/tank%20space%20chibi.png) ![balaS](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/TankSpace/Bala_futuro%20.png)
+### Bell:
+![bell](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/TankRush/tank%201%20rush.png) ![balaR](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/TankRush/Bala_sher.png)
+## Items
 ### Paredes:      
 
-### Power ups: 
+### Power-ups: 
 
-### Escenarios:
+## Escenarios:
 
 ### Ciudad:
     
