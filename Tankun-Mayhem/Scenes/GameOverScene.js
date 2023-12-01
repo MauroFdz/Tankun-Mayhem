@@ -60,7 +60,7 @@ class GameOverScene extends Phaser.Scene {
 		
 		this.Volver.on("pointerdown", ()=>{
 			
-				this.scene.start("Menu");
+				this.scene.start("CharSelect");
 			
 		})
 		
@@ -70,7 +70,7 @@ class GameOverScene extends Phaser.Scene {
 		this.time = this.startTime + 20 - (new Date().getSeconds() + new Date().getMinutes()*60 + new Date().getHours()*3600);	
 		if(this.time<=0)
 		{
-			this.scene.start("Menu");
+			this.scene.start("CharSelect");
 		}
 		
 	}
