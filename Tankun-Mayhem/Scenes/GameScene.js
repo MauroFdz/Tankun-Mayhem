@@ -39,7 +39,7 @@
 	
 	function hitBullet1 (player1, bullet)
 	{
-		this.Hit_tank.play();
+		this.Hit_tank2.play();
 		score2+=10;
 		this.score2Text.setText('Score: ' + score2);
 		bullet.destroy();
@@ -117,6 +117,7 @@ class GameScene extends Phaser.Scene
 		this.load.audio('R_shot', tank2.sound);
 		this.load.audio('Hit_wall', '../assets/Sounds/Hit_wall.mp3');
 		this.load.audio('Hit_tank', '../assets/Sounds/Choque.mp3');
+		this.load.audio('Hit_tank2', '../assets/Sounds/Golpe.mp3');
 	}
 
 	create()
@@ -127,7 +128,7 @@ class GameScene extends Phaser.Scene
 		this.disparo_R = this.sound.add('R_shot');
 		this.hit_muro = this.sound.add('Hit_wall');
 		this.Hit_tank = this.sound.add('Hit_tank');
-		
+		this.Hit_tank2 = this.sound.add('Hit_tank2');
 		//  A simple background for our game
   
 		// Controles personalizados player 1.
