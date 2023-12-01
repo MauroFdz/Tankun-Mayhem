@@ -226,19 +226,17 @@ Núcleo de mecánicas de juego
 
 ## Flujo de Juego (estados de juego)
 
-Pantalla de Inicio: El jugador será recibido aquí. Tendrá la opción de acceder a la pantalla de créditos, pantall de ayuda y la pantalla de selección de tanque. Aqui se implementará la selección y creación de perfil.
+Pantalla de Inicio: El jugador será recibido aquí. Tendrá la opción de acceder a la pantalla de créditos, pantalla de ayuda y la pantalla de selección de tanque. Aquí se implementará la selección y creación de perfil.
 
 Pantalla de Créditos: Pantalla destinada a brindar reconocimiento  los autores. Solo se puede regresar a la pantalla de inicio.
 
 Pantalla de Ayuda; Pantalla destinada a brindar indicación visual de los controles empleados por cada jugdador.
 
-Pantalla de selección de Tanque: Aqui los jugadores podrán seleccionar los tanques con los que jugaran, ver sus estadísticas y habilidades. Aqui tambien podrán acceder al chat del lobby. De aquí se podrá volver al Inicio o a la pantalla de selección de mapa.
+Pantalla de selección de Tanque: Aquí los jugadores podrán seleccionar los tanques con los que jugaran, ver sus estadísticas y habilidades. Aquí también podrán acceder al chat del lobby. De aquí se podrá volver al Inicio o a la pantalla de selección de mapa.
 
-Pantalla de selección de Mapa: Pantalla no implementada en versión previa, se podrá ver el mapa a jugar y el chat del lobby. Se podrá regresar a la pantalla de selección de tanque y lanzar la partida.
+Pantalla de Partida: Pantalla donde ocurrirá el juego.
 
-Pantalla de Partida: Pantalla donde ocurrira el juego.
-
-Pantalla de Resolución: Aqui se presentará la conclusión de la partida, dando a conocer el ganador y los puntos totales de la partida y los globales del jugador.
+Pantalla de Resolución: Aquí se presentará la conclusión de la partida, dando a conocer el ganador y los puntos totales de la partida y los globales del jugador.
 
 Imagen de referencia obsoleta:
 ![Flujo](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Esquema.PNG)
@@ -249,7 +247,7 @@ Los jugadores pueden moverse en un plano bidimensional utilizando rotaciones par
 
 ## Controles
 
-Los jugadores tendrán el control total de sus tanques utilizando las teclas W, A, S y D para moverse en cualquier dirección. Tendrá un botón dedicado a disparar y un botón dedicado a activar la habilidad especial, asi como botones para rotar el cañon. En el caso del juego en modo local los controles del segundo jugador serán flechas direccionales de teclado, P y O para rotar el cañon e I para disparar.
+Los jugadores tendrán el control total de sus tanques utilizando las teclas W, A, S y D para moverse en cualquier dirección. Tendrá un botón dedicado a disparar y un botón dedicado a activar la habilidad especial, así como botones para rotar el cañón. En el caso del juego en modo local los controles del segundo jugador serán flechas direccionales de teclado, P y O para rotar el cañón e I para disparar.
 
  
 ## MUNDO DE JUEGO
@@ -273,7 +271,7 @@ Power ups:
 ·         Proyectiles: Permite hasta 1 proyectil extra.
 
 ### Áreas de Juego
-Niveles representados desde la vista cenital, donde el ambiente cambiará de zonas militares a sonas silvestres. Exisitrán puntos donde se crean power ups y paredes que interactuaran de manera distinta con las balas y jugadores.
+Niveles representados desde la vista cenital, donde el ambiente cambiará de zonas militares a zonas silvestres. Existirán puntos donde se crean power ups y paredes que interactuaran de manera distinta con las balas y jugadores.
 
  
 ## INTERFAZ
