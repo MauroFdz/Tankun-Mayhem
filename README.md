@@ -294,11 +294,8 @@ Tendrá un botón para volver a la pantalla de inicio y elementos que indican lo
 ### Pantalla de selección de tanque: 
 Se tendrá una barra con los personajes seleccionables disponibles, un elemento visual para indicar sus estadísticas, arte conceptual de personaje y un botón para seleccionar al personaje.
 
-![PantallaInicio](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/MenuIni.PNG)
+![PantallaInicio](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/SelectorPers.PNG)
  
-### Pantalla de selección de mapa: 
-Por desarrollar. Tendrá botones para seleccionar el mapa de manera similar a los tanques y un ejemplo visual del mapa.
-
 ### Pantalla de juego: 
 Contendrá la puntuación de ambos jugadores, un reloj y las estadísticas de ambos jugadores. Tendrá el mapa y los tanques de los jugadores, así como las paredes especificas de cada mapa y sus power ups.
 
