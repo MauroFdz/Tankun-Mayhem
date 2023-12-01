@@ -258,15 +258,12 @@ Resumen General del Mundo
 Mundo caótico militarizado donde se ven resultados de la guerra y como esta a afectado al ecosistema y ciudades donde tienen lugar las partidas.
 Personajes
 
-### "Tankun Mayhem" presenta tres personajes únicos:
+### "Tankun Mayhem" presenta dos personajes:
 
 Bell: Personaje estándar, puede tener más proyectiles en juego que cualquier otro héroe, pero estos solo rebotan 3 veces.
 
 Rebotín: Dispara proyectiles eléctricos que tienen una velocidad aumentada y rebotan hasta 7 veces en las paredes aumentando la velocidad a medida que chocan más veces.
 
-BigShot: Dispara tres proyectiles simultáneamente.
-
-●	Posibilidad de añadir más.
 
 ### Objetos
 El juego incluirá power-ups que proporcionan ventajas temporales, como escudos adicionales, puntuación extra y mejoras en las habilidades del tanque.
@@ -315,10 +312,7 @@ Se presentará al vencedor, y la puntuación final y global de ambos jugadores.
 ![PantallaVictoria](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Victoria.PNG)
 
 ## HUD
-*En desarrollo
 Se implementan elementos visuales con contraste entre negro, tonos metálicos y verde emisivo para los elementos de la interfaz.
-
-Se eliminarán elementos de adorno verdes para evitar confusión. 
 
 Ejemplos de elementos visuales:
 ![UsuarioCreditos](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Pantalla%20seleccion/creditos.png)
