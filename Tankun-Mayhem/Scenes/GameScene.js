@@ -50,7 +50,7 @@
 		
 		this.Hit_tank.play();
 		score1+=10;
-		this.score1Text.setText('Puntuación' + score1);
+		this.score1Text.setText('Puntuación: ' + score1);
 		bullet.destroy();
 	}
 	
