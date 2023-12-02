@@ -41,7 +41,7 @@
 	{
 		this.Hit_tank2.play();
 		score2+=10;
-		this.score2Text.setText('Score: ' + score2);
+		this.score2Text.setText('Puntuación:' + score2);
 		bullet.destroy();
 	}
 	
@@ -50,7 +50,7 @@
 		
 		this.Hit_tank.play();
 		score1+=10;
-		this.score1Text.setText('Score: ' + score1);
+		this.score1Text.setText('Puntuación:' + score1);
 		bullet.destroy();
 	}
 	
@@ -327,10 +327,10 @@ class GameScene extends Phaser.Scene
 		avion.setVelocity(0,-250);
 		
 		
-		this.score1Text = this.add.text(85, 635, 'score: 0', { fontSize: '32px', fill: '#03d92d' });
-		this.score2Text = this.add.text(1370,635, 'score: 0', { fontSize: '32px', fill: '#03d92d' });
+		this.score1Text = this.add.text(25, 635, 'Puntuación:0', { fontSize: '32px', fill: '#ff8c00' });
+		this.score2Text = this.add.text(1300,635, 'Puntuación:0', { fontSize: '32px', fill: '#ff8c00' });
 		this.startTime = new Date().getSeconds() + new Date().getMinutes()*60 + new Date().getHours()*3600;
-		this.timerText = this.add.text(780, 635,'', { fontSize: '32px', fill: '#03d92d' });
+		this.timerText = this.add.text(780, 635,'', { fontSize: '32px', fill: '#ff8c00' });
 			
 		
 	}

@@ -226,19 +226,17 @@ Núcleo de mecánicas de juego
 
 ## Flujo de Juego (estados de juego)
 
-Pantalla de Inicio: El jugador será recibido aquí. Tendrá la opción de acceder a la pantalla de créditos, pantall de ayuda y la pantalla de selección de tanque. Aqui se implementará la selección y creación de perfil.
+Pantalla de Inicio: El jugador será recibido aquí. Tendrá la opción de acceder a la pantalla de créditos, pantalla de ayuda y la pantalla de selección de tanque. Aquí se implementará la selección y creación de perfil.
 
 Pantalla de Créditos: Pantalla destinada a brindar reconocimiento  los autores. Solo se puede regresar a la pantalla de inicio.
 
 Pantalla de Ayuda; Pantalla destinada a brindar indicación visual de los controles empleados por cada jugdador.
 
-Pantalla de selección de Tanque: Aqui los jugadores podrán seleccionar los tanques con los que jugaran, ver sus estadísticas y habilidades. Aqui tambien podrán acceder al chat del lobby. De aquí se podrá volver al Inicio o a la pantalla de selección de mapa.
+Pantalla de selección de Tanque: Aquí los jugadores podrán seleccionar los tanques con los que jugaran, ver sus estadísticas y habilidades. Aquí también podrán acceder al chat del lobby. De aquí se podrá volver al Inicio o a la pantalla de selección de mapa.
 
-Pantalla de selección de Mapa: Pantalla no implementada en versión previa, se podrá ver el mapa a jugar y el chat del lobby. Se podrá regresar a la pantalla de selección de tanque y lanzar la partida.
+Pantalla de Partida: Pantalla donde ocurrirá el juego.
 
-Pantalla de Partida: Pantalla donde ocurrira el juego.
-
-Pantalla de Resolución: Aqui se presentará la conclusión de la partida, dando a conocer el ganador y los puntos totales de la partida y los globales del jugador.
+Pantalla de Resolución: Aquí se presentará la conclusión de la partida, dando a conocer el ganador y los puntos totales de la partida y los globales del jugador.
 
 Imagen de referencia obsoleta:
 ![Flujo](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Esquema.PNG)
@@ -249,7 +247,7 @@ Los jugadores pueden moverse en un plano bidimensional utilizando rotaciones par
 
 ## Controles
 
-Los jugadores tendrán el control total de sus tanques utilizando las teclas W, A, S y D para moverse en cualquier dirección. Tendrá un botón dedicado a disparar y un botón dedicado a activar la habilidad especial, asi como botones para rotar el cañon. En el caso del juego en modo local los controles del segundo jugador serán flechas direccionales de teclado, P y O para rotar el cañon e I para disparar.
+Los jugadores tendrán el control total de sus tanques utilizando las teclas W, A, S y D para moverse en cualquier dirección. Tendrá un botón dedicado a disparar y un botón dedicado a activar la habilidad especial, así como botones para rotar el cañón. En el caso del juego en modo local los controles del segundo jugador serán flechas direccionales de teclado, P y O para rotar el cañón e I para disparar.
 
  
 ## MUNDO DE JUEGO
@@ -258,15 +256,12 @@ Resumen General del Mundo
 Mundo caótico militarizado donde se ven resultados de la guerra y como esta a afectado al ecosistema y ciudades donde tienen lugar las partidas.
 Personajes
 
-### "Tankun Mayhem" presenta tres personajes únicos:
+### "Tankun Mayhem" presenta dos personajes:
 
 Bell: Personaje estándar, puede tener más proyectiles en juego que cualquier otro héroe, pero estos solo rebotan 3 veces.
 
 Rebotín: Dispara proyectiles eléctricos que tienen una velocidad aumentada y rebotan hasta 7 veces en las paredes aumentando la velocidad a medida que chocan más veces.
 
-BigShot: Dispara tres proyectiles simultáneamente.
-
-●	Posibilidad de añadir más.
 
 ### Objetos
 El juego incluirá power-ups que proporcionan ventajas temporales, como escudos adicionales, puntuación extra y mejoras en las habilidades del tanque.
@@ -276,7 +271,7 @@ Power ups:
 ·         Proyectiles: Permite hasta 1 proyectil extra.
 
 ### Áreas de Juego
-Niveles representados desde la vista cenital, donde el ambiente cambiará de zonas militares a sonas silvestres. Exisitrán puntos donde se crean power ups y paredes que interactuaran de manera distinta con las balas y jugadores.
+Niveles representados desde la vista cenital, donde el ambiente cambiará de zonas militares a zonas silvestres. Existirán puntos donde se crean power ups y paredes que interactuaran de manera distinta con las balas y jugadores.
 
  
 ## INTERFAZ
@@ -299,11 +294,8 @@ Tendrá un botón para volver a la pantalla de inicio y elementos que indican lo
 ### Pantalla de selección de tanque: 
 Se tendrá una barra con los personajes seleccionables disponibles, un elemento visual para indicar sus estadísticas, arte conceptual de personaje y un botón para seleccionar al personaje.
 
-![PantallaInicio](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/MenuIni.PNG)
+![PantallaInicio](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/SelectorPers.PNG)
  
-### Pantalla de selección de mapa: 
-Por desarrollar. Tendrá botones para seleccionar el mapa de manera similar a los tanques y un ejemplo visual del mapa.
-
 ### Pantalla de juego: 
 Contendrá la puntuación de ambos jugadores, un reloj y las estadísticas de ambos jugadores. Tendrá el mapa y los tanques de los jugadores, así como las paredes especificas de cada mapa y sus power ups.
 
@@ -315,10 +307,7 @@ Se presentará al vencedor, y la puntuación final y global de ambos jugadores.
 ![PantallaVictoria](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Victoria.PNG)
 
 ## HUD
-*En desarrollo
 Se implementan elementos visuales con contraste entre negro, tonos metálicos y verde emisivo para los elementos de la interfaz.
-
-Se eliminarán elementos de adorno verdes para evitar confusión. 
 
 Ejemplos de elementos visuales:
 ![UsuarioCreditos](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Pantalla%20seleccion/creditos.png)
