@@ -64,8 +64,24 @@
 		if(bullet.contador <= 0){
 			bullet.destroy();
 		}
+
+		
 	}
-	
+	function hitWallB(bullet, wallB)
+	{
+		if(bullet.id == 1){
+			bullet.setScale(1-(1/bullet.contador));
+			//bullet.setBounce(bullet.bounce*2.5);
+		}
+		bullet.contador--;
+		if(bullet.contador <= 0){
+			bullet.destroy();
+		}
+
+			wallB.disableBody(true, true);
+
+		
+	}
 	function hitBullet (bullet1, bullet2)
 	{
 		
@@ -92,8 +108,9 @@ class GameScene extends Phaser.Scene
 	{
 		this.load.image('Map', '../assets/Maps/Map_1/Map.png');
 		this.load.image('brick', "assets/Tiles/brick4.png");
-		this.load.image('brick2', "assets/Tiles/brick3.png");
-		this.load.image('brick5', "assets/Tiles/brick6.png");
+		this.load.image('brick2', "assets/Tiles/brick2.png");
+		this.load.image('brick3', "assets/Tiles/brick3.png");
+		this.load.image('brick5', "assets/Tiles/brick5.png");
 		
 		this.load.image('tank1', tank1.src);
 		this.load.image('cannon1', tank1.cannon);
@@ -154,39 +171,103 @@ class GameScene extends Phaser.Scene
 		this.add.image(800, 650, 'barraScore');
 
 		var wall = this.physics.add.staticGroup();
+		var wallB = this.physics.add.staticGroup();
 		//WALLS LATERALES
 		for(var x = 1; x<=9*sizebrick; x+=sizebrick/2){
-		wall.create(1585, 44+x, 'brick2');
+
+		wall.create(1585, 44+x, 'brick3');
+		
 		}for(var x = 1; x<=9*sizebrick; x+=sizebrick/2){
-		wall.create(15, 44+x, 'brick2');
+
+		wall.create(15, 44+x, 'brick3');
+		
 		}
 		for(var x = 1; x<=27*sizebrick; x+=sizebrick){
+
 			wall.create(30+x, 15, 'brick');
+			
 		}
 		for(var x = 1; x<=27*sizebrick; x+=sizebrick){
+
 			wall.create(30+x, 585, 'brick');
+			
 		}
 		//BARRERAS
 			//ABAJO
 			for(var x = 1; x<10*sizebrick; x+=2.5*sizebrick){
-				wall.create(945+x, 420, 'brick5');
+
+				wallB.create(945+x, 420, 'brick5');
+				
+				
 			}
 			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
-				wall.create(202+x, 420, 'brick5');
+
+				wallB.create(202+x, 420, 'brick5');
+				
 			}
 	
 			//CENTRAL
 			for(var x = 1; x<=20*sizebrick; x+=sizebrick*4){
-				if(x!=481)wall.create(322+x, 300, 'brick2');
+
+				if(x!=481)wallB.create(322+x, 300, 'brick2');
+				
 			}
 			//ARRIBA
 			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
-				wall.create(202+x, 180, 'brick5');
+
+				wallB.create(202+x, 180, 'brick5');
+				
 			}
 			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
-				wall.create(945+x, 180, 'brick5');
+
+				wallB.create(945+x, 180, 'brick5');
+				
 			}
-		
+			
+			//ARRIBA Irrompible
+			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+
+				wall.create(202+x, 140, 'brick3');
+				
+			}
+			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+
+				wall.create(945+x, 140, 'brick3');
+				
+			}
+			
+			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+
+				wall.create(202+x, 220, 'brick3');
+				
+			}
+			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+
+				wall.create(945+x, 220, 'brick3');
+				
+			}
+		//ABAJO Irrompible
+			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+
+				wall.create(202+x, 380, 'brick3');
+				
+			}
+			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+
+				wall.create(945+x, 380, 'brick3');
+				
+			}
+			
+			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+
+				wall.create(202+x, 460, 'brick3');
+				
+			}
+			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+
+				wall.create(945+x, 460, 'brick3');
+				
+			}
 		
 	
 		// The player and its settings
@@ -220,10 +301,14 @@ class GameScene extends Phaser.Scene
 		//  Collide the player and the stars with the platforms
 		this.physics.add.collider(player1, wall);
 		this.physics.add.collider(player2, wall);
+		this.physics.add.collider(player1, wallB);
+		this.physics.add.collider(player2, wallB);
 		this.physics.add.collider(player1, player2);
 		//this.physics.add.collider(stars, platforms);
 		this.physics.add.collider(tank1.bullets, wall,hitWall, null, this);
 		this.physics.add.collider(tank2.bullets, wall,hitWall, null, this);
+		this.physics.add.collider(tank1.bullets, wallB,hitWallB, null, this);
+		this.physics.add.collider(tank2.bullets, wallB,hitWallB, null, this);
 		this.physics.add.collider(tank2.bullets, tank1.bullets,hitBullet, null, this);
 			
 		//  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
