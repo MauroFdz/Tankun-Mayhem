@@ -142,17 +142,7 @@ Para garantizar una experiencia online completa se implementarán funciones diri
 
 * Actuualización de los disparos de los personajes.
 
-* Actualización del uso de habilidades de los personajes.
-
-* Actualización de cambios en el mapa.
-
-* Actualización de la creación de power ups.
-
-* Actualización de los efectos de los power ups.
-
 * Actualización de información relevante como la vida y el tiempo.
-
-* Capacidad de pausar el videojuego.
 
 * Representación de la puntuacion final de la partida y lobby actual.
 
@@ -222,6 +212,8 @@ Núcleo de mecánicas de juego
 ●	El juego se centra en acumular la mayor cantidad de puntos en los 2 minutos que dura una partida. Los jugadores deben alternar entre jugar a la defensiva, negar power-ups y cazar al jugador enemigo para ganar puntos.
 
 ●	El jugador deberá reaccionar  a un oponente humano y planificar para derrotarlo.
+
+●	El jugador deberá reaccionar  a cambios en el mapa debido a la destrucción de paredes.
 
 
 ## Flujo de Juego (estados de juego)
@@ -339,7 +331,7 @@ El estilo artístico de "Tankun Mayhem" combina elementos caricaturescos con inf
     
 ## AUDIO
 
-Los efectos de sonido serán caricaturescos y breves, evitando saturar al jugador con ruidos innecesarios. Cada habilidad y power-up tendrá su propio sonido distintivo. 
+Los efectos de sonido serán caricaturescos y breves, evitando saturar al jugador con ruidos innecesarios. Cada habilidad y power-up tendrá su propio sonido distintivo. Se ha creado audio propio.
 
 ## ANEXOS
 Diagrama de flujo:
