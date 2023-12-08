@@ -31,7 +31,7 @@ class GameOverScene extends Phaser.Scene {
 		this.gameoverJug2 = this.add.image(1300, 350, "gameoverJug2");	
 		
 		this.text1 = this.add.text(425, 365,score1, { fontSize: '50px', fill: '#6eff99' });
-		this.text2 = this.add.text(1425,365,+ score2, { fontSize: '50px', fill: '#6eff99' });
+		this.text2 = this.add.text(1425,365,score2, { fontSize: '50px', fill: '#6eff99' });
 		//this.Salir = this.add.image(1300, 640, "Salir");
 		
 		//this.textVic = this.add.text(config.width/2, config.height/2, 'hola', { fontSize: '32px', fill: '#00ff00' });

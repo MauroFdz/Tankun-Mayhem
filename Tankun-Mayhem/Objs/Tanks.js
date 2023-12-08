@@ -10,7 +10,7 @@ class TankRush
 		this.cannonRot=3;
 		this.bulletSpeed=200;
 		this.bulletReb=4;
-		this.cooldown=50;
+		this.cooldown=2.5;
 		this.sound= '../assets/Sounds/P_shot.mp3';
 		this.bounce=1;
 		this.bulletPower=0;
@@ -29,7 +29,7 @@ class TankFuture
 		this.cannonRot=2;
 		this.bulletSpeed=150;
 		this.bulletReb=9;
-		this.cooldown=170;
+		this.cooldown=4;
 		this.sound= '../assets/Sounds/R_shot.mp3';
 		this.bounce=1.25;
 		this.bulletPower=1;

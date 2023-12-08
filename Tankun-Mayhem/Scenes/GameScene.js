@@ -1,39 +1,6 @@
-
-	var player1;
-	var player2;
-	var stars;
-	var bullets;
-	var cursors;
-	var keyA
-	var keyD
-	var keyS
-	var keyW
-	
-	var keyC
-	var keyV
-	var keyB
-	
-	var keyI
-	var keyO
-	var keyP
-	
-	var zeppelin;
-	var avion;
-	
-	
-	
-	var platforms;
 	var score1 = 0;
 	var score2 = 0;
-	var gameOver = false;
-	var cannonSpeed=3;
-	var tankSpeed=160;
-	var cannon1;
-	var cannon2;
-	var bullets1;
-	var bullets2;
 	var sizebrick = 60
-	var dirty = false;
 	
 	
 	
@@ -149,19 +116,18 @@ class GameScene extends Phaser.Scene
 		//  A simple background for our game
   
 		// Controles personalizados player 1.
-		keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-		keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-		keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-		keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+		this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+		this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+		this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+		this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
 		
-		keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);//player1 rotate izq
-		keyV = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.V);//player1 fire
-		keyB = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.B);//player1 rotate der
+		this.keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);//player1 rotate izq
+		this.keyV = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.V);//player1 fire
+		this.keyB = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.B);//player1 rotate der
 		
-		keyI = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);//player2 rotate izq
-		keyO = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.O);//player2 fire
-		keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);//player2 rotate der
-		
+		this.keyI = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);//player2 rotate izq
+		this.keyO = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.O);//player2 fire
+		this.keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);//player2 rotate der
 		
 		
 		// MAPA
@@ -271,23 +237,23 @@ class GameScene extends Phaser.Scene
 		
 	
 		// The player and its settings
-			player1 = this.physics.add.sprite(100, 300, 'tank1');
-		cannon1 =this.physics.add.sprite(100, 450, 'cannon1');
-		cannon1.setOrigin(0.5,0.75);
+		this.player1 = this.physics.add.sprite(100, 300, 'tank1');
+		this.cannon1 =this.physics.add.sprite(100, 450, 'cannon1');
+		this.cannon1.setOrigin(0.5,0.75);
 		
 		//  Player physics properties. Give the little guy a slight bounce.
-		player1.setCollideWorldBounds(true);
+		this.player1.setCollideWorldBounds(true);
 		
 		//  Input Events
-		cursors = this.input.keyboard.createCursorKeys();
+		this.cursors = this.input.keyboard.createCursorKeys();
 			
-		player2 = this.physics.add.sprite(500, 450, 'tank2');
-		cannon2 =this.physics.add.sprite(500, 450, 'cannon2');
-			player2.setPosition(1500,300);
+		this.player2 = this.physics.add.sprite(500, 450, 'tank2');
+		this.cannon2 =this.physics.add.sprite(500, 450, 'cannon2');
+		this.player2.setPosition(1500,300);
 			
-		player2.setCollideWorldBounds(true);
-		player2.lastShot=0;
-		player1.lastShot=0;
+		this.player2.setCollideWorldBounds(true);
+		this.player2.lastShot=(new Date()).getTime() / 1000;
+		this.player1.lastShot=(new Date()).getTime() / 1000;
 		
 		
 		tank1.bullets = this.physics.add.group();
@@ -297,39 +263,34 @@ class GameScene extends Phaser.Scene
 		
 		//  The score
 			
-			
-		//  Collide the player and the stars with the platforms
-		this.physics.add.collider(player1, wall);
-		this.physics.add.collider(player2, wall);
-		this.physics.add.collider(player1, wallB);
-		this.physics.add.collider(player2, wallB);
-		this.physics.add.collider(player1, player2);
-		//this.physics.add.collider(stars, platforms);
+		this.physics.add.collider(this.player1, wall);
+		this.physics.add.collider(this.player2, wall);
+		this.physics.add.collider(this.player1, wallB);
+		this.physics.add.collider(this.player2, wallB);
+		this.physics.add.collider(this.player1, this.player2);
 		this.physics.add.collider(tank1.bullets, wall,hitWall, null, this);
 		this.physics.add.collider(tank2.bullets, wall,hitWall, null, this);
 		this.physics.add.collider(tank1.bullets, wallB,hitWallB, null, this);
 		this.physics.add.collider(tank2.bullets, wallB,hitWallB, null, this);
 		this.physics.add.collider(tank2.bullets, tank1.bullets,hitBullet, null, this);
 			
-		//  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
-		//this.physics.add.overlap(player, stars, collectStar, null, this);
 		
-		this.physics.add.collider(player1, tank2.bullets, hitBullet1, null, this);
-		this.physics.add.collider(player2, tank1.bullets, hitBullet2, null, this);
+		this.physics.add.collider(this.player1, tank2.bullets, hitBullet1, null, this);
+		this.physics.add.collider(this.player2, tank1.bullets, hitBullet2, null, this);
 		
 		this.add.image(800, 300, 'Shade1');	
 		
 		
-		zeppelin = this.physics.add.sprite(500, 650, 'Shade1Zep');
-		zeppelin.setVelocity(6,-5);
+		this.zeppelin = this.physics.add.sprite(500, 650, 'Shade1Zep');
+		this.zeppelin.setVelocity(6,-5);
 	
-		avion = this.physics.add.sprite(800, 650, 'Plane');
-		avion.setVelocity(0,-250);
+		this.avion = this.physics.add.sprite(800, 650, 'Plane');
+		this.avion.setVelocity(0,-250);
 		
 		
 		this.score1Text = this.add.text(25, 635, 'Puntuación:0', { fontSize: '32px', fill: '#ff8c00' });
 		this.score2Text = this.add.text(1300,635, 'Puntuación:0', { fontSize: '32px', fill: '#ff8c00' });
-		this.startTime = new Date().getSeconds() + new Date().getMinutes()*60 + new Date().getHours()*3600;
+		this.startTime = (new Date()).getTime() / 1000;
 		this.timerText = this.add.text(780, 635,'', { fontSize: '32px', fill: '#ff8c00' });
 			
 		
@@ -337,50 +298,46 @@ class GameScene extends Phaser.Scene
 	update ()
 	{
 
-		if (gameOver)
-		{
-			
-			return;
-		}
-		
-		if (keyA.isDown)
+		if (this.keyA.isDown)
 		{				
-			player1.angle-=tank1.tankRot;
-			
+			this.player1.angle-=tank1.tankRot;
 		}
-		if (keyD.isDown)
+		if (this.keyD.isDown)
 		{		
-			player1.angle+=tank1.tankRot;
+			this.player1.angle+=tank1.tankRot;
 		}
 		
-		if (keyW.isDown)
+		if (this.keyW.isDown)
 		{
-			player1.setVelocity(Math.sin(player1.rotation)*tank1.tankSpeed,-Math.cos(player1.rotation)*tank1.tankSpeed);	
+			this.player1.setVelocity(Math.sin(this.player1.rotation)*tank1.tankSpeed,-Math.cos(this.player1.rotation)*tank1.tankSpeed);
+			this.cannon1.setPosition(this.player1.x,this.player1.y);
 		} 
-		 else if (keyS.isDown)
+		 else if (this.keyS.isDown)
 		{			
-			player1.setVelocity(-Math.sin(player1.rotation)*tank1.tankSpeed,Math.cos(player1.rotation)*tank1.tankSpeed);	
+			this.player1.setVelocity(-Math.sin(this.player1.rotation)*tank1.tankSpeed,Math.cos(this.player1.rotation)*tank1.tankSpeed);
+			this.cannon1.setPosition(this.player1.x,this.player1.y);	
 		}
 		else
 		{
-			player1.setVelocity(0,0);	
+			this.player1.setVelocity(0,0);
+			this.cannon1.setPosition(this.player1.x,this.player1.y);		
 		}
 		//Rotacion cannon 1
-		if (keyC.isDown)
+		if (this.keyC.isDown)
 		{
-			cannon1.angle-=cannonSpeed;
+			this.cannon1.angle-=tank1.cannonRot;
 	
 		} 
-		if (keyB.isDown)
+		if (this.keyB.isDown)
 		{
-			cannon1.angle+=cannonSpeed;
+			this.cannon1.angle+=tank1.cannonRot;
 		}
 		
 		//Disparo player 1
-		if (keyV.isDown&&player1.lastShot<=0)
+		if (this.keyV.isDown&&this.player1.lastShot<(new Date()).getTime() / 1000)
 		{	
 			this.disparo_P.play();
-			var bullet = tank1.bullets.create(player1.x,player1.y,'Bala_sher');
+			var bullet = tank1.bullets.create(this.player1.x,this.player1.y,'Bala_sher');
 			
 			bullet.contador = tank1.bulletReb;
 			
@@ -389,72 +346,68 @@ class GameScene extends Phaser.Scene
 			
 			bullet.id=tank1.bulletPower;
 			
-			bullet.setVelocity(Math.sin(cannon1.rotation)*250,-Math.cos(cannon1.rotation)*250);
-			player1.lastShot=tank1.cooldown;
+			this.player1.lastShot=((new Date()).getTime() / 1000)+tank1.cooldown;
+			bullet.setVelocity(Math.sin(this.cannon1.rotation)*250,-Math.cos(this.cannon1.rotation)*250);
 		}
-		player1.lastShot--;
-		cannon1.setPosition(player1.x,player1.y);
 		
 		
 		//Inputs player 2
-		if (cursors.left.isDown)
+		if (this.cursors.left.isDown)
 		{				
-			player2.angle-=tank2.tankRot;
+			this.player2.angle-=tank2.tankRot;
 			
 		}
-		if (cursors.right.isDown)
+		if (this.cursors.right.isDown)
 		{		
-			player2.angle+=tank2.tankRot;
+			this.player2.angle+=tank2.tankRot;
 		}
 		
 		
-		if (cursors.up.isDown)
+		if (this.cursors.up.isDown)
 		{
-			player2.setVelocity(Math.sin(player2.rotation)*tank2.tankSpeed,-Math.cos(player2.rotation)*tank2.tankSpeed);	
+			this.player2.setVelocity(Math.sin(this.player2.rotation)*tank2.tankSpeed,-Math.cos(this.player2.rotation)*tank2.tankSpeed);	
 		} 
-		else if (cursors.down.isDown)
+		else if (this.cursors.down.isDown)
 		{			
-			player2.setVelocity(-Math.sin(player2.rotation)*tank2.tankSpeed,Math.cos(player2.rotation)*tank2.tankSpeed);		
+			this.player2.setVelocity(-Math.sin(this.player2.rotation)*tank2.tankSpeed,Math.cos(this.player2.rotation)*tank2.tankSpeed);		
 		}
 		else
 		{
-			player2.setVelocity(0,0);
+			this.player2.setVelocity(0,0);
 		}
 		//Rotacion cannon 2
-		if (keyI.isDown)
+		if (this.keyI.isDown)
 		{
-			cannon2.angle-=tank2.cannonRot;	
+			this.cannon2.angle-=tank2.cannonRot;	
 		} 
-		if (keyP.isDown)
+		if (this.keyP.isDown)
 		{
-			cannon2.angle+=tank2.cannonRot;
+			this.cannon2.angle+=tank2.cannonRot;
 		}	
 		
 		//Disparo player 2
-		if (keyO.isDown&&player2.lastShot<=0)
+		if (this.keyO.isDown&&this.player2.lastShot<(new Date()).getTime() / 1000)
 		{
 			this.disparo_R.play();
 			
-			var bullet = tank2.bullets.create(player2.x,player2.y,'Bala_futuro');
+			var bullet = tank2.bullets.create(this.player2.x,this.player2.y,'Bala_futuro');
 			
 			bullet.contador = tank2.bulletReb;
 			
-			player2.lastShot=tank2.cooldown;
+			this.player2.lastShot=((new Date()).getTime() / 1000)+tank2.cooldown;
 			
 			bullet.setBounce(tank2.bounce);
 			bullet.id=tank2.bulletPower;
 			
-			bullet.setVelocity(Math.sin(cannon2.rotation)*500,-Math.cos(cannon2.rotation)*500);
+			bullet.setVelocity(Math.sin(this.cannon2.rotation)*500,-Math.cos(this.cannon2.rotation)*500);
 			
 		}
-		player2.lastShot--;
-		cannon2.setPosition(player2.x,player2.y);
+		this.cannon2.setPosition(this.player2.x,this.player2.y);
 		
-		this.time = this.startTime + 60 -(new Date().getSeconds() + new Date().getMinutes()*60 + new Date().getHours()*3600);
+		this.time = parseInt(this.startTime + 60 -(new Date()).getTime() / 1000);
 		this.timerText.setText(this.time);
 		if(this.time<=0)
 		{
-			
 			this.scene.start("GameOver");
 			J_musica.stop();
 
