@@ -1,6 +1,5 @@
-	var score1 = 0;
-	var score2 = 0;
-	var sizebrick = 60
+	let score1 = 0;
+	let score2 = 0;
 	
 	
 	
@@ -70,7 +69,6 @@ class GameScene extends Phaser.Scene
 		super({key: "GameScene"});
 	}
 	
-	
 	preload ()
 	{
 		this.load.image('Map', '../assets/Maps/Map_1/Map.png');
@@ -110,7 +108,7 @@ class GameScene extends Phaser.Scene
 		//Añadir audios
 		this.disparo_P = this.sound.add('P_shot');
 		this.disparo_R = this.sound.add('R_shot');
-		this.hit_muro = this.sound.add('Hit_wall');
+		const hit_muro = this.sound.add('Hit_wall');
 		this.Hit_tank = this.sound.add('Hit_tank');
 		this.Hit_tank2 = this.sound.add('Hit_tank2');
 		//  A simple background for our game
@@ -136,100 +134,101 @@ class GameScene extends Phaser.Scene
 		//Barra Inferior
 		this.add.image(800, 650, 'barraScore');
 
-		var wall = this.physics.add.staticGroup();
-		var wallB = this.physics.add.staticGroup();
+		let wall = this.physics.add.staticGroup();
+		let wallB = this.physics.add.staticGroup();
+		let x=1;
 		//WALLS LATERALES
-		for(var x = 1; x<=9*sizebrick; x+=sizebrick/2){
+		for(x = 1; x<=9*60; x+=60/2){
 
 		wall.create(1585, 44+x, 'brick3');
 		
-		}for(var x = 1; x<=9*sizebrick; x+=sizebrick/2){
+		}for(x = 1; x<=9*60; x+=60/2){
 
 		wall.create(15, 44+x, 'brick3');
 		
 		}
-		for(var x = 1; x<=27*sizebrick; x+=sizebrick){
+		for(x = 1; x<=27*60; x+=60){
 
 			wall.create(30+x, 15, 'brick');
 			
 		}
-		for(var x = 1; x<=27*sizebrick; x+=sizebrick){
+		for(x = 1; x<=27*60; x+=60){
 
 			wall.create(30+x, 585, 'brick');
 			
 		}
 		//BARRERAS
 			//ABAJO
-			for(var x = 1; x<10*sizebrick; x+=2.5*sizebrick){
+			for( x = 1; x<10*60; x+=2.5*60){
 
 				wallB.create(945+x, 420, 'brick5');
 				
 				
 			}
-			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+			for( x = 1; x<=10*60; x+=2.5*60){
 
 				wallB.create(202+x, 420, 'brick5');
 				
 			}
 	
 			//CENTRAL
-			for(var x = 1; x<=20*sizebrick; x+=sizebrick*4){
+			for( x = 1; x<=20*60; x+=60*4){
 
 				if(x!=481)wallB.create(322+x, 300, 'brick2');
 				
 			}
 			//ARRIBA
-			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+			for(x = 1; x<=10*60; x+=2.5*60){
 
 				wallB.create(202+x, 180, 'brick5');
 				
 			}
-			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+			for(x = 1; x<=10*60; x+=2.5*60){
 
 				wallB.create(945+x, 180, 'brick5');
 				
 			}
 			
 			//ARRIBA Irrompible
-			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+			for(x = 1; x<=10*60; x+=2.5*60){
 
 				wall.create(202+x, 140, 'brick3');
 				
 			}
-			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+			for(x = 1; x<=10*60; x+=2.5*60){
 
 				wall.create(945+x, 140, 'brick3');
 				
 			}
 			
-			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+			for(x = 1; x<=10*60; x+=2.5*60){
 
 				wall.create(202+x, 220, 'brick3');
 				
 			}
-			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+			for(x = 1; x<=10*60; x+=2.5*60){
 
 				wall.create(945+x, 220, 'brick3');
 				
 			}
 		//ABAJO Irrompible
-			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+			for(x = 1; x<=10*60; x+=2.5*60){
 
 				wall.create(202+x, 380, 'brick3');
 				
 			}
-			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+			for(x = 1; x<=10*60; x+=2.5*60){
 
 				wall.create(945+x, 380, 'brick3');
 				
 			}
 			
-			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+			for(x = 1; x<=10*60; x+=2.5*60){
 
 				wall.create(202+x, 460, 'brick3');
 				
 			}
-			for(var x = 1; x<=10*sizebrick; x+=2.5*sizebrick){
+			for(x = 1; x<=10*60; x+=2.5*60){
 
 				wall.create(945+x, 460, 'brick3');
 				
@@ -404,7 +403,7 @@ class GameScene extends Phaser.Scene
 		}
 		this.cannon2.setPosition(this.player2.x,this.player2.y);
 		
-		this.time = parseInt(this.startTime + 60 -(new Date()).getTime() / 1000);
+		this.time = parseInt(this.startTime + 10 -(new Date()).getTime() / 1000);
 		this.timerText.setText(this.time);
 		if(this.time<=0)
 		{

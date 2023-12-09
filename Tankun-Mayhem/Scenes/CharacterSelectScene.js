@@ -1,12 +1,7 @@
-var Char1;
-var Char2;
-var Char3;
-var Seleccionar;
-var Volver;
+
 var tank1;
 var tank2;
-var J_musica;
-var hanJugado = false;
+var J_musica; //Si es global, se usa en GameScene
 
 class CharSelect extends Phaser.Scene {
 	constructor(){
@@ -32,18 +27,16 @@ class CharSelect extends Phaser.Scene {
 	}
 	
 	create() {
-		this.fondo2 = this.add.image(0, 0, "fondo2");
-		this.fondo2.setOrigin(0, 0);
-		
-		this.Selector = this.add.image(530, 500, "Selector");		
-		this.Splash1 = this.add.image(2000, 1000, "Splash1");
-		this.Splash2 = this.add.image(2000, 2000, "Splash2");
+		const fondo2 = this.add.image(0, 0, "fondo2").setOrigin(0, 0);
+		const Selector = this.add.image(530, 500, "Selector");		
+		let Splash1 = this.add.image(2000, 1000, "Splash1");
+		let Splash2 = this.add.image(2000, 2000, "Splash2");
 		this.Manio = this.add.image(1300, 350, "Manio");
-		Seleccionar = this.add.image(925, 640, "Selec");
-		Volver = this.add.image(130, 645, "volver");
-		Char1 = this.add.image(115, 500, "Char1");
-		Char2 = this.add.image(265, 500, "Char2");
-		Char3 = this.add.image(415, 500, "Char3");
+		let Seleccionar = this.add.image(925, 640, "Selec");
+		let Volver = this.add.image(130, 645, "volver");
+		let Char1 = this.add.image(115, 500, "Char1");
+		let Char2 = this.add.image(265, 500, "Char2");
+		let Char3 = this.add.image(415, 500, "Char3");
 		J_musica= this.sound.add('J_musica');
 		this.selected=-1;
 		Char1.setInteractive();
@@ -53,15 +46,15 @@ class CharSelect extends Phaser.Scene {
 		Volver.setInteractive();
 		
 		Char1.on("pointerdown", ()=>{
-			this.Splash2.setPosition(2000, 2000);
-			this.Splash1.setPosition(700, 250);
+			Splash2.setPosition(2000, 2000);
+			Splash1.setPosition(700, 250);
 			this.Manio = this.add.image(1300, 350, "Manio1");
 			this.selected=0;
 		})
 		
 		Char2.on("pointerdown", ()=>{
-			this.Splash1.setPosition(2000, 2000);
-			this.Splash2.setPosition(700, 250);
+			Splash1.setPosition(2000, 2000);
+			Splash2.setPosition(700, 250);
 			this.Manio = this.add.image(1300, 350, "Manio2");
 			this.selected=1;
 		})
@@ -82,7 +75,6 @@ class CharSelect extends Phaser.Scene {
 					this.scene.start("GameScene");
 					J_musica.play();
 					J_musica.volume=0.1;
-					hanJugado = true;
 				break;
 				
 				case 1:
@@ -91,7 +83,6 @@ class CharSelect extends Phaser.Scene {
 					this.scene.start("GameScene");
 					J_musica.play();
 					J_musica.volume=0.1;
-					hanJugado = true;
 				break;
 				
 			}

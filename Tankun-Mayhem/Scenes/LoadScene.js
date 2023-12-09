@@ -9,11 +9,11 @@ class LoadScene extends Phaser.Scene {
 	}
 	create(){
 		
-		this.Ayuda = this.add.image(800, 350, "Creditos");	
-		this.Volver = this.add.image(800, 640, "Volver");	
-		this.Volver.setInteractive();		
+		const creditos = this.add.image(800, 350, "Creditos");	
+		const Volver = this.add.image(800, 640, "Volver");	
+		Volver.setInteractive();		
 		
-		this.Volver.on("pointerdown", ()=>{			
+		Volver.on("pointerdown", ()=>{			
 				this.scene.start("Menu");			
 		})
 		

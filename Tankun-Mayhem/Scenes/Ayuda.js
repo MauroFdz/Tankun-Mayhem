@@ -14,11 +14,11 @@ class Ayuda extends Phaser.Scene {
 		//this.add.text(20,20,"Work in progress :D");
 		//this.scene.start("Menu");
 		
-		this.Ayuda = this.add.image(800, 350, "Ayuda");	
-		this.Volver = this.add.image(800, 640, "Volver");	
-		this.Volver.setInteractive();		
+		const Ayuda = this.add.image(800, 350, "Ayuda");	
+		const Volver = this.add.image(800, 640, "Volver");	
+		Volver.setInteractive();		
 		
-		this.Volver.on("pointerdown", ()=>{			
+		Volver.on("pointerdown", ()=>{			
 				this.scene.start("Menu");			
 		})
 		

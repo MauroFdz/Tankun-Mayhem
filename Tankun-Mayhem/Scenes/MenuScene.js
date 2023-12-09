@@ -1,6 +1,3 @@
-var jugar;
-var ayuda;
-var creditos;
 
 class MenuScene extends Phaser.Scene {
 	constructor(){
@@ -24,26 +21,16 @@ class MenuScene extends Phaser.Scene {
 		
 		this.fondo = this.add.image(0, 0, "fondo");
 		this.fondo.setOrigin(0, 0);
-		jugar = this.add.image(config.width/2, 300, "jugar");
-		ayuda = this.add.image(config.width/2, 400, "ayuda");
-		creditos = this.add.image(config.width/2, 500, "creditos");
-		
-		jugar.setInteractive();
-		ayuda.setInteractive();
-		creditos.setInteractive();
-		
-		jugar.on("pointerdown", ()=>{
+		const jugar = this.add.image(config.width/2, 300, "jugar").setInteractive().on("pointerdown", ()=>{
 			this.scene.start("CharSelect");
 			this.M_musica.stop();
 			
 		})
-		
-		ayuda.on("pointerdown", ()=>{
+		const ayuda = this.add.image(config.width/2, 400, "ayuda").setInteractive().on("pointerdown", ()=>{
 			this.scene.start("Ayuda");
 			this.M_musica.stop();
 		})
-		
-		creditos.on("pointerdown", ()=>{
+		const creditos = this.add.image(config.width/2, 500, "creditos").setInteractive().on("pointerdown", ()=>{
 			this.scene.start("MCredito");
 			this.M_musica.stop();
 		})
