@@ -13,6 +13,10 @@ const config = {
             debug: false
         }
     },
+    fps: {
+  		target: 24,
+  		forceSetTimeOut: true
+	},
     scene: [MenuScene, LoadScene, CharSelect, GameScene, GameOverScene, Ayuda]
 };
 

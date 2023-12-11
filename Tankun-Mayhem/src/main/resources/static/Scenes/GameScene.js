@@ -91,8 +91,8 @@ class GameScene extends Phaser.Scene
 		
 		//carga de balas y sombras
 		this.load.image('Shade1', '../assets/Maps/Map_1/Map_1_shade.png');
-		this.load.image('Shade1Zep', '../assets/Maps/Map_1/Map_1_zep.png');
-		this.load.image('Plane', '../assets/Maps/Map_1/Avion.png');
+		//this.load.image('Shade1Zep', '../assets/Maps/Map_1/Map_1_zep.png');
+		//this.load.image('Plane', '../assets/Maps/Map_1/Avion.png');
 	
 		//carga de assests audios
 		this.load.audio('P_shot',tank1.sound);
@@ -280,11 +280,11 @@ class GameScene extends Phaser.Scene
 		this.add.image(800, 300, 'Shade1');	
 		
 		
-		this.zeppelin = this.physics.add.sprite(500, 650, 'Shade1Zep');
-		this.zeppelin.setVelocity(6,-5);
+		//this.zeppelin = this.physics.add.sprite(500, 650, 'Shade1Zep');
+		//this.zeppelin.setVelocity(6,-5);
 	
-		this.avion = this.physics.add.sprite(800, 650, 'Plane');
-		this.avion.setVelocity(0,-250);
+		//this.avion = this.physics.add.sprite(800, 650, 'Plane');
+		//this.avion.setVelocity(0,-250);
 		
 		
 		this.score1Text = this.add.text(25, 635, 'Puntuación:0', { fontSize: '32px', fill: '#ff8c00' });
