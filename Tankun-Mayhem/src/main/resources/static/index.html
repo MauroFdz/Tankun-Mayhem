@@ -13,15 +13,29 @@
 			color: white;
 		}
     </style>
-<script src="Scenes/MenuScene.js"></script>
-<script src="Scenes/LoadScene.js"></script>
-<script src="Objs/Tanks.js"></script>
-<script src="Scenes/CharacterSelectScene.js"></script>
-<script src="Scenes/GameScene.js"></script>
-<script src="Scenes/GameOverScene.js"></script>
-<script src="Scenes/Ayuda.js"></script>
-<script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+	<script src="Scenes/MenuScene.js"></script>
+	<script src="Scenes/LoadScene.js"></script>
+	<script src="Objs/Tanks.js"></script>
+	<script src="Scenes/CharacterSelectScene.js"></script>
+	<script src="Scenes/GameScene.js"></script>
+	<script src="Scenes/GameOverScene.js"></script>
+	<script src="Scenes/SocialScene.js"></script>
+	<script src="Scenes/Ayuda.js"></script>
+	<script src="index.js"></script>
 </head>
 <body>
+<div id="login">
+ <input type="text" id="usuario" placeholder="Usuario"/>
+ <input type="password" id="contraseña" placeholder="Contraseña"/>
+ <br>
+ <button id="init">Iniciar sesión</button>
+ <button id="create">Crear usuario</button>
+ <button id="delete">Borrar usuario</button>
+</div>
+<div id="chat">
+ <input type="text" id="chatText" placeholder="Mensaje..."/>
+ <button id="chatSend">Enviar</button>
+</div>
 </body>
 </html>

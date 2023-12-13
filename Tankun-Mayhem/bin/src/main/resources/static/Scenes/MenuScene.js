@@ -34,9 +34,5 @@ class MenuScene extends Phaser.Scene {
 			this.scene.start("MCredito");
 			this.M_musica.stop();
 		})
-		const social = this.add.image(config.width/2, 600, "creditos").setInteractive().on("pointerdown", ()=>{
-			this.scene.start("Social");
-			this.M_musica.stop();
-		})
 	}
 }

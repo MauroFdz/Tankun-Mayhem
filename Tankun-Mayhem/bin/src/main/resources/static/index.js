@@ -17,7 +17,7 @@ const config = {
   		target: 24,
   		forceSetTimeOut: true
 	},
-    scene: [MenuScene, LoadScene, CharSelect, GameScene, GameOverScene, Ayuda,Social]
+    scene: [MenuScene, LoadScene, CharSelect, GameScene, GameOverScene, Ayuda]
 };
 
 const game = new Phaser.Game(config);

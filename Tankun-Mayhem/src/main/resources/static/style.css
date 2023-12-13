@@ -1,0 +1,45 @@
+#login{
+	background-color:rgba(0,128,128,0);
+	position: absolute;
+	top:60%;
+	left:8%;
+	padding:40px;
+	justify-content:center;
+	align-items:center;
+	visibility:hidden;
+}
+#chat{
+	background-color:rgba(0,128,128,0);
+	position: absolute;
+	top:63%;
+	left:55%;
+	padding:40px;
+	justify-content:center;
+	align-items:center;
+	visibility:hidden;
+}
+input{
+	width:300px;
+	background-color:#555555;
+	color:#80ff00;
+	font-size:20px;
+	border:0;
+}
+#chat input{
+	width:450px;
+	background-color:#555555;
+	color:#80ff00;
+	font-size:20px;
+	border:0;
+}
+button{
+	outline:0;
+	border:0;
+	background-color:#808080;
+	color:#111111;
+	margin:1px;
+	margin-top:20px;
+	width:200px;
+	font-size:20px;
+	
+}
