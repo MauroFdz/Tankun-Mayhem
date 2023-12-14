@@ -27,19 +27,29 @@ input{
 }
 #chat input{
 	width:450px;
-	background-color:#555555;
-	color:#80ff00;
-	font-size:20px;
-	border:0;
 }
 button{
 	outline:0;
 	border:0;
-	background-color:#808080;
+	background-color:#c0c0c0;
 	color:#111111;
 	margin:1px;
 	margin-top:20px;
 	width:200px;
 	font-size:20px;
+  	box-shadow: 0 9px #666;
+  	border-radius: 10px;
 	
+}
+button:hover{
+	background-color:#c0c0c0;
+  	box-shadow: 0 9px #666;
+	color:#80ff00;
+	
+}
+button:active {
+  	background-color: #c0c0c0;
+  	box-shadow: 0 5px #333;
+	color:#80ff00;
+  	transform: translateY(4px);
 }

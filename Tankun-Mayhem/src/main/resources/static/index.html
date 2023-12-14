@@ -14,6 +14,7 @@
 		}
     </style>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 	<script src="Scenes/MenuScene.js"></script>
 	<script src="Scenes/LoadScene.js"></script>
 	<script src="Objs/Tanks.js"></script>
@@ -25,9 +26,14 @@
 	<script src="index.js"></script>
 </head>
 <body>
+<div id="userBanner">
+	<h2 id="userText"></h2>
+</div>
 <div id="login">
- <input type="text" id="usuario" placeholder="Usuario"/>
- <input type="password" id="contraseña" placeholder="Contraseña"/>
+ <h3 id="msg"></h3>
+ <br>
+ <input type="text" id="user" placeholder="Usuario"/>
+ <input type="password" id="password" placeholder="Contraseña"/>
  <br>
  <button id="init">Iniciar sesión</button>
  <button id="create">Crear usuario</button>
@@ -36,6 +42,9 @@
 <div id="chat">
  <input type="text" id="chatText" placeholder="Mensaje..."/>
  <button id="chatSend">Enviar</button>
+</div>
+<div id="user-name-div">
+	<p id="user-name-text"></p>
 </div>
 </body>
 </html>
