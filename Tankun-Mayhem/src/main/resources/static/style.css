@@ -18,6 +18,51 @@
 	align-items:center;
 	visibility:hidden;
 }
+#ranking{
+	position: absolute;
+	top:12%;
+	left:12%;
+	padding:40px;
+	width:400px;
+	justify-content:center;
+	align-items:center;
+	visibility:hidden;
+	font-size:20px;
+}
+#ranking h1{
+	text-align:center;
+	background-color:#333;
+}
+#rank1{
+	color:gold;
+}
+#rank2{
+	color:silver;
+}
+#rank3{
+	color:#CD7F32;
+}
+#msg{
+	position: absolute;
+	top:58%;
+	left:10%;
+	
+}
+#userBanner{
+	position: absolute;
+	left:42%;
+	top:-3%;
+	width:300px;
+	justify-content:center;
+	align-items:center;
+	font-size:20px;
+	
+}
+#userText{
+	text-align:center;
+	background-color:#333;
+	color:#80ff00;
+}
 input{
 	width:300px;
 	background-color:#555555;

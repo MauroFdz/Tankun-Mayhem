@@ -37,13 +37,15 @@ class GameOverScene extends Phaser.Scene {
 		Volver.setInteractive();
 		this.startTime = new Date().getTime()/1000 + 10;
 		let img
+		let score
 		if(score1>score2)
 		{
-			img = this.add.image(800, 200, "JugV1");		
+			img = this.add.image(800, 200, "JugV1");	
+			checkScore(score1,user)	
 		}
 		if(score1<score2)
 		{
-			img = this.add.image(800, 200, "JugV2");	
+			img = this.add.image(800, 200, "JugV2");
 		}
 		if(score1==score2)
 		{
@@ -55,6 +57,7 @@ class GameOverScene extends Phaser.Scene {
 			
 		})
 		
+		
 	}
 	update(){
 		
@@ -65,4 +68,36 @@ class GameOverScene extends Phaser.Scene {
 		}
 		
 	}
+}
+function checkScore(score,username){
+	if(score>ranking[0]){
+		putRanking(0,username,score);
+		putRanking(1,ranking[0].name,ranking[0].punt);
+		putRanking(2,ranking[1].name,ranking[1].punt);
+		
+	}else if(score>ranking[1]){
+		putRanking(1,username,score);
+		putRanking(2,ranking[1].name,ranking[1].punt);
+		
+	}else if(score>ranking[2]){
+		putRanking(2,username,score);
+	}
+}
+function putRanking(id,name,score){
+	let data={
+		pos:id+1,
+		name:name,
+		punt:score,
+	}
+	$.ajax({
+		method:"PUT",
+		url:"http://"+location.host+"/ranking/"+id,
+		data:JSON.sringify(data),
+		processData:false,
+        headers: {
+            "Content-Type": "application/json"
+        }
+	}).done(function (user) {
+        console.log("Ranking creado: " + JSON.stringify(user));
+    })
 }

@@ -14,7 +14,7 @@ const config = {
         }
     },
     fps: {
-  		target: 24,
+  		target: 30,
   		forceSetTimeOut: true
 	},
     scene: [MenuScene, LoadScene, CharSelect, GameScene, GameOverScene, Ayuda,Social]

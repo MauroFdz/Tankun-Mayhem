@@ -133,7 +133,7 @@ class GameScene extends Phaser.Scene
 
 		//Barra Inferior
 		this.add.image(800, 650, 'barraScore');
-
+		/*
 		let wall = this.physics.add.staticGroup();
 		let wallB = this.physics.add.staticGroup();
 		let x=1;
@@ -233,7 +233,7 @@ class GameScene extends Phaser.Scene
 				wall.create(945+x, 460, 'brick3');
 				
 			}
-		
+		*/
 	
 		// The player and its settings
 		this.player1 = this.physics.add.sprite(100, 300, 'tank1');
@@ -261,7 +261,7 @@ class GameScene extends Phaser.Scene
 		
 		
 		//  The score
-			
+		/*
 		this.physics.add.collider(this.player1, wall);
 		this.physics.add.collider(this.player2, wall);
 		this.physics.add.collider(this.player1, wallB);
@@ -271,6 +271,7 @@ class GameScene extends Phaser.Scene
 		this.physics.add.collider(tank2.bullets, wall,hitWall, null, this);
 		this.physics.add.collider(tank1.bullets, wallB,hitWallB, null, this);
 		this.physics.add.collider(tank2.bullets, wallB,hitWallB, null, this);
+		*/
 		this.physics.add.collider(tank2.bullets, tank1.bullets,hitBullet, null, this);
 			
 		
@@ -403,7 +404,7 @@ class GameScene extends Phaser.Scene
 		}
 		this.cannon2.setPosition(this.player2.x,this.player2.y);
 		
-		this.time = parseInt(this.startTime + 10 -(new Date()).getTime() / 1000);
+		this.time = parseInt(this.startTime + 60 -(new Date()).getTime() / 1000);
 		this.timerText.setText(this.time);
 		if(this.time<=0)
 		{
