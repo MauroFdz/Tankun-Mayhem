@@ -63,6 +63,17 @@
 	background-color:#333;
 	color:#80ff00;
 }
+#chatBg{
+	position: absolute;
+	left:58%;
+	width:640px;
+	height:600px;
+	background-color:rgba(100,100,100,0.5);
+	font-size:20px;
+	visibility:hidden;
+	border:3px solid #333;
+	padding:3px;
+}
 input{
 	width:300px;
 	background-color:#555555;

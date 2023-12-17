@@ -13,10 +13,6 @@ const config = {
             debug: false
         }
     },
-    fps: {
-  		target: 30,
-  		forceSetTimeOut: true
-	},
     scene: [MenuScene, LoadScene, CharSelect, GameScene, GameOverScene, Ayuda,Social]
 };
 $(document).ready(function(){

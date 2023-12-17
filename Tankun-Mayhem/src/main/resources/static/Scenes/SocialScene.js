@@ -1,4 +1,5 @@
 var ranking=[]
+let lastUpdate
 class Social extends Phaser.Scene {
 	constructor(){
 		super("Social");
@@ -14,16 +15,19 @@ class Social extends Phaser.Scene {
 		let login=document.getElementById ("login")
 		let ranks=document.getElementById ("ranking")
 		let chat=document.getElementById ("chat")
+		let chatBg=document.getElementById ("chatBg")
 		this.add.image(800, 350, "Fondo");	
 		this.add.image(800, 640, "Volver").setInteractive().on("pointerdown", ()=>{
 				login.style.visibility="hidden"
 				chat.style.visibility="hidden"	
+				chatBg.style.visibility="hidden"	
 				ranks.style.visibility="hidden"				
 				this.scene.start("Menu")	
 		})
-		login.style.visibility="visible";	
-		chat.style.visibility="visible";
+		login.style.visibility="visible"
+		chat.style.visibility="visible"
 		ranks.style.visibility="visible"
+		chatBg.style.visibility="visible"
 		loadUsers(function(items){
 			for(let i=0;i<items.length;i++)
 					{users.push(items[i])}
@@ -36,7 +40,6 @@ class Social extends Phaser.Scene {
 			$('#rank2').html(ranking[1].pos+". "+ranking[1].name+": "+ranking[1].punt)
 			$('#rank3').html(ranking[2].pos+". "+ranking[2].name+": "+ranking[2].punt)
 		})
-		
 		$('#init').click(function(){
 			if($('#user').val()==undefined)
 			{
@@ -137,9 +140,28 @@ class Social extends Phaser.Scene {
 					users=usersaux
 			}
 		})
+		$('#chatSend').click(function(){
+			let chat={
+				name:$('#userText').text(),
+				msg:$('#chatText').val()
+			}
+			$('#chatText').val('')
+			postChat(chat)
+		
+		})
+	}
+	update ()
+	{
+			loadChat(function(chat){
+				let str=""
+				for(let i=0;i<chat.length;i++)
+						{str+=chat[i].name+": "+chat[i].msg+"<br>"}
+				
+				console.log(str);
+				$('#chatTxt').html(str)
+				})
 		
 	}
-	
 	
 }
 function loadUsers(callback){
@@ -151,6 +173,17 @@ function loadUsers(callback){
 	}).done(function(items){
 		console.log("Se han cargado los usuarios: "+JSON.stringify(items))
 		callback(items)
+	})
+}
+function loadChat(callback){
+	$.ajax({
+		method:"GET",
+		url:"http://"+location.host+"/chat",
+		processData:false,
+		headers:{"Content-Type":"application/json"}
+	}).done(function(chat){
+		console.log("Se han cargado los usuarios: "+JSON.stringify(chat))
+		callback(chat)
 	})
 }
 function createUser(user, callback)
@@ -167,6 +200,23 @@ function createUser(user, callback)
 	}).done(function (user) {
         console.log("Usuario creado: " + JSON.stringify(user));
         callback(user);
+    })
+
+}
+
+function postChat(chat)
+{ 
+	$.ajax(
+	{
+		method:"POST",
+		url:"http://"+location.host+"/chat",
+		data:JSON.stringify(chat),
+		processData:false,
+        headers: {
+            "Content-Type": "application/json"
+        }
+	}).done(function (chat) {
+		console.log(chat)
     })
 
 }
