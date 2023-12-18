@@ -1,5 +1,5 @@
-var ranking=[]
-let lastUpdate
+
+let lastUpdate=(new Date()).getTime()/1000+1
 class Social extends Phaser.Scene {
 	constructor(){
 		super("Social");
@@ -10,8 +10,6 @@ class Social extends Phaser.Scene {
 		this.load.image('Fondo', '../assets/Pantalla seleccion/Fondo.png');
 	}
 	create(){
-		let users=[]
-		let status_msg=""
 		let login=document.getElementById ("login")
 		let ranks=document.getElementById ("ranking")
 		let chat=document.getElementById ("chat")
@@ -21,19 +19,16 @@ class Social extends Phaser.Scene {
 				login.style.visibility="hidden"
 				chat.style.visibility="hidden"	
 				chatBg.style.visibility="hidden"	
-				ranks.style.visibility="hidden"				
+				ranks.style.visibility="hidden"
+				$('#msg').html("")				
 				this.scene.start("Menu")	
 		})
 		login.style.visibility="visible"
 		chat.style.visibility="visible"
 		ranks.style.visibility="visible"
 		chatBg.style.visibility="visible"
-		loadUsers(function(items){
-			for(let i=0;i<items.length;i++)
-					{users.push(items[i])}
-		})
-		ranking=[]
 		loadRanking(function(items){
+		let ranking=[]
 			for(let i=0;i<items.length;i++)
 					{ranking.push(items[i])}
 			$('#rank1').html(ranking[0].pos+". "+ranking[0].name+": "+ranking[0].punt)
@@ -47,12 +42,9 @@ class Social extends Phaser.Scene {
 			}
 			else
 			{
-				loadUsers(function(items){
-					for(let i=0;i<items.length;i++)
-						{users.push(items[i])}
-				})
+				loadUsers(function(users){
 					for(let i=0;i<users.length;i++)
-					{
+						{
 						if(users[i].name==$('#user').val())
 						{
 							if(users[i].password==$('#password').val())
@@ -71,6 +63,8 @@ class Social extends Phaser.Scene {
 						}
 					}
 					$('#msg').html("No existe usuario con ese nombre")
+					}
+				)
 			}
 		})
 		$('#create').click(function(){
@@ -81,8 +75,9 @@ class Social extends Phaser.Scene {
 			else
 			{
 				let disponible=true
+				loadUsers(function(users){
 					for(let i=0;i<users.length;i++)
-					{
+						{
 					console.log($('#user').val())
 					console.log(users[i].name)
 						if(users[i].name==$('#user').val())
@@ -106,6 +101,7 @@ class Social extends Phaser.Scene {
 						createUser(user,function(user){console.log(user)})
 						users.push(user)
 					}
+				})
 			}
 		})
 		$('#delete').click(function(){
@@ -116,8 +112,9 @@ class Social extends Phaser.Scene {
 			else
 			{
 				let usersaux=[]
+				loadUsers(function(users){
 					for(let i=0;i<users.length;i++)
-					{
+						{
 						if(users[i].name==$('#user').val())
 						{
 							if(users[i].password==$('#password').val())
@@ -137,30 +134,36 @@ class Social extends Phaser.Scene {
 						usersaux.push(users[i])
 						}
 					}
+					
+				})
 					users=usersaux
 			}
 		})
 		$('#chatSend').click(function(){
-			let chat={
-				name:$('#userText').text(),
-				msg:$('#chatText').val()
+			if($('#chatText').val()!=undefined&& $('#chatText').val()!="")
+			{
+				let chat={
+					name:$('#userText').text(),
+					msg:$('#chatText').val()
+				}
+				$('#chatText').val('')
+				postChat(chat)
 			}
-			$('#chatText').val('')
-			postChat(chat)
-		
 		})
 	}
 	update ()
 	{
+		if((new Date()).getTime()/1000 > lastUpdate){
 			loadChat(function(chat){
 				let str=""
 				for(let i=0;i<chat.length;i++)
-						{str+=chat[i].name+": "+chat[i].msg+"<br>"}
+						{str+="<span class=name>"+chat[i].name+":</span> "+chat[i].msg+"<br>"}
 				
-				console.log(str);
+				//console.log(str);
 				$('#chatTxt').html(str)
 				})
-		
+				lastUpdate= (new Date()).getTime()/1000+1
+		}
 	}
 	
 }
@@ -182,7 +185,7 @@ function loadChat(callback){
 		processData:false,
 		headers:{"Content-Type":"application/json"}
 	}).done(function(chat){
-		console.log("Se han cargado los usuarios: "+JSON.stringify(chat))
+		//console.log("Se han cargado el chat: "+JSON.stringify(chat))
 		callback(chat)
 	})
 }
@@ -216,7 +219,7 @@ function postChat(chat)
             "Content-Type": "application/json"
         }
 	}).done(function (chat) {
-		console.log(chat)
+		
     })
 
 }

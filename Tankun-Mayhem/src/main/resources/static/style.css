@@ -7,6 +7,7 @@
 	justify-content:center;
 	align-items:center;
 	visibility:hidden;
+	width:33%;
 }
 #chat{
 	background-color:rgba(0,128,128,0);
@@ -17,13 +18,14 @@
 	justify-content:center;
 	align-items:center;
 	visibility:hidden;
+	width:35%;
 }
 #ranking{
 	position: absolute;
 	top:12%;
 	left:12%;
 	padding:40px;
-	width:400px;
+	width:20%;
 	justify-content:center;
 	align-items:center;
 	visibility:hidden;
@@ -50,7 +52,7 @@
 }
 #userBanner{
 	position: absolute;
-	left:42%;
+	left:40%;
 	top:-3%;
 	width:300px;
 	justify-content:center;
@@ -65,24 +67,29 @@
 }
 #chatBg{
 	position: absolute;
-	left:58%;
-	width:640px;
-	height:600px;
-	background-color:rgba(100,100,100,0.5);
+	left:57%;
+	width:34%;
+	height:65%;
+	background-color:rgba(100,100,100,0.7);
 	font-size:20px;
 	visibility:hidden;
 	border:3px solid #333;
 	padding:3px;
+	overflow-y:scroll;
+	overflow-x:clip;
+}
+.name{
+	color:#80ff00;
 }
 input{
-	width:300px;
+	width:45%;
 	background-color:#555555;
 	color:#80ff00;
 	font-size:20px;
 	border:0;
 }
 #chat input{
-	width:450px;
+	width:67%;
 }
 button{
 	outline:0;
@@ -91,7 +98,7 @@ button{
 	color:#111111;
 	margin:1px;
 	margin-top:20px;
-	width:200px;
+	width:30%;
 	font-size:20px;
   	box-shadow: 0 9px #666;
   	border-radius: 10px;

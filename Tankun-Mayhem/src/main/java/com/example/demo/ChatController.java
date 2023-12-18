@@ -1,11 +1,6 @@
 package com.example.demo;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -28,7 +23,7 @@ public class ChatController {
 	@CrossOrigin(origins = "*")
 	@GetMapping
 	public Collection<Chat> getChat() throws IOException{
-		System.out.println("Get correcto");
+		//System.out.println("Get correcto");
 		return map.values();
 	}
 	@CrossOrigin(origins = "*")

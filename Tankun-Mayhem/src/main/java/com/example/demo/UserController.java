@@ -68,7 +68,7 @@ public class UserController {
 		String str="";
 		for(User u:map.values()) {
 			u.setId(nextId.getAndIncrement());//Hay que reasignar los ids para no dejar espacios vacios
-			String straux="Usuario\n"+u.getName()+"\n"+u.getPassword()+"\n";
+			String straux=u.getId()+"\n"+u.getName()+"\n"+u.getPassword()+"\n";
 			str=str.concat(straux);
 		}
 		try {
