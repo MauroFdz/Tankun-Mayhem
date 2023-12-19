@@ -266,12 +266,13 @@ class GameScene extends Phaser.Scene
 		this.physics.add.collider(this.player2, wall);
 		this.physics.add.collider(this.player1, wallB);
 		this.physics.add.collider(this.player2, wallB);
-		this.physics.add.collider(this.player1, this.player2);
 		this.physics.add.collider(tank1.bullets, wall,hitWall, null, this);
 		this.physics.add.collider(tank2.bullets, wall,hitWall, null, this);
 		this.physics.add.collider(tank1.bullets, wallB,hitWallB, null, this);
 		this.physics.add.collider(tank2.bullets, wallB,hitWallB, null, this);
 		*/
+		
+		this.physics.add.collider(this.player1, this.player2);
 		this.physics.add.collider(tank2.bullets, tank1.bullets,hitBullet, null, this);
 			
 		

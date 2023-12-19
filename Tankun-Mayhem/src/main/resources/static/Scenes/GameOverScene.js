@@ -36,20 +36,19 @@ class GameOverScene extends Phaser.Scene {
 		
 		Volver.setInteractive();
 		this.startTime = new Date().getTime()/1000 + 10;
-		let img
-		let score
+		
 		if(score1>score2)
 		{
-			img = this.add.image(800, 200, "JugV1");	
-			checkScore(score1,user)	
+			const img = this.add.image(800, 200, "JugV1");	
+			checkScore(score1,$('#userText').text())	
 		}
 		if(score1<score2)
 		{
-			img = this.add.image(800, 200, "JugV2");
+			const img = this.add.image(800, 200, "JugV2");
 		}
 		if(score1==score2)
 		{
-			img = this.add.image(800, 200, "Empate");
+			const img = this.add.image(800, 200, "Empate");
 		}	
 		Volver.on("pointerdown", ()=>{
 			
@@ -70,34 +69,43 @@ class GameOverScene extends Phaser.Scene {
 	}
 }
 function checkScore(score,username){
-	if(score>ranking[0]){
+	let ranks=[]
+		loadRanking(function(items){
+			
+			for(let i=0;i<items.length;i++)
+					{ranks.push(items[i])}
+					
+	if(score>ranks[0].punt){
+		console.log("+50")
 		putRanking(0,username,score);
-		putRanking(1,ranking[0].name,ranking[0].punt);
-		putRanking(2,ranking[1].name,ranking[1].punt);
+		putRanking(1,ranks[0].name,ranks[0].punt);
+		putRanking(2,ranks[1].name,ranks[1].punt);
 		
-	}else if(score>ranking[1]){
+	}else if(score>ranks[1].punt){
 		putRanking(1,username,score);
-		putRanking(2,ranking[1].name,ranking[1].punt);
+		putRanking(2,ranks[1].name,ranks[1].punt);
 		
-	}else if(score>ranking[2]){
+	}else if(score>ranks[2].punt){
 		putRanking(2,username,score);
 	}
+		})
+		console.log(ranks)
 }
 function putRanking(id,name,score){
 	let data={
 		pos:id+1,
 		name:name,
-		punt:score,
+		punt:score
 	}
 	$.ajax({
 		method:"PUT",
 		url:"http://"+location.host+"/ranking/"+id,
-		data:JSON.sringify(data),
+		data:JSON.stringify(data),
 		processData:false,
         headers: {
             "Content-Type": "application/json"
         }
-	}).done(function (user) {
-        console.log("Ranking creado: " + JSON.stringify(user));
+	}).done(function (ranking) {
+        console.log("Ranking updated: " + JSON.stringify(ranking));
     })
 }
