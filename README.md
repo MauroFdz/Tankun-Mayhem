@@ -273,7 +273,7 @@ Niveles representados desde la vista cenital, donde el ambiente cambiará de zon
 ### Pantalla de inicio: 
 Existirán 3 botones de acceso a pantallas previas, un chat y botones destinados a la gestión de perfiles.
 
-![PantallaInicio](https://github.com/MauroFdz/Tankun-Mayhem/tree/main/Tankun-Mayhem/src/main/resources/static/ReadMeImages/MenuIni.PNG)
+![PantallaInicio](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/MenuIni.PNG)
  
 ### Pantalla de Ayuda: 
 Cuenta con un botón para regresar a la pantalla anterior y una serie de elementos que ayudan a identificar los controles.
@@ -288,7 +288,7 @@ Tendrá un botón para volver a la pantalla de inicio y elementos que indican lo
 ### Pantalla de selección de tanque: 
 Se tendrá una barra con los personajes seleccionables disponibles, un elemento visual para indicar sus estadísticas, arte conceptual de personaje y un botón para seleccionar al personaje.
 
-![PantallaInicio](https://github.com/MauroFdz/Tankun-Mayhem/tree/main/Tankun-Mayhem/src/main/resources/static/ReadMeImages/SelectorPers.PNG)
+![PantallaInicio](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/SelectorPers.PNG)
  
 ### Pantalla de juego: 
 Contendrá la puntuación de ambos jugadores, un reloj y las estadísticas de ambos jugadores. Tendrá el mapa y los tanques de los jugadores, así como las paredes especificas de cada mapa y sus power ups.
@@ -304,8 +304,8 @@ Se presentará al vencedor, y la puntuación final y global de ambos jugadores.
 Se implementan elementos visuales con contraste entre negro, tonos metálicos y verde emisivo para los elementos de la interfaz.
 
 Ejemplos de elementos visuales:
-![UsuarioCreditos](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Pantalla%20seleccion/creditos.png)
-![UsuarioVolver](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Pantalla%20seleccion/volver.png)
+![UsuarioCreditos](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/creditosB.png)
+![UsuarioVolver](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages//volver.png)
 ## ARTE
 ### Metas Generales de Arte
 
@@ -313,17 +313,17 @@ El estilo artístico de "Tankun Mayhem" combina elementos caricaturescos con inf
 
 ## Personajes
 ## Rebotín:
-![reb](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/TankSpace/tank%20space%20chibi.png) ![balaS](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/TankSpace/Bala_futuro%20.png)
+![reb](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/tank%20space%20chibi.png) ![balaS](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Bala_futuro%20.png)
 ### Bell:
-![bell](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/TankRush/tank%201%20rush.png) ![balaR](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/TankRush/Bala_sher.png)
+![bell](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/tank%201%20rush.png) ![balaR](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Bala_sher.png)
 ## Items
 ### Paredes:
-![b1](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/brick1.png) ![b2](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/brick2.png) ![b3](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/brick3.png) ![b4](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/brick4.png) ![b5](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/glass.png) ![b6](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/Tiles/hologram.png)
+![b1](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/brick1.png) ![b2](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/brick2.png) ![b3](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/brick3.png) ![b4](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/brick4.png) ![b5](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/glass.png) ![b6](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/hologram.png)
      
 
 ### Power-ups: 
 
-![pu](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/assets/PowerUps/up.png)
+![pu](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/up.png)
 
 ## Escenarios:
 
