@@ -297,6 +297,11 @@ Se presentará al vencedor, y la puntuación final y global de ambos jugadores.
 
 ![PantallaVictoria](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Victoria.PNG)
 
+### Pantalla Social: 
+Pantalla destinada al chat y revisión del ranking.
+
+![PantallaVictoria](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Social.PNG)
+
 ## HUD
 Se implementan elementos visuales con contraste entre negro, tonos metálicos y verde emisivo para los elementos de la interfaz.
 
@@ -346,8 +351,12 @@ Para el sistema de usuario y contraseña se han creado los métodos Post, Get y 
 
 Para sistema de ranking se ha implemnentado un método Put para actualizar la información.
 
+![f1](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Social.png)
+
 Hemos creado un template de chat, que tiene un nombre y un mensaje, ambos strings, un template users, que tiene  un long id, un string name y un string password, y un template de ranking que tiene un string de posicion, un string de name y int puntuación.
 El ranking y el users tienen permanencia en el lado del servidor gracias a un txt.
+
+![f1](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/DiagramadeClases.png)
 
 # Instrucciones precisas para ejecutar la aplicación:
 
