@@ -151,12 +151,9 @@ Para garantizar una experiencia online completa se implementarán funciones diri
 Juegos similares:
 Tank 1990:
 Similar en el empleo de elementos interactuables del mapa, presenta una condición de derrota distinta. Estilo visual distinto con variedad nula de personaje.
-
-![t1990](https://github.com/MauroFdz/Tankun-Mayhem/Tankun-Mayhem/bin/src/main/resources/static/ReadMeImages/Tank19190.png)
  
 Wii Tanks:
 Implementa un sistema e mecánicas similares a “Tankun Mayhem”, anque no presenta variedad significativa de jugabilidad. Estilo visual distinto.
-![wiit](https://github.com/MauroFdz/Tankun-Mayhem/tree/main/Tankun-Mayhem/src/main/resources/static/ReadMeImages/wiitank.png)
 
 ## Análisis DAFO:
 ### Debilidades:
@@ -300,6 +297,11 @@ Se presentará al vencedor, y la puntuación final y global de ambos jugadores.
 
 ![PantallaVictoria](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Victoria.PNG)
 
+### Pantalla Social: 
+Pantalla destinada al chat y revisión del ranking.
+
+![PantallaVictoria](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Social.PNG)
+
 ## HUD
 Se implementan elementos visuales con contraste entre negro, tonos metálicos y verde emisivo para los elementos de la interfaz.
 
@@ -339,3 +341,34 @@ Los efectos de sonido serán caricaturescos y breves, evitando saturar al jugado
 Diagrama de flujo:
 
 ![f1](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/flujoclases.png)
+
+# Fase 3
+Para fase se ha implementado un sistema de chat, un sistema de cuenta que permite guardar información con permanencia y que permite borrar la cuenta y un sistema de ranking con permanencia en el lado del servidor.
+
+Para el chat se han creado los métodos Post y Get para actualizarlos y recibir la información.
+
+Para el sistema de usuario y contraseña se han creado los métodos Post, Get y Delete, para crear el ususario y contraseña, comprobar el usuario y contraseña, y borrar el ususario y contraseña respectivamente.
+
+Para sistema de ranking se ha implemnentado un método Put para actualizar la información.
+
+![f1](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Social.png)
+
+Hemos creado un template de chat, que tiene un nombre y un mensaje, ambos strings, un template users, que tiene  un long id, un string name y un string password, y un template de ranking que tiene un string de posicion, un string de name y int puntuación.
+El ranking y el users tienen permanencia en el lado del servidor gracias a un txt.
+
+![f1](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/DiagramadeClases.png)
+
+# Instrucciones precisas para ejecutar la aplicación:
+
+## Requisitos:
+
+    Spring Tool Suite de Eclipse
+
+    1. Abrir Spring en Eclipse.
+    2. Seleccionamos File
+    3. Open Projectyt from Files System
+    4. Directory
+    5. Seleccionamos donde se encuentra.
+    6. Finnish //Teniendo el archivo/carpeta TankunMayhem[boot] seleccionado
+    7. Play
+    8. Run Tankun-Mayhem
