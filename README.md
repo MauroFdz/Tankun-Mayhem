@@ -336,3 +336,30 @@ Los efectos de sonido serán caricaturescos y breves, evitando saturar al jugado
 Diagrama de flujo:
 
 ![f1](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/flujoclases.png)
+
+# Fase 3
+Para fase se ha implementado un sistema de chat, un sistema de cuenta que permite guardar información con permanencia y que permite borrar la cuenta y un sistema de ranking con permanencia en el lado del servidor.
+
+Para el chat se han creado los métodos Post y Get para actualizarlos y recibir la información.
+
+Para el sistema de usuario y contraseña se han creado los métodos Post, Get y Delete, para crear el ususario y contraseña, comprobar el usuario y contraseña, y borrar el ususario y contraseña respectivamente.
+
+Para sistema de ranking se ha implemnentado un método Put para actualizar la información.
+
+Hemos creado un template de chat, que tiene un nombre y un mensaje, ambos strings, un template users, que tiene  un long id, un string name y un string password, y un template de ranking que tiene un string de posicion, un string de name y int puntuación.
+El ranking y el users tienen permanencia en el lado del servidor gracias a un txt.
+
+# Instrucciones precisas para ejecutar la aplicación:
+
+## Requisitos:
+
+    Spring Tool Suite de Eclipse
+
+    1. Abrir Spring en Eclipse.
+    2. Seleccionamos File
+    3. Open Projectyt from Files System
+    4. Directory
+    5. Seleccionamos donde se encuentra.
+    6. Finnish //Teniendo el archivo/carpeta TankunMayhem[boot] seleccionado
+    7. Play
+    8. Run Tankun-Mayhem
