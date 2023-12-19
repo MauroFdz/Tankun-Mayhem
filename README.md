@@ -300,7 +300,7 @@ Se presentará al vencedor, y la puntuación final y global de ambos jugadores.
 ### Pantalla Social: 
 Pantalla destinada al chat y revisión del ranking.
 
-![PantallaVictoria](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Social.PNG)
+![f1](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/Social.png)
 
 ## HUD
 Se implementan elementos visuales con contraste entre negro, tonos metálicos y verde emisivo para los elementos de la interfaz.
