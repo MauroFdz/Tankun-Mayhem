@@ -271,7 +271,8 @@ Niveles representados desde la vista cenital, donde el ambiente cambiará de zon
 
 ### Pantalla de inicio: 
 Existirán 3 botones de acceso a pantallas previas, un chat y botones destinados a la gestión de perfiles.
-![PantallaInicio](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/MenuIni.PNG)
+
+![PantallaInicio](https://github.com/MauroFdz/Tankun-Mayhem/tree/main/Tankun-Mayhem/src/main/resources/static/ReadMeImages/MenuIni.PNG)
  
 ### Pantalla de Ayuda: 
 Cuenta con un botón para regresar a la pantalla anterior y una serie de elementos que ayudan a identificar los controles.
