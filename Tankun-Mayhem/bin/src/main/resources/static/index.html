@@ -13,15 +13,46 @@
 			color: white;
 		}
     </style>
-<script src="Scenes/MenuScene.js"></script>
-<script src="Scenes/LoadScene.js"></script>
-<script src="Objs/Tanks.js"></script>
-<script src="Scenes/CharacterSelectScene.js"></script>
-<script src="Scenes/GameScene.js"></script>
-<script src="Scenes/GameOverScene.js"></script>
-<script src="Scenes/Ayuda.js"></script>
-<script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="Scenes/MenuScene.js"></script>
+	<script src="Scenes/LoadScene.js"></script>
+	<script src="Objs/Tanks.js"></script>
+	<script src="Scenes/CharacterSelectScene.js"></script>
+	<script src="Scenes/GameScene.js"></script>
+	<script src="Scenes/GameOverScene.js"></script>
+	<script src="Scenes/SocialScene.js"></script>
+	<script src="Scenes/Ayuda.js"></script>
+	<script src="index.js"></script>
 </head>
 <body>
+<div id="chatBg">
+	<p id="chatTxt"></p>
+</div>
+<div id="userBanner">
+	<h2 id="userText">Anónimo</h2>
+</div>
+<div id="ranking">
+	<h1 id="rank1"></h1>
+	<h1 id="rank2"></h1>
+	<h1 id="rank3"></h1>
+</div>
+ <h3 id="msg"></h3>
+<div id="login">
+ <br>
+ <input type="text" id="user" placeholder="Usuario" maxlength="15"/>
+ <input type="password" id="password" placeholder="Contraseña"/>
+ <br>
+ <button id="init">Iniciar sesión</button>
+ <button id="create">Crear usuario</button>
+ <button id="delete">Borrar usuario</button>
+</div>
+<div id="chat">
+ <input type="text" id="chatText" placeholder="Mensaje..." maxlength="300"/>
+ <button id="chatSend">Enviar</button>
+</div>
+<div id="user-name-div">
+	<p id="user-name-text"></p>
+</div>
 </body>
 </html>

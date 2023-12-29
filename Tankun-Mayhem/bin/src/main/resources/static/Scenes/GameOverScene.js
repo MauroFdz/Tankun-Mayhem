@@ -36,24 +36,26 @@ class GameOverScene extends Phaser.Scene {
 		
 		Volver.setInteractive();
 		this.startTime = new Date().getTime()/1000 + 10;
-		let img
+		
 		if(score1>score2)
 		{
-			img = this.add.image(800, 200, "JugV1");		
+			const img = this.add.image(800, 200, "JugV1");	
+			checkScore(score1,$('#userText').text())	
 		}
 		if(score1<score2)
 		{
-			img = this.add.image(800, 200, "JugV2");	
+			const img = this.add.image(800, 200, "JugV2");
 		}
 		if(score1==score2)
 		{
-			img = this.add.image(800, 200, "Empate");
+			const img = this.add.image(800, 200, "Empate");
 		}	
 		Volver.on("pointerdown", ()=>{
 			
 				this.scene.start("CharSelect");
 			
 		})
+		
 		
 	}
 	update(){
@@ -65,4 +67,45 @@ class GameOverScene extends Phaser.Scene {
 		}
 		
 	}
+}
+function checkScore(score,username){
+	let ranks=[]
+		loadRanking(function(items){
+			
+			for(let i=0;i<items.length;i++)
+					{ranks.push(items[i])}
+					
+	if(score>ranks[0].punt){
+		console.log("+50")
+		putRanking(0,username,score);
+		putRanking(1,ranks[0].name,ranks[0].punt);
+		putRanking(2,ranks[1].name,ranks[1].punt);
+		
+	}else if(score>ranks[1].punt){
+		putRanking(1,username,score);
+		putRanking(2,ranks[1].name,ranks[1].punt);
+		
+	}else if(score>ranks[2].punt){
+		putRanking(2,username,score);
+	}
+		})
+		console.log(ranks)
+}
+function putRanking(id,name,score){
+	let data={
+		pos:id+1,
+		name:name,
+		punt:score
+	}
+	$.ajax({
+		method:"PUT",
+		url:"http://"+location.host+"/ranking/"+id,
+		data:JSON.stringify(data),
+		processData:false,
+        headers: {
+            "Content-Type": "application/json"
+        }
+	}).done(function (ranking) {
+        console.log("Ranking updated: " + JSON.stringify(ranking));
+    })
 }

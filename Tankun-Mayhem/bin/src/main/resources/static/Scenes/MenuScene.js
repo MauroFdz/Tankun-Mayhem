@@ -10,6 +10,7 @@ class MenuScene extends Phaser.Scene {
 		this.load.image("salir", "../assets/Botones/Salir.png");
 		this.load.image("ayuda", "../assets/Pantalla seleccion/ayudaboton.png");
 		this.load.image("creditos", "../assets/Pantalla seleccion/creditos.png");
+		this.load.image("social", "../assets/Pantalla seleccion/Social.png");
 		
 		this.load.audio('M_musica', '../assets/Sounds/Menú_música.mp3');
 		this.load.audio('J_musica', '../assets/Sounds/Juego_música.mp3');
@@ -32,6 +33,10 @@ class MenuScene extends Phaser.Scene {
 		})
 		const creditos = this.add.image(config.width/2, 500, "creditos").setInteractive().on("pointerdown", ()=>{
 			this.scene.start("MCredito");
+			this.M_musica.stop();
+		})
+		const social = this.add.image(config.width/2, 600, "social").setInteractive().on("pointerdown", ()=>{
+			this.scene.start("Social");
 			this.M_musica.stop();
 		})
 	}

@@ -13,12 +13,10 @@ const config = {
             debug: false
         }
     },
-    fps: {
-  		target: 24,
-  		forceSetTimeOut: true
-	},
-    scene: [MenuScene, LoadScene, CharSelect, GameScene, GameOverScene, Ayuda]
+    scene: [MenuScene, LoadScene, CharSelect, GameScene, GameOverScene, Ayuda,Social]
 };
-
+$(document).ready(function(){
+	console.log("Dom cargado");
+})
 const game = new Phaser.Game(config);
 
