@@ -154,7 +154,9 @@ class GameScene extends Phaser.Scene
 		this.add.image(800, 300, 'Map');	
 
 		//Barra Inferior
-		this.add.image(800, 650, 'barraScore');
+		//this.add.image(800, 650, 'barraScore');
+		let barra= this.physics.add.staticGroup();
+		barra.create(800, 650, 'barraScore');
 		/*
 		let wall = this.physics.add.staticGroup();
 		let wallB = this.physics.add.staticGroup();
@@ -303,7 +305,10 @@ class GameScene extends Phaser.Scene
 		
 		this.add.image(800, 300, 'Shade1');	
 		
-		
+		this.physics.add.collider(this.player1, barra);
+		this.physics.add.collider(this.player2, barra);
+		this.physics.add.collider(tank1.bullets, barra,hitWall, null, this);
+		this.physics.add.collider(tank2.bullets, barra,hitWall, null, this);
 		//this.zeppelin = this.physics.add.sprite(500, 650, 'Shade1Zep');
 		//this.zeppelin.setVelocity(6,-5);
 	
