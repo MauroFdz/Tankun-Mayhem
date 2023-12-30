@@ -61,7 +61,18 @@
 		}
 	}
 
-	
+	let json={
+		"posx1":100,
+		"posy1":300,
+		"rot1":0,
+		"tur1":0,
+		"shot1":0,
+		"posx2":1500,
+		"posy2":300,
+		"rot2":0,
+		"tur2":0,
+		"shot2":0
+	}
 var connection = new WebSocket('ws://'+location.host+'/echo');
 connection.onopen = function () {
 	connection.send('Hi');
@@ -70,7 +81,8 @@ connection.onerror = function(e) {
 	console.log("WS error: " + e);
 }
 connection.onmessage = function(msg) {
-	console.log("WS message: " + msg.data);
+	//console.log(msg.data);
+	console.log(JSON.parse(msg.data));
 }
 class GameScene extends Phaser.Scene
 {
@@ -309,32 +321,35 @@ class GameScene extends Phaser.Scene
 	update ()
 	{
 
+		
+		
 		if (this.keyA.isDown)
 		{				
 			this.player1.angle-=tank1.tankRot;
-			connection.send("A");
+			json.rot1=this.player1.angle;
 		}
 		if (this.keyD.isDown)
 		{		
 			this.player1.angle+=tank1.tankRot;
-			connection.send("D");
+			json.rot1=this.player1.angle;
 		}
 		
 		if (this.keyW.isDown)
 		{
 			this.player1.setVelocity(Math.sin(this.player1.rotation)*tank1.tankSpeed,-Math.cos(this.player1.rotation)*tank1.tankSpeed);
 			this.cannon1.setPosition(this.player1.x,this.player1.y);
-			connection.send("W");
+			json.posx1=this.player1.x;
+			json.posy1=this.player1.y;
 		} 
 		 else if (this.keyS.isDown)
 		{			
 			this.player1.setVelocity(-Math.sin(this.player1.rotation)*tank1.tankSpeed,Math.cos(this.player1.rotation)*tank1.tankSpeed);
 			this.cannon1.setPosition(this.player1.x,this.player1.y);
-			connection.send("S");	
+			json.posx1=this.player1.x;
+			json.posy1=this.player1.y;
 		}
 		else
 		{
-			connection.send("P10");
 			this.player1.setVelocity(0,0);
 			this.cannon1.setPosition(this.player1.x,this.player1.y);		
 		}
@@ -342,19 +357,19 @@ class GameScene extends Phaser.Scene
 		if (this.keyC.isDown)
 		{
 			this.cannon1.angle-=tank1.cannonRot;
-			connection.send("C");
+			json.tur1=this.cannon1.angle;
 	
 		} 
 		if (this.keyB.isDown)
 		{
-			connection.send("B");
 			this.cannon1.angle+=tank1.cannonRot;
+			json.tur1=this.cannon1.angle;
 		}
 		
 		//Disparo player 1
-		if (this.keyV.isDown&&this.player1.lastShot<(new Date()).getTime() / 1000)
+		if ((this.keyV.isDown||json.shot1==1)&&this.player1.lastShot<(new Date()).getTime() / 1000)
 		{	
-			connection.send("V");
+			json.shot1=1
 			this.disparo_P.play();
 			var bullet = tank1.bullets.create(this.player1.x,this.player1.y,'Bala_sher');
 			
@@ -373,48 +388,49 @@ class GameScene extends Phaser.Scene
 		//Inputs player 2
 		if (this.cursors.left.isDown)
 		{			
-			connection.send("left");
 			this.player2.angle-=tank2.tankRot;
+			json.rot2=this.player2.angle;
 			
 		}
 		if (this.cursors.right.isDown)
 		{		
-			connection.send("right");
 			this.player2.angle+=tank2.tankRot;
+			json.rot2=this.player2.angle;
 		}
 		
 		
 		if (this.cursors.up.isDown)
 		{
-			connection.send("up");
-			this.player2.setVelocity(Math.sin(this.player2.rotation)*tank2.tankSpeed,-Math.cos(this.player2.rotation)*tank2.tankSpeed);	
+			this.player2.setVelocity(Math.sin(this.player2.rotation)*tank2.tankSpeed,-Math.cos(this.player2.rotation)*tank2.tankSpeed);
+			json.posx2=this.player2.x;
+			json.posy2=this.player2.y;	
 		} 
 		else if (this.cursors.down.isDown)
-		{		
-			connection.send("down");	
-			this.player2.setVelocity(-Math.sin(this.player2.rotation)*tank2.tankSpeed,Math.cos(this.player2.rotation)*tank2.tankSpeed);		
+		{			
+			this.player2.setVelocity(-Math.sin(this.player2.rotation)*tank2.tankSpeed,Math.cos(this.player2.rotation)*tank2.tankSpeed);
+			json.posx2=this.player2.x;
+			json.posy2=this.player2.y;	
 		}
 		else
 		{
-			connection.send("P20");
 			this.player2.setVelocity(0,0);
 		}
 		//Rotacion cannon 2
 		if (this.keyI.isDown)
 		{
-			connection.send("I");
 			this.cannon2.angle-=tank2.cannonRot;	
+			json.tur2=this.cannon2.angle;
 		} 
 		if (this.keyP.isDown)
 		{
-			connection.send("P");
 			this.cannon2.angle+=tank2.cannonRot;
+			json.tur2=this.cannon2.angle;
 		}	
 		
 		//Disparo player 2
-		if (this.keyO.isDown&&this.player2.lastShot<(new Date()).getTime() / 1000)
+		if ((this.keyO.isDown||json.shot2==1)&&this.player2.lastShot<(new Date()).getTime() / 1000)
 		{
-			connection.send("O");
+			json.shot2=1
 			this.disparo_R.play();
 			
 			var bullet = tank2.bullets.create(this.player2.x,this.player2.y,'Bala_futuro');
@@ -433,6 +449,19 @@ class GameScene extends Phaser.Scene
 		
 		this.time = parseInt(this.startTime + 60 -(new Date()).getTime() / 1000);
 		this.timerText.setText(this.time);
+		
+		connection.send(JSON.stringify(json));
+		json.shot2=0
+		json.shot1=0
+		
+		this.player1.angle=json.rot1
+		this.player1.x=json.posx1
+		this.player1.y=json.posy1
+		this.cannon1.angle=json.tur1
+		this.player2.angle=json.rot2
+		this.player2.x=json.posx2
+		this.player2.y=json.posy2
+		this.cannon2.angle=json.tur2
 		if(this.time<=0)
 		{
 			this.scene.start("GameOver");
