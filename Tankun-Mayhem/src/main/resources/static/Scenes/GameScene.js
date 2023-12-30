@@ -60,7 +60,33 @@
 			bullet2.destroy();	
 		}
 	}
-
+	function hitCat1 (player1, gatoE){
+		
+		fuegoE = this.physics.add.sprite(gatoE.x+10,gatoE.y+10, 'fuego');
+		fuegoE = this.physics.add.sprite(gatoE.x-10,gatoE.y-10, 'fuego');			
+		gatoE.destroy();
+		
+	}
+	
+	function hitCat2 (player2,gatoE){
+		
+		fuegoE = this.physics.add.sprite(gatoE.x+10,gatoE.y+10, 'fuego');	
+		fuegoE = this.physics.add.sprite(gatoE.x-10,gatoE.y-10, 'fuego');	
+		gatoE.destroy();
+	}
+	
+	function hitfire1 (player1, fuegoE){
+		score2-=10;
+		this.score2Text.setText('Puntuación:' + score2);
+		fuegoE.destroy();
+	}
+	
+	function hitfire2 (player2, fuegoE){
+		score1-=10;
+		this.score1Text.setText('Puntuación:' + score1);
+		fuegoE.destroy();
+	}
+	
 	
 var connection = new WebSocket('ws://'+location.host+'/echo');
 connection.onopen = function () {
@@ -96,6 +122,10 @@ class GameScene extends Phaser.Scene
 		this.load.image('Bala_futuro', tank2.bullet);
 
 		this.load.image('barraScore', "assets/Maps/lowbar.png");
+		
+		//gato explosivo
+		this.load.image('gato', "../assets/gatoexplosivo/Gato.png");
+		this.load.image('fuego', "../assets/gatoexplosivo/fuego.png");
 		
 		
 		
@@ -269,6 +299,9 @@ class GameScene extends Phaser.Scene
 		tank2.bullets = this.physics.add.group();
 			
 		
+		this.gatoE = this.physics.add.sprite(1,1, 'gato');	
+	//(Math.random()*(+950+1 - +200)),(Math.random()*(+400 +1 - +200))
+		
 		
 		//  The score
 		/*
@@ -288,6 +321,12 @@ class GameScene extends Phaser.Scene
 		
 		this.physics.add.collider(this.player1, tank2.bullets, hitBullet1, null, this);
 		this.physics.add.collider(this.player2, tank1.bullets, hitBullet2, null, this);
+		
+		this.physics.add.collider(this.player1, gatoE, hitCat1, null, this);
+		this.physics.add.collider(this.player2, gatoE, hitCat2, null, this);
+		
+		this.physics.add.collider(this.player1, fuegoE, hitfire1, null, this);
+		this.physics.add.collider(this.player2, fuegoE, hitfire2, null, this);
 		
 		this.add.image(800, 300, 'Shade1');	
 		
