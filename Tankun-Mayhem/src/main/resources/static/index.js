@@ -13,7 +13,7 @@ const config = {
             debug: false
         }
     },
-    scene: [MenuScene, LoadScene, CharSelect, GameScene, GameOverScene, Ayuda,Social]
+    scene: [MenuScene, LoadScene, CharSelect, GameSceneOnline, GameOverScene, Ayuda,Social]
 };
 $(document).ready(function(){
 	console.log("Dom cargado");
