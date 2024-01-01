@@ -18,6 +18,19 @@ class Social extends Phaser.Scene {
 		let userBanner=document.getElementById ("userBanner")		
 		userBanner.style.visibility="visible"
 		
+		var connectionChat = new WebSocket('ws://'+location.host+'/chatEcho');
+		connectionChat.onopen = function () {
+			connection.send('chatHi');
+		}
+		connectionChat.onerror = function(e) {
+			console.log("WS error: " + e);
+		}
+		connectionChat.onmessage = function(msg) {
+			//console.log(msg.data);
+			console.log(msg.data);
+			$('#chatTxt').html($('#chatTxt').html()+msg.data);
+		}
+		
 		//let userBannerJ1=document.getElementById ("userBannerJ1")
 		//let userBannerJ2=document.getElementById ("userBannerJ2")
 	
@@ -157,13 +170,19 @@ class Social extends Phaser.Scene {
 					name:$('#userText').text(),
 					msg:$('#chatText').val()
 				}
+				console.log($('#chatText').val())
+				connectionChat.send("<span class=name>" + $('#userText').text() + ":</span> "+ $('#chatText').val()+"<br>")
 				$('#chatText').val('')
-				postChat(chat)
+				
 			}
 		})
 	}
+	
 	update ()
 	{
+		
+		
+		/*
 		if((new Date()).getTime()/1000 > lastUpdate){
 			loadChat(function(chat){
 				let str=""
@@ -174,8 +193,10 @@ class Social extends Phaser.Scene {
 				$('#chatTxt').html(str)
 				})
 				lastUpdate= (new Date()).getTime()/1000+1
-		}
+		}**/
+		
 	}
+	
 	
 }
 function loadUsers(callback){

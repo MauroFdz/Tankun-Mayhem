@@ -114,7 +114,7 @@ connection.onerror = function(e) {
 }
 connection.onmessage = function(msg) {
 	//console.log(msg.data);
-	console.log(JSON.parse(msg.data));
+	//console.log(JSON.parse(msg.data));
 }
 class GameScene extends Phaser.Scene
 {
