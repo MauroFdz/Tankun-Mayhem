@@ -60,11 +60,47 @@
 	font-size:20px;
 	
 }
+
+#userBannerJ1{
+	position: absolute;
+	left:15%;
+	top:-3%;
+	width:300px;
+	justify-content:center;
+	align-items:center;
+	font-size:20px;
+	
+}
+
+#userBannerJ2{
+	position: absolute;
+	left:69%;
+	top:-3%;
+	width:300px;
+	justify-content:center;
+	align-items:center;
+	font-size:20px;
+	
+}
 #userText{
 	text-align:center;
 	background-color:#333;
 	color:#80ff00;
 }
+
+#user1Text{
+	text-align:left;
+	background-color:#333;
+	color:#80ff00;
+	
+}
+
+#user2Text{
+	text-align:right;
+	background-color:#333;
+	color:#80ff00;
+}
+
 #chatBg{
 	position: absolute;
 	left:57%;

@@ -14,12 +14,18 @@ class Social extends Phaser.Scene {
 		let ranks=document.getElementById ("ranking")
 		let chat=document.getElementById ("chat")
 		let chatBg=document.getElementById ("chatBg")
+		
+		//let userBannerJ1=document.getElementById ("userBannerJ1")
+		//let userBannerJ2=document.getElementById ("userBannerJ2")
+	
 		this.add.image(800, 350, "Fondo");	
 		this.add.image(800, 640, "Volver").setInteractive().on("pointerdown", ()=>{
 				login.style.visibility="hidden"
 				chat.style.visibility="hidden"	
 				chatBg.style.visibility="hidden"	
 				ranks.style.visibility="hidden"
+				//userBannerJ1.style.visibility="hidden"
+				//userBannerJ2.style.visibility="hidden"
 				$('#msg').html("")				
 				this.scene.start("Menu")	
 		})
@@ -27,6 +33,8 @@ class Social extends Phaser.Scene {
 		chat.style.visibility="visible"
 		ranks.style.visibility="visible"
 		chatBg.style.visibility="visible"
+		//userBannerJ1.style.visibility="visible"
+		//userBannerJ2.style.visibility="visible"
 		loadRanking(function(items){
 		let ranking=[]
 			for(let i=0;i<items.length;i++)

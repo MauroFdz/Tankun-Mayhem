@@ -16,6 +16,8 @@ class MenuScene extends Phaser.Scene {
 		this.load.audio('J_musica', '../assets/Sounds/Juego_música.mp3');
 	}
 	create(){
+		userBannerJ1.style.visibility="hidden"
+		userBannerJ2.style.visibility="hidden"
 		this.M_musica = this.sound.add('M_musica');
 		//this.J_musica= this.sound.add('J_musica');
 		this.M_musica.play();

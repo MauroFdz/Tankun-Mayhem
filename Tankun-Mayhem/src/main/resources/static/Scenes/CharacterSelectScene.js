@@ -36,11 +36,27 @@ class CharSelect extends Phaser.Scene {
 		const Char3 = this.add.image(415, 500, "Char3");
 		J_musica= this.sound.add('J_musica');
 		let selected=-1;
+		
+		let userBannerJ1=document.getElementById ("userBannerJ1")
+		let userBannerJ2=document.getElementById ("userBannerJ2")
+		
+		
+		
 		Char1.setInteractive();
 		Char2.setInteractive();
 		Char3.setInteractive();
 		Seleccionar.setInteractive();
 		Volver.setInteractive();
+			
+		
+		
+		Volver.on("pointerdown", ()=>{			
+				userBannerJ1.style.visibility="hidden"
+				userBannerJ2.style.visibility="hidden"			
+		})
+		
+		userBannerJ1.style.visibility="visible"
+		userBannerJ2.style.visibility="visible"
 		
 		Char1.on("pointerdown", ()=>{
 			Splash2.setPosition(2000, 2000);
