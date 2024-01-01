@@ -10,7 +10,11 @@ class LoadScene extends Phaser.Scene {
 	create(){
 		
 		const creditos = this.add.image(800, 350, "Creditos");	
-		const Volver = this.add.image(800, 640, "Volver");	
+		const Volver = this.add.image(800, 640, "Volver");
+		
+		let userBanner=document.getElementById ("userBanner")		
+		userBanner.style.visibility="hidden"
+			
 		Volver.setInteractive();		
 		
 		Volver.on("pointerdown", ()=>{			

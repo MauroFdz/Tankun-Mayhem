@@ -40,7 +40,8 @@ class CharSelect extends Phaser.Scene {
 		let userBannerJ1=document.getElementById ("userBannerJ1")
 		let userBannerJ2=document.getElementById ("userBannerJ2")
 		
-		
+		let userBanner=document.getElementById ("userBanner")		
+		userBanner.style.visibility="hidden"
 		
 		Char1.setInteractive();
 		Char2.setInteractive();
@@ -52,7 +53,8 @@ class CharSelect extends Phaser.Scene {
 		
 		Volver.on("pointerdown", ()=>{			
 				userBannerJ1.style.visibility="hidden"
-				userBannerJ2.style.visibility="hidden"			
+				userBannerJ2.style.visibility="hidden"	
+						
 		})
 		
 		userBannerJ1.style.visibility="visible"

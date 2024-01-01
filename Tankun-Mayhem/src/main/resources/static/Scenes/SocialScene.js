@@ -15,6 +15,9 @@ class Social extends Phaser.Scene {
 		let chat=document.getElementById ("chat")
 		let chatBg=document.getElementById ("chatBg")
 		
+		let userBanner=document.getElementById ("userBanner")		
+		userBanner.style.visibility="visible"
+		
 		//let userBannerJ1=document.getElementById ("userBannerJ1")
 		//let userBannerJ2=document.getElementById ("userBannerJ2")
 	

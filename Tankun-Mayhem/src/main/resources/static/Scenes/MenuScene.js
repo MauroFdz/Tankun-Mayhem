@@ -22,6 +22,9 @@ class MenuScene extends Phaser.Scene {
 		//this.J_musica= this.sound.add('J_musica');
 		this.M_musica.play();
 		
+		let userBanner=document.getElementById ("userBanner")		
+		userBanner.style.visibility="visible"
+		
 		this.fondo = this.add.image(0, 0, "fondo");
 		this.fondo.setOrigin(0, 0);
 		const jugar = this.add.image(config.width/2, 300, "jugar").setInteractive().on("pointerdown", ()=>{
