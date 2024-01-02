@@ -18,7 +18,7 @@ public class TankunMayhemApplication implements WebSocketConfigurer{
 		.setAllowedOrigins("*");
 		registry.addHandler(selectHandler(), "/select")
 		.setAllowedOrigins("*");
-		registry.addHandler(echoHandler(), "/chatEcho")
+		registry.addHandler(echoChatHandler(), "/chatEcho")
         .setAllowedOrigins("*");
 		
 	}

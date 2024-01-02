@@ -20,7 +20,7 @@ class Social extends Phaser.Scene {
 		
 		var connectionChat = new WebSocket('ws://'+location.host+'/chatEcho');
 		connectionChat.onopen = function () {
-			connection.send('chatHi');
+			connectionChat.send('Usuario conectado<br>');
 		}
 		connectionChat.onerror = function(e) {
 			console.log("WS error: " + e);

@@ -3,6 +3,7 @@ var tank1;
 var tank2;
 var J_musica; //Si es global, se usa en GameScene
 
+let ready1=false,ready2=false
 class CharSelect extends Phaser.Scene {
 	constructor(){
 		super("CharSelect");
@@ -55,24 +56,21 @@ class CharSelect extends Phaser.Scene {
 			"ready":false,
 			"tank":""
 		}
-		let ready1=false,ready2=false
+		let nready=0
 		var selectWS = new WebSocket('ws://'+location.host+'/select');
 		selectWS.onopen = function () {
-			
-			selectWS.send(JSON.stringify(selectJson))
+			//selectWS.send(JSON.stringify(selectJson))
 		}
 		selectWS.onerror = function(e) {
 			console.log("WS error: " + e);
 		}
 		selectWS.onmessage = function(msg) {
-			console.log(msg.data);
 			let json = JSON.parse(msg.data);
-			console.log(json.jugador1)
-			console.log(json.nombre)
+			console.log(json);
 			if(json.jugador1==true){
-				$('#user1Text').html(json.nombree)
+				$('#user1Text').html(json.nombre)
 				ready1=json.ready
-				if(json.tank=="TankeRush"){
+				if(json.tank=="TankRush"){
 					tank1=new TankRush()
 				}else 
 				if(json.tank=="TankFuture"){
@@ -88,12 +86,7 @@ class CharSelect extends Phaser.Scene {
 					tank2=new TankFuture()
 				}
 			}
-			if(ready1&&ready2){
-			console.log("están los dos preparados")
-				this.scene.start("GameScene")
-					J_musica.play()
-					J_musica.volume=0.1
-			}
+			
 		}
 		
 		Volver.on("pointerdown", ()=>{			
@@ -141,5 +134,14 @@ class CharSelect extends Phaser.Scene {
 		Volver.on("pointerdown", ()=>{
 			this.scene.start("Menu");
 		})
+	}
+	update(){
+		
+			if(ready1&&ready2){
+			console.log("están los dos preparados")
+				this.scene.start("GameScene")
+					J_musica.play()
+					J_musica.volume=0.1
+			}
 	}
 }

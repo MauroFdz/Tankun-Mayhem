@@ -107,14 +107,13 @@
 	}
 var connection = new WebSocket('ws://'+location.host+'/echo');
 connection.onopen = function () {
-	connection.send('Hi');
+	//connection.send('Hi');
 }
 connection.onerror = function(e) {
 	console.log("WS error: " + e);
 }
 connection.onmessage = function(msg) {
-	//console.log(msg.data);
-	//console.log(JSON.parse(msg.data));
+	json=JSON.parse(msg.data)
 }
 class GameScene extends Phaser.Scene
 {

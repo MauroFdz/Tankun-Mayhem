@@ -33,6 +33,7 @@ public class WebsocketSelectHandler extends TextWebSocketHandler{
 	public void afterConnectionClosed(WebSocketSession session,
 			 CloseStatus status)throws Exception{
 		nPlayers--;
+		P1=true;
 		sessions.remove(session.getId());
 	}
 	
@@ -44,13 +45,15 @@ public class WebsocketSelectHandler extends TextWebSocketHandler{
 			JsonNode jnode= mapper.readTree(message.getPayload());
 			ObjectNode node=mapper.createObjectNode();
 			node.put("nombre", jnode.get("nombre").asText());
+			System.out.println(P1);
 			boolean isP1=P1;
 			P1=false;
+			System.out.println(P1);
 			node.put("jugador1", isP1);
 			node.put("ready", jnode.get("ready").asText());
 			node.put("tank", jnode.get("tank").asText());
 			for(WebSocketSession _session:sessions.values()){
-				_session.sendMessage(new TextMessage(message.getPayload()));
+				_session.sendMessage(new TextMessage(node.toString()));
 			}
 	}
 }
