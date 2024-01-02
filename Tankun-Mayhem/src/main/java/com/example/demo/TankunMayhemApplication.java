@@ -16,12 +16,25 @@ public class TankunMayhemApplication implements WebSocketConfigurer{
 		// TODO Auto-generated method stub
 		registry.addHandler(echoHandler(), "/echo")
 		.setAllowedOrigins("*");
+		registry.addHandler(selectHandler(), "/select")
+		.setAllowedOrigins("*");
+		registry.addHandler(echoHandler(), "/chatEcho")
+        .setAllowedOrigins("*");
 		
 	}
-	
+
 	@Bean
 	public WebsocketEchoHandler echoHandler() {
 		return new WebsocketEchoHandler();
+	}
+
+	@Bean
+	public WebsocketChatHandler echoChatHandler() {
+    return new WebsocketChatHandler();
+	}
+	@Bean
+	public WebsocketSelectHandler selectHandler() {
+		return new WebsocketSelectHandler();
 	}
 
 	

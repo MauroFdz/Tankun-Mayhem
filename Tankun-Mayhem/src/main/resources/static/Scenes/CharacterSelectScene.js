@@ -40,16 +40,61 @@ class CharSelect extends Phaser.Scene {
 		let userBannerJ1=document.getElementById ("userBannerJ1")
 		let userBannerJ2=document.getElementById ("userBannerJ2")
 		
-		let userBanner=document.getElementById ("userBanner")		
-		userBanner.style.visibility="hidden"
 		
+		let user = $('#userText').text()
+		let userBanner=document.getElementById ("userBanner")	
+		userBanner.style.visibility="hidden"
 		Char1.setInteractive();
 		Char2.setInteractive();
 		Char3.setInteractive();
 		Seleccionar.setInteractive();
-		Volver.setInteractive();
+		Volver.setInteractive();	
+		var selectJson={
+			"nombre":user,
+			"jugador1":false,
+			"ready":false,
+			"tank":""
+		}
+		let ready1=false,ready2=false
+		var selectWS = new WebSocket('ws://'+location.host+'/select');
+		selectWS.onopen = function () {
 			
-		
+			selectWS.send(JSON.stringify(selectJson))
+		}
+		selectWS.onerror = function(e) {
+			console.log("WS error: " + e);
+		}
+		selectWS.onmessage = function(msg) {
+			console.log(msg.data);
+			let json = JSON.parse(msg.data);
+			console.log(json.jugador1)
+			console.log(json.nombre)
+			if(json.jugador1==true){
+				$('#user1Text').html(json.nombree)
+				ready1=json.ready
+				if(json.tank=="TankeRush"){
+					tank1=new TankRush()
+				}else 
+				if(json.tank=="TankFuture"){
+					tank1=new TankFuture()
+				}
+			}else{
+				$('#user2Text').html(json.nombre)
+				ready2=json.ready
+				if(json.tank=="TankRush"){
+					tank2=new TankRush()
+				}else 
+				if(json.tank=="TankFuture"){
+					tank2=new TankFuture()
+				}
+			}
+			if(ready1&&ready2){
+			console.log("están los dos preparados")
+				this.scene.start("GameScene")
+					J_musica.play()
+					J_musica.volume=0.1
+			}
+		}
 		
 		Volver.on("pointerdown", ()=>{			
 				userBannerJ1.style.visibility="hidden"
@@ -75,32 +120,22 @@ class CharSelect extends Phaser.Scene {
 		})
 		
 		Seleccionar.on("pointerdown", ()=>{
-			/*if(hanJugado){
-				this.scene.scene.remove("GameScene");
-				this.scene.add("GameScene",GameScene,true);
-			}*/
 			switch(selected){
 				case -1:
 					alert("Selecciona un tanque");
 				break;
 				
 				case 0:
-					tank1 = new TankRush();
-					tank2 = new TankFuture();
-					this.scene.start("GameScene");
-					J_musica.play();
-					J_musica.volume=0.1;
+					selectJson.tank="TankRush"
 				break;
-				
 				case 1:
-					tank2 = new TankRush();
-					tank1 = new TankFuture();
-					this.scene.start("GameScene");
-					J_musica.play();
-					J_musica.volume=0.1;
+					selectJson.tank="TankFuture"
 				break;
 				
 			}
+			selectJson.ready=true
+			selectWS.send(JSON.stringify(selectJson))
+			
 		})
 		
 		Volver.on("pointerdown", ()=>{

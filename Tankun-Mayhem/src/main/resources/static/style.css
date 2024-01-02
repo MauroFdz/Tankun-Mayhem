@@ -69,6 +69,7 @@
 	justify-content:center;
 	align-items:center;
 	font-size:20px;
+	visibility:hidden;
 	
 }
 
@@ -80,6 +81,7 @@
 	justify-content:center;
 	align-items:center;
 	font-size:20px;
+	visibility:hidden;
 	
 }
 #userText{
@@ -89,14 +91,13 @@
 }
 
 #user1Text{
-	text-align:left;
+	text-align:center;
 	background-color:#333;
 	color:#80ff00;
-	
 }
 
 #user2Text{
-	text-align:right;
+	text-align:center;
 	background-color:#333;
 	color:#80ff00;
 }
