@@ -69,6 +69,10 @@ class CharSelect extends Phaser.Scene {
 		selectWS.onmessage = function(msg) {
 			let json = JSON.parse(msg.data);
 			console.log(json);
+			if(json.nombre==""){
+				selectJson.jugador1=json.jugador1
+				json.nombre=user
+			}
 			if(json.jugador1==true){
 				$('#user1Text').html(json.nombre)
 				SoyJugador1 = true;

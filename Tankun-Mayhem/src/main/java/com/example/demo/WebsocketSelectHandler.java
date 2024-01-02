@@ -23,10 +23,10 @@ public class WebsocketSelectHandler extends TextWebSocketHandler{
 		sessions.put(session.getId(), session);
 		ObjectNode node=new ObjectMapper().createObjectNode();
 		node.put("nombre", "");
-		node.put("jugador1", false);
+		node.put("jugador1", (nPlayers==1)?true:false);
 		node.put("ready", false);
 		node.put("tank","");
-		//session.sendMessage(new TextMessage(node.toString()));
+		session.sendMessage(new TextMessage(node.toString()));
 	}
 	
 	@Override
@@ -49,7 +49,7 @@ public class WebsocketSelectHandler extends TextWebSocketHandler{
 			boolean isP1=P1;
 			P1=false;
 			System.out.println(P1);
-			node.put("jugador1", isP1);
+			node.put("jugador1",  jnode.get("jugador1").asText());
 			node.put("ready", jnode.get("ready").asText());
 			node.put("tank", jnode.get("tank").asText());
 			for(WebSocketSession _session:sessions.values()){
