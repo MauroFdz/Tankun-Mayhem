@@ -2,6 +2,8 @@
 var tank1;
 var tank2;
 var J_musica; //Si es global, se usa en GameScene
+var SoyJugador1 = false;
+
 
 let ready1=false,ready2=false
 class CharSelect extends Phaser.Scene {
@@ -69,6 +71,7 @@ class CharSelect extends Phaser.Scene {
 			console.log(json);
 			if(json.jugador1==true){
 				$('#user1Text').html(json.nombre)
+				SoyJugador1 = true;
 				ready1=json.ready
 				if(json.tank=="TankRush"){
 					tank1=new TankRush()

@@ -375,25 +375,25 @@ class GameScene extends Phaser.Scene
 
 		
 		
-		if (this.keyA.isDown)
+		if (this.keyA.isDown && SoyJugador1)
 		{				
 			this.player1.angle-=tank1.tankRot;
 			json.rot1=this.player1.angle;
 		}
-		if (this.keyD.isDown)
+		if (this.keyD.isDown && SoyJugador1)
 		{		
 			this.player1.angle+=tank1.tankRot;
 			json.rot1=this.player1.angle;
 		}
 		
-		if (this.keyW.isDown)
+		if (this.keyW.isDown && SoyJugador1)
 		{
 			this.player1.setVelocity(Math.sin(this.player1.rotation)*tank1.tankSpeed,-Math.cos(this.player1.rotation)*tank1.tankSpeed);
 			this.cannon1.setPosition(this.player1.x,this.player1.y);
 			json.posx1=this.player1.x;
 			json.posy1=this.player1.y;
 		} 
-		 else if (this.keyS.isDown)
+		 else if (this.keyS.isDown && SoyJugador1)
 		{			
 			this.player1.setVelocity(-Math.sin(this.player1.rotation)*tank1.tankSpeed,Math.cos(this.player1.rotation)*tank1.tankSpeed);
 			this.cannon1.setPosition(this.player1.x,this.player1.y);
@@ -406,20 +406,20 @@ class GameScene extends Phaser.Scene
 			this.cannon1.setPosition(this.player1.x,this.player1.y);		
 		}
 		//Rotacion cannon 1
-		if (this.keyC.isDown)
+		if (this.keyC.isDown && SoyJugador1)
 		{
 			this.cannon1.angle-=tank1.cannonRot;
 			json.tur1=this.cannon1.angle;
 	
 		} 
-		if (this.keyB.isDown)
+		if (this.keyB.isDown && SoyJugador1)
 		{
 			this.cannon1.angle+=tank1.cannonRot;
 			json.tur1=this.cannon1.angle;
 		}
 		
 		//Disparo player 1
-		if ((this.keyV.isDown||json.shot1==1)&&this.player1.lastShot<(new Date()).getTime() / 1000)
+		if (((this.keyV.isDown && SoyJugador1)||json.shot1==1)&&this.player1.lastShot<(new Date()).getTime() / 1000)
 		{	
 			json.shot1=1
 			this.disparo_P.play();
@@ -438,26 +438,26 @@ class GameScene extends Phaser.Scene
 		
 		
 		//Inputs player 2
-		if (this.cursors.left.isDown)
+		if (this.cursors.left.isDown && !SoyJugador1)
 		{			
 			this.player2.angle-=tank2.tankRot;
 			json.rot2=this.player2.angle;
 			
 		}
-		if (this.cursors.right.isDown)
+		if (this.cursors.right.isDown && !SoyJugador1)
 		{		
 			this.player2.angle+=tank2.tankRot;
 			json.rot2=this.player2.angle;
 		}
 		
 		
-		if (this.cursors.up.isDown)
+		if (this.cursors.up.isDown && !SoyJugador1)
 		{
 			this.player2.setVelocity(Math.sin(this.player2.rotation)*tank2.tankSpeed,-Math.cos(this.player2.rotation)*tank2.tankSpeed);
 			json.posx2=this.player2.x;
 			json.posy2=this.player2.y;	
 		} 
-		else if (this.cursors.down.isDown)
+		else if (this.cursors.down.isDown && !SoyJugador1)
 		{			
 			this.player2.setVelocity(-Math.sin(this.player2.rotation)*tank2.tankSpeed,Math.cos(this.player2.rotation)*tank2.tankSpeed);
 			json.posx2=this.player2.x;
@@ -468,19 +468,19 @@ class GameScene extends Phaser.Scene
 			this.player2.setVelocity(0,0);
 		}
 		//Rotacion cannon 2
-		if (this.keyI.isDown)
+		if (this.keyI.isDown && !SoyJugador1)
 		{
 			this.cannon2.angle-=tank2.cannonRot;	
 			json.tur2=this.cannon2.angle;
 		} 
-		if (this.keyP.isDown)
+		if (this.keyP.isDown && !SoyJugador1)
 		{
 			this.cannon2.angle+=tank2.cannonRot;
 			json.tur2=this.cannon2.angle;
 		}	
 		
 		//Disparo player 2
-		if ((this.keyO.isDown||json.shot2==1)&&this.player2.lastShot<(new Date()).getTime() / 1000)
+		if (((this.keyO.isDown && !SoyJugador1) ||json.shot2==1)&&this.player2.lastShotaw<(new Date()).getTime() / 1000)
 		{
 			json.shot2=1
 			this.disparo_R.play();
