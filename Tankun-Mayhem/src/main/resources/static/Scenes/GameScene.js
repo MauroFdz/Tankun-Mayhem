@@ -480,7 +480,7 @@ class GameScene extends Phaser.Scene
 		}	
 		
 		//Disparo player 2
-		if (((this.keyO.isDown && !SoyJugador1) ||json.shot2==1)&&this.player2.lastShotaw<(new Date()).getTime() / 1000)
+		if (((this.keyO.isDown && !SoyJugador1) ||json.shot2==1)&&this.player2.lastShot<(new Date()).getTime() / 1000)
 		{
 			json.shot2=1
 			this.disparo_R.play();

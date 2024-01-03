@@ -52,11 +52,12 @@ class GameOverScene extends Phaser.Scene {
 		if(score1>score2)
 		{
 			const img = this.add.image(800, 200, "JugV1");	
-			checkScore(score1,$('#userText').text())	
+			checkScore(score1,$('#user1Text').text())	
 		}
 		if(score1<score2)
 		{
-			const img = this.add.image(800, 200, "JugV2");
+			const img = this.add.image(800, 200, "JugV2");	
+			checkScore(score2,$('#user2Text').text())	
 		}
 		if(score1==score2)
 		{

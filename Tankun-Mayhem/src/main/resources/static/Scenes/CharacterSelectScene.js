@@ -54,36 +54,43 @@ class CharSelect extends Phaser.Scene {
 		Volver.setInteractive();	
 		var selectJson={
 			"nombre":user,
-			"tank":""
+			"tank":"",
+			"status":"",
+			"player1":false
 		}
 		var selectWS = new WebSocket('ws://'+location.host+'/select');
 		selectWS.onopen = function () {
-			//selectWS.send(JSON.stringify(selectJson))
+			selectJson.status="connecting"
+			selectWS.send(JSON.stringify(selectJson))
 		}
 		selectWS.onerror = function(e) {
 			console.log("WS error: " + e);
 		}
 		selectWS.onmessage = function(msg) {
-			let json = JSON.parse(msg.data);
-			console.log(json);
-			
-			$('#user1Text').html(json.jugador1)
-			$('#user2Text').html(json.jugador2)
-			if(json.jugador1==user)SoyJugador1=true
-				if(json.tank=="TankRush"){
-					tank1=new TankRush()
-				}else 
-				if(json.tank=="TankFuture"){
-					tank1=new TankFuture()
+			if(msg.data=="player1"){
+				SoyJugador1=true
+				selectJson.player1=true
+				console.log(selectJson.player1)
 				}
+			else{
+				let json = JSON.parse(msg.data);
+				console.log(json);
 			
-				if(json.tank2=="TankRush"){
-					tank2=new TankRush()
-				}else 
-				if(json.tank2=="TankFuture"){
-					tank2=new TankFuture()
-				}
-			ready=true
+				$('#user1Text').html(json.jugador1)
+				$('#user2Text').html(json.jugador2)
+					if(json.tank1=="TankRush"){
+						tank1=new TankRush()
+					}else if(json.tank1=="TankFuture"){
+						tank1=new TankFuture()
+					}
+					if(json.tank2=="TankRush"){
+						tank2=new TankRush()
+					}else if(json.tank2=="TankFuture"){
+						tank2=new TankFuture()
+					}
+					if(json.status=="ready")ready=true
+				
+			}
 		}
 		
 		Volver.on("pointerdown", ()=>{			
@@ -123,7 +130,7 @@ class CharSelect extends Phaser.Scene {
 				break;
 				
 			}
-			selectJson.ready=true
+			selectJson.status="ready"
 			selectWS.send(JSON.stringify(selectJson))
 			
 		})
@@ -136,6 +143,7 @@ class CharSelect extends Phaser.Scene {
 		
 			if(ready){
 			console.log("están los dos preparados")
+			ready=false
 				this.scene.start("GameScene")
 					J_musica.play()
 					J_musica.volume=0.1

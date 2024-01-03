@@ -23,11 +23,12 @@ public class WebsocketSelectHandler extends TextWebSocketHandler{
 		nPlayers++;
 		sessions.put(session.getId(), session);
 		ObjectNode node=new ObjectMapper().createObjectNode();
-		node.put("nombre", "");
-		node.put("jugador1", (nPlayers==1)?true:false);
-		node.put("ready", false);
-		node.put("tank","");
-		//session.sendMessage(new TextMessage(node.toString()));
+		node.put("jugador1", jugador1);
+		node.put("jugador2", jugador2);
+		node.put("tank1","");
+		node.put("tank2","");
+		node.put("status", "notReady");
+		session.sendMessage(new TextMessage(node.toString()));
 	}
 	
 	@Override
@@ -43,23 +44,44 @@ public class WebsocketSelectHandler extends TextWebSocketHandler{
 			TextMessage message) throws Exception {
 			System.out.println(message.getPayload());
 			JsonNode jnode= mapper.readTree(message.getPayload());
-			
-			if(jugador1==""||jugador1==jnode.get("nombre").asText()) {
-				jugador1=jnode.get("nombre").asText();
-				tank1=jnode.get("tank").asText();
-				ready1=true;
+			System.out.println(jugador1);
+			System.out.println(jnode.get("status").asText());
+			if(jnode.get("status").asText().equals("connecting")) {
+				if(jugador1.equals("")) 
+				{
+					jugador1=jnode.get("nombre").asText();
+					session.sendMessage(new TextMessage("player1"));
+				}
+				else if(jugador2.equals("")) 
+				{
+					jugador2=jnode.get("nombre").asText();
+				}
 			}
-			if(jugador2==""||jugador2==jnode.get("nombre").asText()) {
-				jugador2=jnode.get("nombre").asText();
-				tank2=jnode.get("tank").asText();
-				ready2=true;
+
+			if(jnode.get("status").asText().equals("ready")) {
+				if(jnode.get("player1").asBoolean()) 
+				{
+					tank1=jnode.get("tank").asText();
+					ready1=true;
+				}
+				else if(!jnode.get("player1").asBoolean()) 
+				{
+					tank2=jnode.get("tank").asText();
+					ready2=true;
+				}
 			}
 			if(ready1&&ready2) {
+
 				ObjectNode node=mapper.createObjectNode();
 				node.put("jugador1", jugador1);
 				node.put("jugador2", jugador2);
 				node.put("tank1", tank1);
 				node.put("tank2", tank2);
+				node.put("status", "ready");
+				ready1=false;
+				ready2=false;
+				jugador1="";
+				jugador2="";
 				for(WebSocketSession _session:sessions.values()){
 					_session.sendMessage(new TextMessage(node.toString()));
 				}
