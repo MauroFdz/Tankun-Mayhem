@@ -92,19 +92,40 @@
 		this.score1Text.setText('Puntuación:' + score1);
 		this.fuego.disableBody(true,true);
 	}*/
-
-	let json={
-		"posx1":100,
-		"posy1":300,
-		"rot1":0,
-		"tur1":0,
-		"shot1":0,
-		"posx2":1500,
-		"posy2":300,
-		"rot2":0,
-		"tur2":0,
-		"shot2":0
+	let lastUpd
+	let myjson,json
+	if(SoyJugador1){
+	myjson={
+		"posx":100,
+		"posy":300,
+		"rot":0,
+		"tur":0,
+		"shot":0,
 	}
+	json={
+		"posx":1500,
+		"posy":300,
+		"rot":0,
+		"tur":0,
+		"shot":0
+	}
+	}else
+	
+	json={
+		"posx":100,
+		"posy":300,
+		"rot":0,
+		"tur":0,
+		"shot":0,
+	}
+	myjson={
+		"posx":1500,
+		"posy":300,
+		"rot":0,
+		"tur":0,
+		"shot":0
+	}
+	
 var connection = new WebSocket('ws://'+location.host+'/echo');
 connection.onopen = function () {
 	//connection.send('Hi');
@@ -113,7 +134,7 @@ connection.onerror = function(e) {
 	console.log("WS error: " + e);
 }
 connection.onmessage = function(msg) {
-	json=JSON.parse(msg.data)
+	 json=JSON.parse(msg.data)
 }
 class GameScene extends Phaser.Scene
 {
@@ -180,7 +201,7 @@ class GameScene extends Phaser.Scene
 		this.keyO = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.O);//player2 fire
 		this.keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);//player2 rotate der
 		
-		
+		lastUpdate=new Date().getTime() / 100
 		// MAPA
 		this.add.image(800, 300, 'Map');	
 
@@ -373,32 +394,30 @@ class GameScene extends Phaser.Scene
 	update ()
 	{
 
-		
-		
 		if (this.keyA.isDown && SoyJugador1)
 		{				
 			this.player1.angle-=tank1.tankRot;
-			json.rot1=this.player1.angle;
+			myjson.rot=this.player1.angle;
 		}
 		if (this.keyD.isDown && SoyJugador1)
 		{		
 			this.player1.angle+=tank1.tankRot;
-			json.rot1=this.player1.angle;
+			myjson.rot=this.player1.angle;
 		}
 		
 		if (this.keyW.isDown && SoyJugador1)
 		{
 			this.player1.setVelocity(Math.sin(this.player1.rotation)*tank1.tankSpeed,-Math.cos(this.player1.rotation)*tank1.tankSpeed);
 			this.cannon1.setPosition(this.player1.x,this.player1.y);
-			json.posx1=this.player1.x;
-			json.posy1=this.player1.y;
+			myjson.posx=this.player1.x;
+			myjson.posy=this.player1.y;
 		} 
 		 else if (this.keyS.isDown && SoyJugador1)
 		{			
 			this.player1.setVelocity(-Math.sin(this.player1.rotation)*tank1.tankSpeed,Math.cos(this.player1.rotation)*tank1.tankSpeed);
 			this.cannon1.setPosition(this.player1.x,this.player1.y);
-			json.posx1=this.player1.x;
-			json.posy1=this.player1.y;
+			myjson.posx=this.player1.x;
+			myjson.posy=this.player1.y;
 		}
 		else
 		{
@@ -409,19 +428,34 @@ class GameScene extends Phaser.Scene
 		if (this.keyC.isDown && SoyJugador1)
 		{
 			this.cannon1.angle-=tank1.cannonRot;
-			json.tur1=this.cannon1.angle;
+			myjson.tur=this.cannon1.angle;
 	
 		} 
 		if (this.keyB.isDown && SoyJugador1)
 		{
 			this.cannon1.angle+=tank1.cannonRot;
-			json.tur1=this.cannon1.angle;
+			myjson.tur=this.cannon1.angle;
 		}
 		
 		//Disparo player 1
-		if (((this.keyV.isDown && SoyJugador1)||json.shot1==1)&&this.player1.lastShot<(new Date()).getTime() / 1000)
+		if (this.keyV.isDown && SoyJugador1&&this.player1.lastShot<(new Date()).getTime() / 1000)
 		{	
-			json.shot1=1
+			myjson.shot=1
+			this.disparo_P.play();
+			var bullet = tank1.bullets.create(this.player1.x,this.player1.y,'Bala_sher');
+			
+			bullet.contador = tank1.bulletReb;
+			
+			bullet.setCollideWorldBounds(true);
+			bullet.setBounce(tank1.bounce);
+			
+			bullet.id=tank1.bulletPower;
+			
+			this.player1.lastShot=((new Date()).getTime() / 1000)+tank1.cooldown;
+			bullet.setVelocity(Math.sin(this.cannon1.rotation)*250,-Math.cos(this.cannon1.rotation)*250);
+		}
+		if (json.shot==1&&this.player1.lastShot<(new Date()).getTime() / 1000)
+		{	
 			this.disparo_P.play();
 			var bullet = tank1.bullets.create(this.player1.x,this.player1.y,'Bala_sher');
 			
@@ -441,27 +475,27 @@ class GameScene extends Phaser.Scene
 		if (this.cursors.left.isDown && !SoyJugador1)
 		{			
 			this.player2.angle-=tank2.tankRot;
-			json.rot2=this.player2.angle;
+			myjson.rot=this.player2.angle;
 			
 		}
 		if (this.cursors.right.isDown && !SoyJugador1)
 		{		
 			this.player2.angle+=tank2.tankRot;
-			json.rot2=this.player2.angle;
+			myjson.rot=this.player2.angle;
 		}
 		
 		
 		if (this.cursors.up.isDown && !SoyJugador1)
 		{
 			this.player2.setVelocity(Math.sin(this.player2.rotation)*tank2.tankSpeed,-Math.cos(this.player2.rotation)*tank2.tankSpeed);
-			json.posx2=this.player2.x;
-			json.posy2=this.player2.y;	
+			myjson.posx=this.player2.x;
+			myjson.posy=this.player2.y;	
 		} 
 		else if (this.cursors.down.isDown && !SoyJugador1)
 		{			
 			this.player2.setVelocity(-Math.sin(this.player2.rotation)*tank2.tankSpeed,Math.cos(this.player2.rotation)*tank2.tankSpeed);
-			json.posx2=this.player2.x;
-			json.posy2=this.player2.y;	
+			myjson.posx=this.player2.x;
+			myjson.posy=this.player2.y;	
 		}
 		else
 		{
@@ -471,18 +505,35 @@ class GameScene extends Phaser.Scene
 		if (this.keyI.isDown && !SoyJugador1)
 		{
 			this.cannon2.angle-=tank2.cannonRot;	
-			json.tur2=this.cannon2.angle;
+			myjson.tur=this.cannon2.angle;
 		} 
 		if (this.keyP.isDown && !SoyJugador1)
 		{
 			this.cannon2.angle+=tank2.cannonRot;
-			json.tur2=this.cannon2.angle;
+			myjson.tur=this.cannon2.angle;
 		}	
 		
 		//Disparo player 2
-		if (((this.keyO.isDown && !SoyJugador1) ||json.shot2==1)&&this.player2.lastShot<(new Date()).getTime() / 1000)
+		if (this.keyO.isDown && !SoyJugador1&&this.player2.lastShot<(new Date()).getTime() / 1000)
 		{
-			json.shot2=1
+			myjson.shot=1
+			this.disparo_R.play();
+			
+			var bullet = tank2.bullets.create(this.player2.x,this.player2.y,'Bala_futuro');
+			
+			bullet.contador = tank2.bulletReb;
+			
+			this.player2.lastShot=((new Date()).getTime() / 1000)+tank2.cooldown;
+			
+			bullet.setBounce(tank2.bounce);
+			bullet.id=tank2.bulletPower;
+			
+			bullet.setVelocity(Math.sin(this.cannon2.rotation)*500,-Math.cos(this.cannon2.rotation)*500);
+			
+		}
+		if (json.shot==1&&this.player2.lastShot<(new Date()).getTime() / 1000)
+		{
+			myjson.shot=1
 			this.disparo_R.play();
 			
 			var bullet = tank2.bullets.create(this.player2.x,this.player2.y,'Bala_futuro');
@@ -508,25 +559,25 @@ class GameScene extends Phaser.Scene
 		this.time = parseInt(this.startTime + 60 -(new Date()).getTime() / 1000);
 		this.timerText.setText(this.time);
 		
-		connection.send(JSON.stringify(json));
-		json.shot2=0
-		json.shot1=0
-		
-		this.player1.angle=json.rot1
-		this.player1.x=json.posx1
-		this.player1.y=json.posy1
-		this.cannon1.angle=json.tur1
-		this.player2.angle=json.rot2
-		this.player2.x=json.posx2
-		this.player2.y=json.posy2
-		this.cannon2.angle=json.tur2
+		connection.send(JSON.stringify(myjson));
+		myjson.shot=0
+		if(!SoyJugador1){
+		this.player1.angle=json.rot
+		this.player1.x=json.posx
+		this.player1.y=json.posy
+		this.cannon1.angle=json.tur
+		}else{
+		this.player2.angle=json.rot
+		this.player2.x=json.posx
+		this.player2.y=json.posy
+		this.cannon2.angle=json.tur
+		}
 		if(this.time<=0)
 		{
 			this.scene.start("GameOver");
 			J_musica.stop();
 
 		}
-
-		
 	}
+	
 }
