@@ -5,7 +5,7 @@ var J_musica; //Si es global, se usa en GameScene
 var SoyJugador1 = false;
 
 
-let ready1=false,ready2=false
+let ready=false
 class CharSelect extends Phaser.Scene {
 	constructor(){
 		super("CharSelect");
@@ -54,11 +54,8 @@ class CharSelect extends Phaser.Scene {
 		Volver.setInteractive();	
 		var selectJson={
 			"nombre":user,
-			"jugador1":false,
-			"ready":false,
 			"tank":""
 		}
-		let nready=0
 		var selectWS = new WebSocket('ws://'+location.host+'/select');
 		selectWS.onopen = function () {
 			//selectWS.send(JSON.stringify(selectJson))
@@ -69,31 +66,24 @@ class CharSelect extends Phaser.Scene {
 		selectWS.onmessage = function(msg) {
 			let json = JSON.parse(msg.data);
 			console.log(json);
-			if(json.nombre==""){
-				selectJson.jugador1=json.jugador1
-				json.nombre=user
-			}
-			if(json.jugador1==true){
-				$('#user1Text').html(json.nombre)
-				SoyJugador1 = true;
-				ready1=json.ready
+			
+			$('#user1Text').html(json.jugador1)
+			$('#user2Text').html(json.jugador2)
+			if(json.jugador1==user)SoyJugador1=true
 				if(json.tank=="TankRush"){
 					tank1=new TankRush()
 				}else 
 				if(json.tank=="TankFuture"){
 					tank1=new TankFuture()
 				}
-			}else{
-				$('#user2Text').html(json.nombre)
-				ready2=json.ready
-				if(json.tank=="TankRush"){
+			
+				if(json.tank2=="TankRush"){
 					tank2=new TankRush()
 				}else 
-				if(json.tank=="TankFuture"){
+				if(json.tank2=="TankFuture"){
 					tank2=new TankFuture()
 				}
-			}
-			
+			ready=true
 		}
 		
 		Volver.on("pointerdown", ()=>{			
@@ -144,7 +134,7 @@ class CharSelect extends Phaser.Scene {
 	}
 	update(){
 		
-			if(ready1&&ready2){
+			if(ready){
 			console.log("están los dos preparados")
 				this.scene.start("GameScene")
 					J_musica.play()

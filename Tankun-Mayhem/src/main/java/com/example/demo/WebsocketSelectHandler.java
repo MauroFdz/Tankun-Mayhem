@@ -15,7 +15,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 public class WebsocketSelectHandler extends TextWebSocketHandler{
 	int nPlayers=0,nReady=0;
 	ObjectMapper mapper=new ObjectMapper();
-	boolean P1=true;
+	String jugador1="",jugador2="",tank1,tank2;
+	boolean ready1=false,ready2=false;
 	private Map<String,WebSocketSession> sessions=new ConcurrentHashMap<>();
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session)throws Exception{
@@ -26,14 +27,13 @@ public class WebsocketSelectHandler extends TextWebSocketHandler{
 		node.put("jugador1", (nPlayers==1)?true:false);
 		node.put("ready", false);
 		node.put("tank","");
-		session.sendMessage(new TextMessage(node.toString()));
+		//session.sendMessage(new TextMessage(node.toString()));
 	}
 	
 	@Override
 	public void afterConnectionClosed(WebSocketSession session,
 			 CloseStatus status)throws Exception{
 		nPlayers--;
-		P1=true;
 		sessions.remove(session.getId());
 	}
 	
@@ -43,17 +43,26 @@ public class WebsocketSelectHandler extends TextWebSocketHandler{
 			TextMessage message) throws Exception {
 			System.out.println(message.getPayload());
 			JsonNode jnode= mapper.readTree(message.getPayload());
-			ObjectNode node=mapper.createObjectNode();
-			node.put("nombre", jnode.get("nombre").asText());
-			System.out.println(P1);
-			boolean isP1=P1;
-			P1=false;
-			System.out.println(P1);
-			node.put("jugador1",  jnode.get("jugador1").asText());
-			node.put("ready", jnode.get("ready").asText());
-			node.put("tank", jnode.get("tank").asText());
-			for(WebSocketSession _session:sessions.values()){
-				_session.sendMessage(new TextMessage(node.toString()));
+			
+			if(jugador1==""||jugador1==jnode.get("nombre").asText()) {
+				jugador1=jnode.get("nombre").asText();
+				tank1=jnode.get("tank").asText();
+				ready1=true;
+			}
+			if(jugador2==""||jugador2==jnode.get("nombre").asText()) {
+				jugador2=jnode.get("nombre").asText();
+				tank2=jnode.get("tank").asText();
+				ready2=true;
+			}
+			if(ready1&&ready2) {
+				ObjectNode node=mapper.createObjectNode();
+				node.put("jugador1", jugador1);
+				node.put("jugador2", jugador2);
+				node.put("tank1", tank1);
+				node.put("tank2", tank2);
+				for(WebSocketSession _session:sessions.values()){
+					_session.sendMessage(new TextMessage(node.toString()));
+				}
 			}
 	}
 }
