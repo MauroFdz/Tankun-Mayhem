@@ -533,7 +533,6 @@ class GameScene extends Phaser.Scene
 		}
 		if (json.shot==1&&this.player2.lastShot<(new Date()).getTime() / 1000)
 		{
-			myjson.shot=1
 			this.disparo_R.play();
 			
 			var bullet = tank2.bullets.create(this.player2.x,this.player2.y,'Bala_futuro');
