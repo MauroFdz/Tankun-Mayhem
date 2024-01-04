@@ -35,6 +35,10 @@ public class WebsocketSelectHandler extends TextWebSocketHandler{
 	public void afterConnectionClosed(WebSocketSession session,
 			 CloseStatus status)throws Exception{
 		nPlayers--;
+		ready1=false;
+		ready2=false;
+		jugador1="";
+		jugador2="";
 		sessions.remove(session.getId());
 	}
 	

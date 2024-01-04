@@ -110,7 +110,7 @@
 		"shot":0
 	}
 	}else
-	
+	{
 	json={
 		"posx":100,
 		"posy":300,
@@ -125,10 +125,10 @@
 		"tur":0,
 		"shot":0
 	}
-	
+	}
 var connection = new WebSocket('ws://'+location.host+'/echo');
 connection.onopen = function () {
-	//connection.send('Hi');
+	connection.send(JSON.stringify(myjson));
 }
 connection.onerror = function(e) {
 	console.log("WS error: " + e);
@@ -454,7 +454,7 @@ class GameScene extends Phaser.Scene
 			this.player1.lastShot=((new Date()).getTime() / 1000)+tank1.cooldown;
 			bullet.setVelocity(Math.sin(this.cannon1.rotation)*250,-Math.cos(this.cannon1.rotation)*250);
 		}
-		if (json.shot==1&&this.player1.lastShot<(new Date()).getTime() / 1000)
+		if (json.shot==1&& !SoyJugador1&&this.player1.lastShot<(new Date()).getTime() / 1000)
 		{	
 			this.disparo_P.play();
 			var bullet = tank1.bullets.create(this.player1.x,this.player1.y,'Bala_sher');
@@ -531,7 +531,7 @@ class GameScene extends Phaser.Scene
 			bullet.setVelocity(Math.sin(this.cannon2.rotation)*500,-Math.cos(this.cannon2.rotation)*500);
 			
 		}
-		if (json.shot==1&&this.player2.lastShot<(new Date()).getTime() / 1000)
+		if (json.shot==1&& SoyJugador1&&this.player2.lastShot<(new Date()).getTime() / 1000)
 		{
 			this.disparo_R.play();
 			
@@ -573,9 +573,16 @@ class GameScene extends Phaser.Scene
 		}
 		if(this.time<=0)
 		{
+		this.player1.angle=0
+		this.player1.x=100
+		this.player1.y=300
+		this.cannon1.angle=0
+		this.player2.angle=0
+		this.player2.x=1500
+		this.player2.y=300
+		this.cannon2.angle=0
 			this.scene.start("GameOver");
 			J_musica.stop();
-
 		}
 	}
 	

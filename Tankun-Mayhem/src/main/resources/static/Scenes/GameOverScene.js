@@ -82,10 +82,10 @@ if(SoyJugador1){
 		if(score1==score2)
 		{
 			const img = this.add.image(800, 200, "Empate");
-		}	
+		}
 		Volver.on("pointerdown", ()=>{
-			
 				this.scene.start("CharSelect");
+			score1=0,score2=0	
 			
 		})
 		
@@ -96,6 +96,7 @@ if(SoyJugador1){
 		let time = this.startTime - new Date().getTime()/1000;	
 		if(time<=0)
 		{
+			score1=0,score2=0	
 			this.scene.start("CharSelect");
 		}
 		

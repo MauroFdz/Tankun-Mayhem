@@ -4,7 +4,7 @@ var tank2;
 var J_musica; //Si es global, se usa en GameScene
 var SoyJugador1 = false;
 
-
+var selectWS
 let ready=false
 class CharSelect extends Phaser.Scene {
 	constructor(){
@@ -59,7 +59,7 @@ class CharSelect extends Phaser.Scene {
 			"status":"",
 			"player1":false
 		}
-		var selectWS = new WebSocket('ws://'+location.host+'/select');
+		selectWS = new WebSocket('ws://'+location.host+'/select');
 		
 		selectWS.onopen = function () {
 			selectJson.status="connecting"
@@ -73,6 +73,7 @@ class CharSelect extends Phaser.Scene {
 				SoyJugador1=true
 				selectJson.player1=true
 				console.log(selectJson.player1)
+				$('#user1Text').html(user)
 				}
 			else if(msg.data=="player2"){
 				SoyJugador1=false
@@ -101,11 +102,6 @@ class CharSelect extends Phaser.Scene {
 			}
 		}
 		
-		Volver.on("pointerdown", ()=>{			
-				userBannerJ1.style.visibility="hidden"
-				userBannerJ2.style.visibility="hidden"	
-						
-		})
 		
 		userBannerJ1.style.visibility="visible"
 		userBannerJ2.style.visibility="visible"
@@ -144,6 +140,9 @@ class CharSelect extends Phaser.Scene {
 		})
 		
 		Volver.on("pointerdown", ()=>{
+			userBannerJ1.style.visibility="hidden"
+			userBannerJ2.style.visibility="hidden"
+			selectWS.close()
 			this.scene.start("Menu");
 		})
 	}
@@ -152,6 +151,7 @@ class CharSelect extends Phaser.Scene {
 			if(ready){
 			console.log("están los dos preparados")
 			ready=false
+			selectWS.close()
 				this.scene.start("GameScene")
 					J_musica.play()
 					J_musica.volume=0.1

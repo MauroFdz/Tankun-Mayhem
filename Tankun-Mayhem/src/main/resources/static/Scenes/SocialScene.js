@@ -42,7 +42,8 @@ class Social extends Phaser.Scene {
 				ranks.style.visibility="hidden"
 				//userBannerJ1.style.visibility="hidden"
 				//userBannerJ2.style.visibility="hidden"
-				$('#msg').html("")				
+				$('#msg').html("")
+				connectionChat.close()				
 				this.scene.start("Menu")	
 		})
 		login.style.visibility="visible"
