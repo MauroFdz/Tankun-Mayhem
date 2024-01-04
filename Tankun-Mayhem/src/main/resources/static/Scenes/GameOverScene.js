@@ -22,18 +22,38 @@ class GameOverScene extends Phaser.Scene {
 	
 	create()
 	{
-		json={
-		"posx1":100,
-		"posy1":300,
-		"rot1":0,
-		"tur1":0,
-		"shot1":0,
-		"posx2":1500,
-		"posy2":300,
-		"rot2":0,
-		"tur2":0,
-		"shot2":0
-	}
+if(SoyJugador1){
+    myjson={
+        "posx":100,
+        "posy":300,
+        "rot":0,
+        "tur":0,
+        "shot":0,
+    }
+    json={
+        "posx":1500,
+        "posy":300,
+        "rot":0,
+        "tur":0,
+        "shot":0
+    }
+    }else
+    {
+    json={
+        "posx":100,
+        "posy":300,
+        "rot":0,
+        "tur":0,
+        "shot":0,
+    }
+    myjson={
+        "posx":1500,
+        "posy":300,
+        "rot":0,
+        "tur":0,
+        "shot":0
+    }
+    }
 		const fondo = this.add.image(0, 0, "FondoGO").setOrigin(0, 0);
 		
 		const Volver = this.add.image(800, 600, "Volver");

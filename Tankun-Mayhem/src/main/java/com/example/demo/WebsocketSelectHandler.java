@@ -55,6 +55,7 @@ public class WebsocketSelectHandler extends TextWebSocketHandler{
 				else if(jugador2.equals("")) 
 				{
 					jugador2=jnode.get("nombre").asText();
+					session.sendMessage(new TextMessage("player2"));
 				}
 			}
 

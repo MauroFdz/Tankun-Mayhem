@@ -51,7 +51,8 @@ class CharSelect extends Phaser.Scene {
 		Char2.setInteractive();
 		Char3.setInteractive();
 		Seleccionar.setInteractive();
-		Volver.setInteractive();	
+		Volver.setInteractive();
+			
 		var selectJson={
 			"nombre":user,
 			"tank":"",
@@ -59,6 +60,7 @@ class CharSelect extends Phaser.Scene {
 			"player1":false
 		}
 		var selectWS = new WebSocket('ws://'+location.host+'/select');
+		
 		selectWS.onopen = function () {
 			selectJson.status="connecting"
 			selectWS.send(JSON.stringify(selectJson))
@@ -72,6 +74,12 @@ class CharSelect extends Phaser.Scene {
 				selectJson.player1=true
 				console.log(selectJson.player1)
 				}
+			else if(msg.data=="player2"){
+				SoyJugador1=false
+				selectJson.player1=false
+				console.log(selectJson.player1)
+				
+			}
 			else{
 				let json = JSON.parse(msg.data);
 				console.log(json);
