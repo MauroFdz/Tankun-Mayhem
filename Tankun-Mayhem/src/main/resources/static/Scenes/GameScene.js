@@ -62,10 +62,7 @@
 	}
 	
 		function hitcat1 (player1, cat)
-	{
-		//this.fuego.create(this.gato.x-10, this.gato.y-10, "brick");
-		//this.fuego.create(this.gato.x+10, this.gato.y+10, "brick");
-
+	{		
 		score1-=50;
 		this.score1Text.setText('Puntuación:' + score1);
 		this.gato.destroy();
@@ -74,24 +71,10 @@
 	{
 		score2-=50;
 		this.score2Text.setText('Puntuación:' + score2);
-		this.gato.destroy();
-		//this.fuego.create(this.gato.x-10, this.gato.y-10, "brick");
-		//this.fuego.create(this.gato.x+10, this.gato.y+10, "brick");
+		this.gato.destroy();	
 
 	}
 	
-	/*		function hitfuego1 (player1, fuego)
-	{
-		score2-=10;
-		this.score2Text.setText('Puntuación:' + score2);
-		this.fuego.disableBody(true,true);
-	}
-			function hitfuego2 (player2, fuego)
-	{
-		score1-=10;
-		this.score1Text.setText('Puntuación:' + score1);
-		this.fuego.disableBody(true,true);
-	}*/
 	let lastUpd
 	let myjson,json
 	if(SoyJugador1){
@@ -147,9 +130,10 @@ class GameScene extends Phaser.Scene
 	{
 		this.load.image('Map', '../assets/Maps/Map_1/Map.png');
 		this.load.image('brick', "assets/Tiles/brick4.png");
-		this.load.image('brick2', "assets/Tiles/brick2.png");
+		this.load.image('brick2', "assets/Tiles/brick7.png");
 		this.load.image('brick3', "assets/Tiles/brick3.png");
-		this.load.image('brick5', "assets/Tiles/brick5.png");
+		this.load.image('brick5', "assets/Tiles/broken_glass2.png");
+		this.load.image('eduardo', "assets/Tiles/cat.png");
 		
 		this.load.image('tank1', tank1.src);
 		this.load.image('cannon1', tank1.cannon);
@@ -211,39 +195,22 @@ class GameScene extends Phaser.Scene
 		barra.create(800, 650, 'barraScore');
 		
 
-		/*
+		
 		let wall = this.physics.add.staticGroup();
 		let wallB = this.physics.add.staticGroup();
 		let x=1;
-		//WALLS LATERALES
-		for(x = 1; x<=9*60; x+=60/2){
-
-		wall.create(1585, 44+x, 'brick3');
 		
-		}for(x = 1; x<=9*60; x+=60/2){
-
-		wall.create(15, 44+x, 'brick3');
 		
-		}
-		for(x = 1; x<=27*60; x+=60){
-
-			wall.create(30+x, 15, 'brick');
-			
-		}
-		for(x = 1; x<=27*60; x+=60){
-
-			wall.create(30+x, 585, 'brick');
-			
-		}
+		
 		//BARRERAS
 			//ABAJO
-			for( x = 1; x<10*60; x+=2.5*60){
+			for( x = 1; x<10*60; x+=5*60){
 
 				wallB.create(945+x, 420, 'brick5');
 				
 				
 			}
-			for( x = 1; x<=10*60; x+=2.5*60){
+			for( x = 1; x<=10*60; x+=5*60){
 
 				wallB.create(202+x, 420, 'brick5');
 				
@@ -256,62 +223,62 @@ class GameScene extends Phaser.Scene
 				
 			}
 			//ARRIBA
-			for(x = 1; x<=10*60; x+=2.5*60){
+			for(x = 1; x<=10*60; x+=5*60){
 
 				wallB.create(202+x, 180, 'brick5');
 				
 			}
-			for(x = 1; x<=10*60; x+=2.5*60){
+			for(x = 1; x<=10*60; x+=5*60){
 
 				wallB.create(945+x, 180, 'brick5');
 				
 			}
 			
 			//ARRIBA Irrompible
-			for(x = 1; x<=10*60; x+=2.5*60){
+			for(x = 1; x<=10*60; x+=5*60){
 
 				wall.create(202+x, 140, 'brick3');
 				
 			}
-			for(x = 1; x<=10*60; x+=2.5*60){
+			for(x = 1; x<=10*60; x+=5*60){
 
 				wall.create(945+x, 140, 'brick3');
 				
 			}
 			
-			for(x = 1; x<=10*60; x+=2.5*60){
+			for(x = 1; x<=10*60; x+=5*60){
 
 				wall.create(202+x, 220, 'brick3');
 				
 			}
-			for(x = 1; x<=10*60; x+=2.5*60){
+			for(x = 1; x<=10*60; x+=5*60){
 
 				wall.create(945+x, 220, 'brick3');
 				
 			}
 		//ABAJO Irrompible
-			for(x = 1; x<=10*60; x+=2.5*60){
+			for(x = 1; x<=10*60; x+=5*60){
 
 				wall.create(202+x, 380, 'brick3');
 				
 			}
-			for(x = 1; x<=10*60; x+=2.5*60){
+			for(x = 1; x<=10*60; x+=5*60){
 
 				wall.create(945+x, 380, 'brick3');
 				
 			}
 			
-			for(x = 1; x<=10*60; x+=2.5*60){
+			for(x = 1; x<=10*60; x+=5*60){
 
 				wall.create(202+x, 460, 'brick3');
 				
 			}
-			for(x = 1; x<=10*60; x+=2.5*60){
+			for(x = 1; x<=10*60; x+=5*60){
 
 				wall.create(945+x, 460, 'brick3');
 				
 			}
-		*/
+		
 	
 		// The player and its settings
 		this.player1 = this.physics.add.sprite(100, 300, 'tank1');
@@ -336,18 +303,19 @@ class GameScene extends Phaser.Scene
 		tank1.bullets = this.physics.add.group();
 		tank2.bullets = this.physics.add.group();
 			
-		//gato=this.physics.add.group();
-		this.gato= this.physics.add.sprite((Math.floor(Math.random() * (1000 - 100 + 1)) + 100),(Math.floor(Math.random() * (400 - 100 + 1)) + 100), 'brick');
+	
+		this.gato= this.physics.add.sprite(800,300, 'eduardo');
+		this.gato.setScale(0.3, 0.3);
 		
 
 			
 		
 	
 		
-		//this.fuego= this.physics.add.staticGroup();
+		
 		
 		//  The score
-		/*
+		
 		this.physics.add.collider(this.player1, wall);
 		this.physics.add.collider(this.player2, wall);
 		this.physics.add.collider(this.player1, wallB);
@@ -356,14 +324,15 @@ class GameScene extends Phaser.Scene
 		this.physics.add.collider(tank2.bullets, wall,hitWall, null, this);
 		this.physics.add.collider(tank1.bullets, wallB,hitWallB, null, this);
 		this.physics.add.collider(tank2.bullets, wallB,hitWallB, null, this);
-		*/
+		
+		
+		
 		this.physics.add.collider(this.player1, this.gato ,hitcat1, null, this);
 		this.physics.add.collider(this.player2, this.gato ,hitcat2, null, this);
 		
-		//this.physics.add.collider(this.player1, this.fuego ,hitfuego1, null, this);
-		//this.physics.add.collider(this.player2, this.fuego ,hitfuego2, null, this);
 		
 		this.physics.add.collider(this.player1, this.player2);
+		
 		this.physics.add.collider(tank2.bullets, tank1.bullets,hitBullet, null, this);
 			
 		
@@ -525,6 +494,9 @@ class GameScene extends Phaser.Scene
 			
 			this.player2.lastShot=((new Date()).getTime() / 1000)+tank2.cooldown;
 			
+			bullet.setCollideWorldBounds(true);
+			
+			
 			bullet.setBounce(tank2.bounce);
 			bullet.id=tank2.bulletPower;
 			
@@ -540,6 +512,8 @@ class GameScene extends Phaser.Scene
 			bullet.contador = tank2.bulletReb;
 			
 			this.player2.lastShot=((new Date()).getTime() / 1000)+tank2.cooldown;
+			
+			bullet.setCollideWorldBounds(true);
 			
 			bullet.setBounce(tank2.bounce);
 			bullet.id=tank2.bulletPower;
