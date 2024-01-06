@@ -77,38 +77,7 @@
 	
 	let lastUpd
 	let myjson,json
-	if(SoyJugador1){
-	myjson={
-		"posx":100,
-		"posy":300,
-		"rot":0,
-		"tur":0,
-		"shot":0,
-	}
-	json={
-		"posx":1500,
-		"posy":300,
-		"rot":0,
-		"tur":0,
-		"shot":0
-	}
-	}else
-	{
-	json={
-		"posx":100,
-		"posy":300,
-		"rot":0,
-		"tur":0,
-		"shot":0,
-	}
-	myjson={
-		"posx":1500,
-		"posy":300,
-		"rot":0,
-		"tur":0,
-		"shot":0
-	}
-	}
+	
 var connection = new WebSocket('ws://'+location.host+'/echo');
 connection.onopen = function () {
 	connection.send(JSON.stringify(myjson));
@@ -162,7 +131,39 @@ class GameScene extends Phaser.Scene
 
 	create()
 	{
-		
+		if(SoyJugador1){
+	myjson={
+		"posx":100,
+		"posy":300,
+		"rot":0,
+		"tur":0,
+		"shot":0,
+	}
+	json={
+		"posx":1500,
+		"posy":300,
+		"rot":0,
+		"tur":0,
+		"shot":0
+	}
+	}else if  (!SoyJugador1)
+	{
+	console.log("hola");
+	json={
+		"posx":100,
+		"posy":300,
+		"rot":0,
+		"tur":0,
+		"shot":0,
+	}
+	myjson={
+		"posx":1500,
+		"posy":300,
+		"rot":0,
+		"tur":0,
+		"shot":0
+	}
+	}
 		//Añadir audios
 		this.disparo_P = this.sound.add('P_shot');
 		this.disparo_R = this.sound.add('R_shot');
@@ -283,7 +284,8 @@ class GameScene extends Phaser.Scene
 		// The player and its settings
 		this.player1 = this.physics.add.sprite(100, 300, 'tank1');
 		this.cannon1 =this.physics.add.sprite(100, 450, 'cannon1');
-		this.cannon1.setOrigin(0.5,0.75);
+		this.player1.setPosition(100,300);
+
 		
 		//  Player physics properties. Give the little guy a slight bounce.
 		this.player1.setCollideWorldBounds(true);
@@ -521,12 +523,7 @@ class GameScene extends Phaser.Scene
 			bullet.setVelocity(Math.sin(this.cannon2.rotation)*500,-Math.cos(this.cannon2.rotation)*500);
 			
 		}
-		
-		/*if(this.time==55 && this.salido ==true){
-		this.gato= this.physics.add.sprite((Math.floor(Math.random() * (1000 - 100 + 1)) + 100),(Math.floor(Math.random() * (400 - 100 + 1)) + 100), 'brick');
-		this.salido=false;
-		}*/
-		
+
 		this.cannon2.setPosition(this.player2.x,this.player2.y);
 		
 		this.time = parseInt(this.startTime + 60 -(new Date()).getTime() / 1000);

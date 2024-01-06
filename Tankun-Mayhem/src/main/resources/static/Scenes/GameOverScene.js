@@ -11,6 +11,7 @@ class GameOverScene extends Phaser.Scene {
 
 		//this.load.image('Salir', '../assets/Pantalla seleccion/Seleccionar.png');
 		this.load.image('FondoGO', '../assets/Pantalla seleccion/Fondo.png');
+		this.load.image('Meme', '../assets/Pantalla seleccion/GOkudrip2.png');
 		this.load.image('Volver', '../assets/Pantalla seleccion/volver.png');
 		this.load.image('JugV1', '../assets/Pantalla seleccion/JugV1.png');
 		this.load.image('JugV2', '../assets/Pantalla seleccion/JugV2.png');
@@ -22,39 +23,10 @@ class GameOverScene extends Phaser.Scene {
 	
 	create()
 	{
-if(SoyJugador1){
-    myjson={
-        "posx":100,
-        "posy":300,
-        "rot":0,
-        "tur":0,
-        "shot":0,
-    }
-    json={
-        "posx":1500,
-        "posy":300,
-        "rot":0,
-        "tur":0,
-        "shot":0
-    }
-    }else
-    {
-    json={
-        "posx":100,
-        "posy":300,
-        "rot":0,
-        "tur":0,
-        "shot":0,
-    }
-    myjson={
-        "posx":1500,
-        "posy":300,
-        "rot":0,
-        "tur":0,
-        "shot":0
-    }
-    }
+
 		const fondo = this.add.image(0, 0, "FondoGO").setOrigin(0, 0);
+		const Meme = this.add.image(200, 400, "Meme").setOrigin(0, 0);
+		Meme.setScale(0.3, 0.3);
 		
 		const Volver = this.add.image(800, 600, "Volver");
 		const gameoverJug1 = this.add.image(300, 350, "gameoverJug1");	
