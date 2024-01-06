@@ -88,6 +88,10 @@ connection.onerror = function(e) {
 connection.onmessage = function(msg) {
 	 json=JSON.parse(msg.data)
 }
+connection.onclose = function () {
+	console.log("el jugador se ha ido");
+	//connection.send(JSON.stringify(myjson));
+}
 class GameScene extends Phaser.Scene
 {
 	constructor()
