@@ -372,3 +372,26 @@ El ranking y el users tienen permanencia en el lado del servidor gracias a un tx
     6. Finnish //Teniendo el archivo/carpeta TankunMayhem[boot] seleccionado
     7. Play
     8. Run Tankun-Mayhem
+# Fase 4
+Se han creado un total de tres nuevas clases encargadas de definir tres websockets diferentes para su uso en la aplicación. En Tankun Mayhem se hace uso de la tecnología websockets para el intercambio de mensajes, ayudado por jquery, sustituyendo la previa implementación de API Rest, en el sistema de selección de usuarios para la partida, y en el sistema de intercambio de información asíncrono dentro de la partida.
+
+Las clases creadas para estos websockets son:
+
+•	WebsocketEchoHandler
+
+•	WebsocketChatHandler
+
+•	WebsocketSelectHandler
+
+Estas clases configuradas a través de la clase de la aplicación TankunMayhemApplication que hereda de WebSocketConfigurer.
+
+El chat a partir de websocket es realizado empleando una estructura previa de strings creada para el chat a partir de API Rest, en la cual se envía a través de un método connectionChat.send() la línea de dialogo que se quiere sacar por pantalla en el chat, y esta se recibe a partir de un método OnMessage() por todos los clientes encargado de sacarlo por pantalla.
+
+Para la seleccion de personajes utilizamos el SelectHandler en la cual primero creamos un mapa con la sesiones que entren en el select y les pasamos un json con los datos de la partida sin rellenar. Cuando un cliente se conecta el envía al servidor un mensaje de status "conecting" el cual el servidor recoge y si los datos de jugador1 están vacíos los mete ahí y si no lo están los mete en el jugador 2, a continuación, el jugador tendrá que seleccionar su tanque y darle a seleccionar donde actualizará los datos a status "ready" enviándoselo al servidor y entonces el servidor podrá guardar su tanque, cuando ambos jugadores están ready, enviará la información a ambos clientes con la información necesaria para comenzar la partida.
+
+Para la sección de juego tenemos el EchoHandler el cual se encargará de guardar las sesiones que se encuentran en partida tras la conexión como en el SelectHandler, aquí sin embargo cuando nos lleguen mensajes desde el cliente no se lo enviaremos desde el servidor a dos clientes a la vez, solo le enviaremos el json (con la información de la partida) a la otra persona y no a si mismo.
+
+Por la parte del cliente, el cliente se encarga de almacenar 2 jsons, myjson que contiene los datos de ese usuario en la partida y json que contiene los datos del otro cliente, de esta forma el cliente envía solo myjson al servidor y recibe json, actualizando as las posiciones del jugador que no es el cliente.
+
+## Diagrama de clases con Websocket y API Rest:
+![f1](https://github.com/MauroFdz/Tankun-Mayhem/blob/main/Tankun-Mayhem/ReadMeImages/FlujoDeClasesApiRestYWebsocket.png)
